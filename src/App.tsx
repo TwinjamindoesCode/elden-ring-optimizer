@@ -1,6 +1,11 @@
 import { useState } from 'react';
 import { classList, weaponList, armorList } from './data';
 import type { StartingClass, EntityRef } from './types/game-data';
+import {
+  findStandard, getWeaponAttack, scalingGrade,
+  ATTACK_POWER_LABELS, allDamageTypes, allAttributes,
+  type Attributes,
+} from './calculator';
 import './App.css';
 
 const ATTRIBUTES = [
@@ -18,6 +23,73 @@ function GearRow({ label, items }: { label: string; items: (EntityRef | null)[] 
         {present.length ? present.map((i) => i.name).join(', ') : <em>none</em>}
       </span>
     </div>
+  );
+}
+
+/** Our class stats use full names; the calculator uses the game's short names. */
+function toCalculatorAttributes(cls: StartingClass): Attributes {
+  return {
+    str: cls.stats.strength,
+    dex: cls.stats.dexterity,
+    int: cls.stats.intelligence,
+    fai: cls.stats.faith,
+    arc: cls.stats.arcane,
+  };
+}
+
+/**
+ * Exact attack power for a class's starting weapon, using the real game formula.
+ * Every number here matches what you would see in-game.
+ */
+function StartingWeaponAttack({ cls }: { cls: StartingClass }) {
+  const weaponRef = cls.startingEquipment.rightHand[0];
+  if (!weaponRef) return null;
+
+  const weapon = findStandard(weaponRef.name);
+  if (!weapon) return null;
+
+  const attributes = toCalculatorAttributes(cls);
+  const result = getWeaponAttack({ weapon, attributes, upgradeLevel: 0 });
+  const damage = allDamageTypes
+    .map((t) => [t, result.attackPower[t] ?? 0] as const)
+    .filter(([, v]) => v > 0);
+
+  const scalingAtZero = weapon.attributeScaling[0];
+  const grades = allAttributes
+    .map((a) => [a, scalingGrade(scalingAtZero[a] ?? 0, weapon.scalingTiers)] as const)
+    .filter(([, g]) => g);
+
+  return (
+    <>
+      <h3>
+        {weapon.weaponName} <span className="at-level">at +0, one-handed</span>
+      </h3>
+      <div className="ar-row">
+        <div className="ar-total">
+          <span className="ar-value">{Math.floor(result.total)}</span>
+          <span className="ar-label">ATTACK POWER</span>
+        </div>
+        <div className="ar-breakdown">
+          {damage.map(([type, value]) => (
+            <div className="ar-part" key={type}>
+              <span>{ATTACK_POWER_LABELS[type]}</span>
+              <span>{Math.floor(value)}</span>
+            </div>
+          ))}
+          {grades.length > 0 && (
+            <div className="ar-part scaling">
+              <span>Scaling</span>
+              <span>{grades.map(([a, g]) => `${a.toUpperCase()} ${g}`).join('  ')}</span>
+            </div>
+          )}
+        </div>
+      </div>
+      {result.ineffectiveAttributes.length > 0 && (
+        <p className="warn">
+          Requirements not met ({result.ineffectiveAttributes.join(', ').toUpperCase()}) — 40% penalty applied.
+        </p>
+      )}
+    </>
   );
 }
 
@@ -58,6 +130,8 @@ function ClassDetail({ cls }: { cls: StartingClass }) {
           </span>
         </div>
       )}
+
+      <StartingWeaponAttack cls={cls} />
     </div>
   );
 }

@@ -65,12 +65,11 @@ const requirementSet = (arr) => {
 };
 
 /**
- * The raw dump gives us letter grades but not the underlying numbers.
- * These are rough stand-ins so the app can rank things today; swap them for
- * real per-upgrade-level coefficients when you have that table.
+ * The raw dump only gives letter grades. That is fine — these are for display.
+ * The real numbers used for attack-power maths come from the regulation data
+ * and live in src/calculator/, so nothing here needs to be estimated.
  */
-const GRADE_COEFFICIENT = { S: 1.0, A: 0.8, B: 0.6, C: 0.45, D: 0.3, E: 0.15 };
-const VALID_GRADES = new Set(Object.keys(GRADE_COEFFICIENT));
+const VALID_GRADES = new Set(['S', 'A', 'B', 'C', 'D', 'E']);
 
 const scalingSet = (arr, itemName) => {
   const out = {};
@@ -83,7 +82,7 @@ const scalingSet = (arr, itemName) => {
       if (grade && grade !== '-') warn(`${itemName}: unreadable scaling grade "${entry.scaling}" for ${key}`);
       continue;
     }
-    out[key] = { grade, coefficient: GRADE_COEFFICIENT[grade] };
+    out[key] = { grade };
   }
   return out;
 };
@@ -423,6 +422,24 @@ mkdirSync(OUT, { recursive: true });
 for (const [name, table] of Object.entries(tables)) {
   writeFileSync(join(OUT, `${name}.json`), JSON.stringify(table, null, 2));
   console.log(`  ${name.padEnd(13)} ${String(Object.keys(table).length).padStart(4)} items`);
+}
+
+// The exact attack-power data (extracted from the game by the MIT-licensed
+// elden-ring-weapon-calculator project) is copied through untouched — the
+// calculator in src/calculator/ decodes it at runtime.
+const REGULATION = 'regulation-vanilla-v1.17.json';
+const regulation = JSON.parse(readFileSync(join(RAW, REGULATION), 'utf8'));
+writeFileSync(join(OUT, 'regulation.json'), JSON.stringify(regulation));
+console.log(`  ${'regulation'.padEnd(13)} ${String(regulation.weapons.length).padStart(4)} weapon variants (exact attack data)`);
+
+// Cross-check: how many of our weapons have exact data available?
+const normalize = (s) => s.toLowerCase().replace(/['’]/g, '').replace(/[^a-z0-9]+/g, '');
+const exactNames = new Set(regulation.weapons.map((w) => normalize(w.weaponName)));
+const noExactData = Object.values(tables.weapons)
+  .filter((w) => !exactNames.has(normalize(w.name)))
+  .map((w) => w.name);
+if (noExactData.length) {
+  warn(`${noExactData.length} weapon(s) have no exact attack data: ${noExactData.join(', ')}`);
 }
 
 console.log('');

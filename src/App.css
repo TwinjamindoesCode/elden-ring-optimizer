@@ -192,3 +192,90 @@ h1 {
   .stat-grid { grid-template-columns: repeat(3, 1fr); }
   .gear-row { grid-template-columns: 1fr; gap: 0.2rem; }
 }
+
+/* ---- attack power ---- */
+
+.at-level {
+  color: var(--text-dim);
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  font-weight: 400;
+}
+
+.ar-row {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1.25rem;
+  align-items: center;
+  background: var(--panel-hi);
+  border: 1px solid var(--border);
+  padding: 0.9rem 1.1rem;
+}
+
+.ar-total {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-right: 1.25rem;
+  border-right: 1px solid var(--border);
+}
+
+.ar-value {
+  font-size: 2rem;
+  line-height: 1;
+  color: var(--gold);
+}
+
+.ar-label {
+  margin-top: 0.35rem;
+  font-size: 0.55rem;
+  letter-spacing: 0.1em;
+  color: var(--text-dim);
+}
+
+.ar-breakdown {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  font-size: 0.8rem;
+}
+
+.ar-part {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  color: var(--text-dim);
+}
+
+.ar-part span:last-child { color: var(--text); }
+
+.ar-part.scaling {
+  margin-top: 0.3rem;
+  padding-top: 0.35rem;
+  border-top: 1px solid var(--border);
+}
+
+.ar-part.scaling span:last-child {
+  color: var(--gold-dim);
+  letter-spacing: 0.03em;
+}
+
+.warn {
+  margin: 0.6rem 0 0;
+  font-size: 0.8rem;
+  color: #c98a27;
+}
+
+@media (max-width: 700px) {
+  .ar-row { grid-template-columns: 1fr; gap: 0.75rem; }
+  .ar-total {
+    flex-direction: row;
+    align-items: baseline;
+    gap: 0.6rem;
+    padding-right: 0;
+    padding-bottom: 0.6rem;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+}

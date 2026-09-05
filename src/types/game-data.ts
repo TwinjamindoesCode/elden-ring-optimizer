@@ -46,10 +46,13 @@ export type PartialAttributeSet = Partial<Record<Attribute, number>>;
 export type StatusBuildup = Partial<Record<StatusEffect, number>>;
 export type ResistanceSet = Partial<Record<Resistance, number>>;
 
+/**
+ * Display-only scaling grade. The exact numbers behind attack-power maths come
+ * from the regulation data — see `src/calculator/`, which has the real
+ * per-upgrade-level coefficients straight from the game.
+ */
 export interface ScalingEntry {
   grade: ScalingGrade;
-  /** Raw coefficient at this upgrade level (e.g. 0.62). Drives real AR math. */
-  coefficient: number;
 }
 
 export type ScalingSet = Partial<Record<ScalingAttribute, ScalingEntry>>;
