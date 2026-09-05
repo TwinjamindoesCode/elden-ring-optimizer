@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import { classList, weaponList, armorList } from './data';
 import { exactWeapons } from './calculator';
 import type { StartingClass } from './types/game-data';
@@ -125,6 +126,7 @@ export default function App() {
       {tab === 'optimizer' && <OptimizerView />}
 
       <SiteFooter />
+      <Analytics />
     </div>
   );
 }
