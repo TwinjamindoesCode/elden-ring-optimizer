@@ -13,6 +13,7 @@ import { register } from 'node:module';
 const { decodeRegulationData, getWeaponAttack, scalingGrade } = await import(
   '../src/calculator/attack-power.ts'
 );
+const { optimizeStats } = await import('../src/calculator/optimize.ts');
 
 const data = JSON.parse(readFileSync('src/data/regulation.json', 'utf8'));
 const weapons = decodeRegulationData(data);
@@ -107,6 +108,68 @@ if (bleedWeapon) {
 } else {
   failures++;
   console.log('  FAIL  no weapon has bleed buildup — status data missing');
+}
+
+console.log('\nOptimizer: dynamic programming vs exhaustive brute force\n');
+
+const ATTRS = ['str', 'dex', 'int', 'fai', 'arc'];
+
+/** Tries literally every possible allocation. Slow, and obviously correct. */
+function bruteForce(weapon, upgradeLevel, twoHanding, floors, budget) {
+  let best = { total: -1, attributes: null };
+  const stats = { ...floors };
+  const recurse = (i, left) => {
+    if (i === 4) {
+      stats[ATTRS[4]] = floors[ATTRS[4]] + left;
+      if (stats[ATTRS[4]] > 99) return;
+      const r = getWeaponAttack({ weapon, attributes: { ...stats }, upgradeLevel, twoHanding });
+      if (r.total > best.total) best = { total: r.total, attributes: { ...stats } };
+      return;
+    }
+    for (let give = 0; give <= left; give++) {
+      if (floors[ATTRS[i]] + give > 99) break;
+      stats[ATTRS[i]] = floors[ATTRS[i]] + give;
+      recurse(i + 1, left - give);
+    }
+  };
+  recurse(0, budget);
+  return best;
+}
+
+const OPTIMIZER_CASES = [
+  { name: 'Longsword', budget: 18, twoHanding: false, level: 25 },
+  { name: 'Heavy Longsword', budget: 20, twoHanding: true, level: 25 },
+  { name: 'Sacred Longsword', budget: 16, twoHanding: false, level: 25 },
+  { name: 'Occult Uchigatana', budget: 18, twoHanding: false, level: 25 },
+  { name: 'Cold Uchigatana', budget: 14, twoHanding: false, level: 10 },
+  { name: 'Magic Longsword', budget: 22, twoHanding: false, level: 25 },
+];
+
+for (const c of OPTIMIZER_CASES) {
+  const weapon = weapons.find((w) => w.name === c.name);
+  if (!weapon) {
+    console.log(`  SKIP  ${c.name} not in this regulation version`);
+    continue;
+  }
+
+  const floors = { str: 12, dex: 12, int: 10, fai: 10, arc: 10 };
+  for (const a of ATTRS) floors[a] = Math.max(floors[a], weapon.requirements[a] ?? 0);
+
+  const dp = optimizeStats({
+    weapon, upgradeLevel: c.level, twoHanding: c.twoHanding, floors, budget: c.budget,
+  });
+  const bf = bruteForce(
+    weapon, Math.min(c.level, weapon.maxUpgradeLevel), c.twoHanding, floors, c.budget,
+  );
+
+  const ok = Math.abs(dp.total - bf.total) < 0.01 && dp.verified;
+  if (!ok) failures++;
+  const spread = ATTRS.map((a) => `${a.toUpperCase()}${String(dp.attributes[a]).padStart(3)}`).join(' ');
+  console.log(
+    `  ${ok ? 'PASS' : 'FAIL'}  ${c.name.padEnd(19)}${c.twoHanding ? ' 2H' : '   '} ` +
+    `${String(c.budget).padStart(2)}pts  optimum ${dp.total.toFixed(1).padStart(7)}  ->  ${spread}`,
+  );
+  if (!ok) console.log(`        brute force found ${bf.total.toFixed(1)} instead`);
 }
 
 console.log('');

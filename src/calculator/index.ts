@@ -43,3 +43,5 @@ export function findStandard(weaponName: string): DecodedWeapon | undefined {
 
 /** Base weapon names that have exact data, sorted. */
 export const exactWeaponNames = [...new Set(exactWeapons.map((w) => w.weaponName))].sort();
+
+export * from './optimize';

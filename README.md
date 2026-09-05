@@ -71,6 +71,37 @@ The data and formula come from
 (MIT licensed). See `LICENSE-THIRDPARTY.md` — keeping that notice is a licence
 requirement, not a courtesy.
 
+## The optimizer is provably optimal
+
+Given a target level, it finds the exact best stat spread for a weapon — not a
+good guess, the actual maximum.
+
+That is possible because attack power is *separable*: each attribute contributes
+independently, so the total is a sum of five one-variable functions. Problems of
+that shape are solved exactly by dynamic programming. No hill climbing, no local
+maxima.
+
+`npm run verify` checks the solver against brute force — literally every possible
+allocation — across six weapons covering Standard, Heavy, Sacred, Occult, Magic
+and Cold affinities, one-handed and two-handed. Every answer is also re-run
+through the attack calculator before it is displayed.
+
+To rank all 3,296 weapons without doing 33,000 full solves, it computes a cheap
+upper bound per weapon (using a synthetic class with the lowest floors of all
+ten, which no real class can beat), sorts by it, then evaluates from the top down
+and stops once the bound falls below the worst result already locked in. The
+output is identical to checking every pair; it just skips the ones that provably
+cannot win. That took the worst case from ~5.9 seconds to under 100ms.
+
+### What the optimizer deliberately does not claim
+
+- **Total attack power flatters split-damage weapons.** 500 physical + 400 fire
+  beats 800 pure physical on paper but usually loses in practice, because the
+  target reduces each damage type separately. The UI shows the split and says so.
+  Modelling enemy defences would be needed to rank them fairly.
+- It ignores talismans, Ashes of War, spell scaling, status buildup as a goal,
+  equip load, buffs, and how a weapon feels to use.
+
 ## Known gaps in the raw data
 
 `npm run convert` prints warnings every run. The ones that matter:
@@ -93,4 +124,4 @@ requirement, not a courtesy.
 - [x] Deployed to Vercel
 - [x] Exact attack power, verified against in-game values
 - [x] Browse and filter weapons / armor
-- [ ] The build optimizer itself
+- [x] The build optimizer (exact stat allocation)

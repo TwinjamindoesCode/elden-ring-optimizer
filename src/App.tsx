@@ -5,13 +5,14 @@ import type { StartingClass } from './types/game-data';
 import { ClassesView, toCalculatorAttributes } from './views/ClassesView';
 import { WeaponsView } from './views/WeaponsView';
 import { ArmorView } from './views/ArmorView';
+import { OptimizerView } from './views/OptimizerView';
 import { StatControls, type BuildSettings } from './components/StatControls';
 import './App.css';
 
-type Tab = 'classes' | 'weapons' | 'armor';
+type Tab = 'classes' | 'weapons' | 'armor' | 'optimizer';
 
 const TABS: [Tab, string][] = [
-  ['classes', 'Classes'], ['weapons', 'Weapons'], ['armor', 'Armor'],
+  ['classes', 'Classes'], ['weapons', 'Weapons'], ['armor', 'Armor'], ['optimizer', 'Optimizer'],
 ];
 
 const DEFAULT_SETTINGS: BuildSettings = {
@@ -58,6 +59,7 @@ export default function App() {
       {tab === 'classes' && <ClassesView onUseStats={useClassStats} />}
       {tab === 'weapons' && <WeaponsView settings={settings} />}
       {tab === 'armor' && <ArmorView />}
+      {tab === 'optimizer' && <OptimizerView />}
     </div>
   );
 }
