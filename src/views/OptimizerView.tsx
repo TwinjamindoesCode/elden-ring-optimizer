@@ -1,10 +1,12 @@
 import { useEffect, useMemo, useState } from 'react';
 import { classList, ashList, ashesFor } from '../data';
+import { decodeBuild, buildShareUrl, type ShareState } from '../share/build-link';
+import { exactWeapons as allExactWeapons } from '../calculator';
 import {
   exactWeapons, optimizeStats, buildAttributeCurves, computeBudget, getWeaponAttack,
   infusionRequirement, objectiveScalesWithStats, OBJECTIVE_LABELS,
   AFFINITY_NAMES, WEAPON_TYPE_LABELS, allAttributes, allDamageTypes,
-  ATTACK_POWER_LABELS, scalingGrade,
+  ATTACK_POWER_LABELS, scalingGrade, objectiveValue,
   type DecodedWeapon, type Attributes, type Objective,
 } from '../calculator';
 
@@ -189,22 +191,51 @@ function useDebounced<T>(value: T, delay = 250): T {
   return debounced;
 }
 
+/** Read once at module load so every useState below can seed from the link. */
+const initial = typeof window === 'undefined'
+  ? decodeBuild('')
+  : decodeBuild(window.location.search);
+
 export function OptimizerView() {
-  const [targetLevel, setTargetLevel] = useState(150);
-  const [vigor, setVigor] = useState(60);
-  const [mind, setMind] = useState(20);
-  const [endurance, setEndurance] = useState(25);
-  const [twoHanding, setTwoHanding] = useState(false);
-  const [upgradeLevel, setUpgradeLevel] = useState(25);
+  const [targetLevel, setTargetLevel] = useState(initial.targetLevel);
+  const [vigor, setVigor] = useState(initial.vigor);
+  const [mind, setMind] = useState(initial.mind);
+  const [endurance, setEndurance] = useState(initial.endurance);
+  const [twoHanding, setTwoHanding] = useState(initial.twoHanding);
+  const [upgradeLevel, setUpgradeLevel] = useState(initial.upgradeLevel);
   const [affinity, setAffinity] = useState<number | 'all'>('all');
-  const [weaponType, setWeaponType] = useState<number | 'all'>('all');
-  const [lockedClass, setLockedClass] = useState<string | 'best'>('best');
-  const [search, setSearch] = useState('');
-  const [objective, setObjective] = useState<Objective>('attack');
-  const [pureOnly, setPureOnly] = useState(false);
-  const [archetype, setArchetype] = useState<keyof Attributes | 'any'>('any');
-  const [infusionMode, setInfusionMode] = useState<'any' | 'none'>('any');
-  const [ashId, setAshId] = useState<number | 'any'>('any');
+  const [weaponType, setWeaponType] = useState<number | 'all'>(initial.weaponType);
+  const [lockedClass, setLockedClass] = useState<string | 'best'>(initial.classId ?? 'best');
+  const [search, setSearch] = useState(initial.search);
+  const [objective, setObjective] = useState<Objective>(initial.objective as Objective);
+  const [pureOnly, setPureOnly] = useState(initial.pureOnly);
+  const [archetype, setArchetype] = useState<keyof Attributes | 'any'>(initial.archetype as keyof Attributes | 'any');
+  const [infusionMode, setInfusionMode] = useState<'any' | 'none'>(initial.infusionMode as 'any' | 'none');
+  const [ashId, setAshId] = useState<number | 'any'>(initial.ashId);
+  const [copied, setCopied] = useState(false);
+
+  /**
+   * A build opened from a link is shown exactly as it was shared, rather than
+   * re-derived. If the data or solver later changes, an old link still renders
+   * the build it was made for. Cleared as soon as the visitor changes anything.
+   */
+  const [pinned, setPinned] = useState<Candidate | null>(() => {
+    if (!initial.hasBuild) return null;
+    const weapon = allExactWeapons.find(
+      (w) => w.weaponName === initial.weaponName && w.affinityId === initial.affinityId,
+    );
+    if (!weapon || !initial.attributes) return null;
+    const result = getWeaponAttack({
+      weapon, attributes: initial.attributes,
+      upgradeLevel: initial.upgradeLevel, twoHanding: initial.twoHanding,
+    });
+    const cls = classList.find((c) => c.id === initial.classId);
+    return {
+      weapon, attributes: initial.attributes, total: result.total,
+      objectiveTotal: objectiveValue(result.attackPower, initial.objective as Objective),
+      className: cls?.name ?? 'Shared build', classId: cls?.id ?? '', verified: true,
+    };
+  });
 
   const weaponTypes = useMemo(() => {
     const ids = [...new Set(exactWeapons.map((w) => w.weaponType))];
@@ -291,7 +322,38 @@ export function OptimizerView() {
     return results.sort((a, b) => b.objectiveTotal - a.objectiveTotal).slice(0, SHOWN);
   }, [rankedBounds, dTargetLevel, dVigor, dMind, dEndurance, twoHanding, upgradeLevel, affinity, weaponType, lockedClass, dSearch, objective, pureOnly, archetype, infusionMode, lockedAsh]);
 
-  const top = candidates[0];
+  // A shared link shows exactly what was shared until the visitor changes something.
+  const top = pinned ?? candidates[0];
+
+  // Any control change means we are no longer showing the shared build.
+  useEffect(() => {
+    if (!pinned) return;
+    setPinned(null);
+  }, [dTargetLevel, dVigor, dMind, dEndurance, twoHanding, upgradeLevel, objective,
+      archetype, infusionMode, pureOnly, affinity, weaponType, lockedClass, ashId, dSearch]);
+
+  const shareState: ShareState | null = top ? {
+    weaponName: top.weapon.weaponName,
+    affinityId: top.weapon.affinityId,
+    upgradeLevel, targetLevel, vigor, mind, endurance, twoHanding,
+    attributes: top.attributes,
+    classId: top.classId,
+    objective, archetype, infusionMode, pureOnly, weaponType, ashId, search,
+  } : null;
+
+  const copyShareLink = async () => {
+    if (!shareState) return;
+    const url = buildShareUrl(shareState, window.location.origin);
+    try {
+      await navigator.clipboard.writeText(url);
+    } catch {
+      // Clipboard can be blocked; put it in the URL bar so it is still copyable.
+      window.history.replaceState(null, '', url);
+    }
+    setCopied(true);
+    window.setTimeout(() => setCopied(false), 2000);
+  };
+
   const pointsUsed = vigor + mind + endurance;
   const totalPoints = targetLevel + 79;
   const anyUnverified = candidates.some((c) => !c.verified);
@@ -461,7 +523,8 @@ export function OptimizerView() {
       </div>
 
       {top && <BestBuild candidate={top} upgradeLevel={upgradeLevel} twoHanding={twoHanding}
-                         vigor={vigor} mind={mind} endurance={endurance} objective={objective} />}
+                         vigor={vigor} mind={mind} endurance={endurance} objective={objective}
+                         onShare={copyShareLink} copied={copied} />}
 
       {candidates.length === 0 && (
         <p className="empty">
@@ -547,7 +610,7 @@ export function OptimizerView() {
 }
 
 function BestBuild({
-  candidate, upgradeLevel, twoHanding, vigor, mind, endurance, objective,
+  candidate, upgradeLevel, twoHanding, vigor, mind, endurance, objective, onShare, copied,
 }: {
   candidate: Candidate;
   upgradeLevel: number;
@@ -556,6 +619,8 @@ function BestBuild({
   mind: number;
   endurance: number;
   objective: Objective;
+  onShare?: () => void;
+  copied?: boolean;
 }) {
   const { weapon, attributes, total, objectiveTotal, className } = candidate;
   const infusion = infusionRequirement(weapon.affinityId);
@@ -575,7 +640,14 @@ function BestBuild({
     <div className="best-build">
       <div className="best-head">
         <div>
-          <span className="best-eyebrow">Optimal build · {className}</span>
+          <span className="best-eyebrow">
+            Optimal build · {className}
+            {onShare && (
+              <button className="share-button" onClick={onShare} type="button">
+                {copied ? 'Link copied' : 'Copy share link'}
+              </button>
+            )}
+          </span>
           <h2>
             {weapon.url ? (
               <a href={weapon.url} target="_blank" rel="noreferrer noopener">{weapon.name}</a>
