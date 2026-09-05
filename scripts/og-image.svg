@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <!--
+    Social preview card for Softcap. Type and geometry only — no game artwork.
+    Rasterised to public/og.png by scripts/build-og-image.mjs.
+    Colours are the site tokens, so the preview matches the page it links to.
+  -->
+  <rect width="1200" height="630" fill="#14110c"/>
+
+  <!-- Panel inset, echoing the surfaces used throughout the app. -->
+  <rect x="64" y="64" width="1072" height="502" fill="#1e1a14" stroke="#2f2921" stroke-width="1"/>
+
+  <!-- Accent rule, matching the left rule on the method note. -->
+  <rect x="64" y="64" width="3" height="502" fill="#c9a227"/>
+
+  <g font-family="Segoe UI, system-ui, -apple-system, Helvetica Neue, Arial, sans-serif">
+    <text x="120" y="168" fill="#b0932c" font-size="22" font-weight="600" letter-spacing="4.4">
+      ELDEN RING BUILD OPTIMIZER
+    </text>
+
+    <text x="118" y="286" fill="#c9a227" font-size="104" font-weight="400" letter-spacing="1">
+      Softcap
+    </text>
+
+    <text x="120" y="356" fill="#e8e0d0" font-size="34" font-weight="400">
+      The provably optimal stat allocation
+    </text>
+    <text x="120" y="402" fill="#e8e0d0" font-size="34" font-weight="400">
+      for any weapon, at any level.
+    </text>
+
+    <!-- Figures, set the way the app sets them: value large, label small-caps. -->
+    <g>
+      <text x="120" y="500" fill="#e8e0d0" font-size="46" font-weight="500">307</text>
+      <text x="120" y="530" fill="#9a9080" font-size="18" font-weight="500" letter-spacing="2.6">WEAPONS</text>
+
+      <text x="330" y="500" fill="#e8e0d0" font-size="46" font-weight="500">3,296</text>
+      <text x="330" y="530" fill="#9a9080" font-size="18" font-weight="500" letter-spacing="2.6">VARIANTS</text>
+
+      <text x="580" y="500" fill="#e8e0d0" font-size="46" font-weight="500">EXACT</text>
+      <text x="580" y="530" fill="#9a9080" font-size="18" font-weight="500" letter-spacing="2.6">NUMBERS</text>
+    </g>
+
+    <text x="1072" y="530" fill="#8c7320" font-size="20" font-weight="500" text-anchor="end" letter-spacing="1.4">
+      softcapbuilds.com
+    </text>
+  </g>
+</svg>

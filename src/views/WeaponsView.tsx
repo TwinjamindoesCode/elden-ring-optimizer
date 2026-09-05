@@ -157,7 +157,8 @@ export function WeaponsView({ settings }: { settings: BuildSettings }) {
         {settings.twoHanding && ` · two-handing at ${adjusted.str} effective STR`}
       </p>
 
-      <div className="table-scroll">
+      {/* tabIndex makes the scroll area reachable by keyboard, not just by mouse. */}
+      <div className="table-scroll" tabIndex={0} role="region" aria-label="Weapon results">
         <table className="data-table">
           <thead>
             <tr>
@@ -182,13 +183,15 @@ export function WeaponsView({ settings }: { settings: BuildSettings }) {
                   )}
                   {row.weapon.dlc && <span className="tag">DLC</span>}
                 </td>
-                <td className="dim">{WEAPON_TYPE_LABELS[row.weapon.weaponType] ?? '—'}</td>
-                <td className="num strong">{Math.floor(row.attack)}</td>
-                <td className="dim small">
+                <td className="dim" data-label="Category">
+                  {WEAPON_TYPE_LABELS[row.weapon.weaponType] ?? '—'}
+                </td>
+                <td className="num strong" data-label="Attack">{Math.floor(row.attack)}</td>
+                <td className="dim small" data-label="Damage">
                   {row.breakdown.map(([, v]) => Math.floor(v)).join(' / ')}
                 </td>
-                <td className="dim small">{row.grades || '—'}</td>
-                <td className="num dim small">
+                <td className="dim small" data-label="Scaling">{row.grades || '—'}</td>
+                <td className="num dim small" data-label="Requires">
                   {Object.entries(row.weapon.requirements)
                     .map(([a, v]) => `${a.toUpperCase()} ${v}`)
                     .join(' ') || '—'}

@@ -349,7 +349,8 @@ export function OptimizerView() {
       {candidates.length > 1 && (
         <>
           <h3 className="section">Next best options</h3>
-          <div className="table-scroll">
+          {/* tabIndex makes the scroll area reachable by keyboard, not just by mouse. */}
+          <div className="table-scroll" tabIndex={0} role="region" aria-label="Alternative builds">
             <table className="data-table">
               <thead>
                 <tr>
@@ -369,10 +370,12 @@ export function OptimizerView() {
                       ) : c.weapon.name}
                       {c.weapon.dlc && <span className="tag">DLC</span>}
                     </td>
-                    <td className="dim">{c.className}</td>
-                    <td className="num strong">{Math.floor(c.total)}</td>
-                    <td className="num dim small">{splitLabel(c, upgradeLevel, twoHanding)}</td>
-                    <td className="num dim small">
+                    <td className="dim" data-label="Class">{c.className}</td>
+                    <td className="num strong" data-label="Attack">{Math.floor(c.total)}</td>
+                    <td className="num dim small" data-label="Split">
+                      {splitLabel(c, upgradeLevel, twoHanding)}
+                    </td>
+                    <td className="num dim small" data-label="Spread">
                       {ATTRIBUTE_LABELS.map(([k, l]) => `${l} ${c.attributes[k]}`).join('  ')}
                     </td>
                   </tr>

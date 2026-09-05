@@ -9,13 +9,15 @@
     "lint": "oxlint",
     "preview": "vite preview",
     "convert": "node scripts/convert.mjs",
-    "verify": "node scripts/verify-attack-power.mjs"
+    "verify": "node scripts/verify-attack-power.mjs",
+    "og": "node scripts/build-og-image.mjs"
   },
   "dependencies": {
     "react": "^19.2.8",
     "react-dom": "^19.2.8"
   },
   "devDependencies": {
+    "@resvg/resvg-js": "^2.6.2",
     "@types/node": "^24.13.3",
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.2.4",

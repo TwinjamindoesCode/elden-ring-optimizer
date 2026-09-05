@@ -100,7 +100,8 @@ export function ArmorView() {
 
       <p className="result-count">{rows.length.toLocaleString()} match{rows.length === 1 ? '' : 'es'}</p>
 
-      <div className="table-scroll">
+      {/* tabIndex makes the scroll area reachable by keyboard, not just by mouse. */}
+      <div className="table-scroll" tabIndex={0} role="region" aria-label="Armor results">
         <table className="data-table">
           <thead>
             <tr>
@@ -117,12 +118,14 @@ export function ArmorView() {
             {visible.map(({ armor, avg, efficiency }) => (
               <tr key={armor.id}>
                 <td>{armor.name}</td>
-                <td className="dim">{armor.slot}</td>
-                <td className="num">{armor.weight.toFixed(1)}</td>
-                <td className="num strong">{armor.poise}</td>
-                <td className="num dim">{efficiency.toFixed(2)}</td>
-                <td className="num dim">{armor.damageNegation.physical.toFixed(1)}</td>
-                <td className="num dim">{avg.toFixed(1)}</td>
+                <td className="dim" data-label="Slot">{armor.slot}</td>
+                <td className="num" data-label="Weight">{armor.weight.toFixed(1)}</td>
+                <td className="num strong" data-label="Poise">{armor.poise}</td>
+                <td className="num dim" data-label="Poise/wt">{efficiency.toFixed(2)}</td>
+                <td className="num dim" data-label="Physical">
+                  {armor.damageNegation.physical.toFixed(1)}
+                </td>
+                <td className="num dim" data-label="Avg negation">{avg.toFixed(1)}</td>
               </tr>
             ))}
           </tbody>
