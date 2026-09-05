@@ -1,0 +1,96 @@
+{
+  "_comment": "Hand-authored starting gear for the 10 base classes. The raw API dump is missing this entirely. Values are item id slugs; convert.mjs checks every one against the real item tables and warns about any that do not resolve.",
+  "vagabond": {
+    "rightHand": ["longsword"],
+    "leftHand": ["halberd"],
+    "shields": ["heater-shield"],
+    "armor": { "head": "vagabond-knight-helm", "chest": "vagabond-knight-armor", "hands": "vagabond-knight-gauntlets", "legs": "vagabond-knight-greaves" },
+    "sorceries": [],
+    "incantations": [],
+    "ammunition": []
+  },
+  "warrior": {
+    "rightHand": ["scimitar"],
+    "leftHand": ["scimitar"],
+    "shields": ["riveted-wooden-shield"],
+    "armor": { "head": "blue-cloth-cowl", "chest": "blue-cloth-vest", "hands": "warrior-gauntlets", "legs": "warrior-greaves" },
+    "sorceries": [],
+    "incantations": [],
+    "ammunition": []
+  },
+  "hero": {
+    "rightHand": ["battle-axe"],
+    "leftHand": [],
+    "shields": ["large-leather-shield"],
+    "armor": { "head": "champion-headband", "chest": "champion-pauldron", "hands": "champion-bracers", "legs": "champion-gaiters" },
+    "sorceries": [],
+    "incantations": [],
+    "ammunition": []
+  },
+  "bandit": {
+    "rightHand": ["great-knife"],
+    "leftHand": ["shortbow"],
+    "shields": ["buckler"],
+    "armor": { "head": "bandit-mask", "chest": "bandit-garb", "hands": "bandit-manchettes", "legs": "bandit-boots" },
+    "sorceries": [],
+    "incantations": [],
+    "ammunition": [{ "id": "arrow", "name": "Arrow", "quantity": 30 }]
+  },
+  "astrologer": {
+    "rightHand": ["short-sword"],
+    "leftHand": ["astrologers-staff"],
+    "shields": ["scripture-wooden-shield"],
+    "armor": { "head": "astrologer-hood", "chest": "astrologer-robe", "hands": "astrologer-gloves", "legs": "astrologer-trousers" },
+    "sorceries": ["glintstone-pebble", "glintstone-arc"],
+    "incantations": [],
+    "ammunition": []
+  },
+  "prophet": {
+    "rightHand": ["short-spear"],
+    "leftHand": ["finger-seal"],
+    "shields": ["rickety-shield"],
+    "armor": { "head": "prophet-blindfold", "chest": "prophet-robe", "hands": null, "legs": "prophet-trousers" },
+    "sorceries": [],
+    "incantations": ["catch-flame", "heal"],
+    "ammunition": []
+  },
+  "samurai": {
+    "rightHand": ["uchigatana"],
+    "leftHand": ["longbow"],
+    "shields": ["red-thorn-roundshield"],
+    "armor": { "head": "land-of-reeds-helm", "chest": "land-of-reeds-armor", "hands": "land-of-reeds-gauntlets", "legs": "land-of-reeds-greaves" },
+    "sorceries": [],
+    "incantations": [],
+    "ammunition": [
+      { "id": "arrow", "name": "Arrow", "quantity": 30 },
+      { "id": "firebone-arrow", "name": "Firebone Arrow", "quantity": 15 }
+    ]
+  },
+  "prisoner": {
+    "rightHand": ["estoc"],
+    "leftHand": ["glintstone-staff"],
+    "shields": ["rift-shield"],
+    "armor": { "head": "prisoner-iron-mask", "chest": "prisoner-clothing", "hands": null, "legs": "prisoner-trousers" },
+    "sorceries": ["magic-glintblade"],
+    "incantations": [],
+    "ammunition": []
+  },
+  "confessor": {
+    "rightHand": ["broadsword"],
+    "leftHand": ["finger-seal"],
+    "shields": ["blue-crest-heater-shield"],
+    "armor": { "head": "confessor-hood", "chest": "confessor-armor", "hands": "confessor-gloves", "legs": "confessor-boots" },
+    "sorceries": [],
+    "incantations": ["urgent-heal", "assassins-approach"],
+    "ammunition": []
+  },
+  "wretch": {
+    "rightHand": ["club"],
+    "leftHand": [],
+    "shields": [],
+    "armor": { "head": null, "chest": null, "hands": null, "legs": null },
+    "sorceries": [],
+    "incantations": [],
+    "ammunition": []
+  }
+}

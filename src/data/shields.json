@@ -1,0 +1,3586 @@
+{
+  "buckler": {
+    "id": "buckler",
+    "name": "Buckler",
+    "category": "shield",
+    "description": "A small metal roundshield. The bump in the center enables parrying techniques. A well-timed parry can break an enemy's stance, allowing a critical hit. Best suited for those prepared to take the risk to reap their reward.",
+    "imageUrl": "https://eldenring.fanapis.com/images/shields/17f69c62fe8l0i124u8fi4nc7dbfbf.png",
+    "sourceId": "17f69c62fe8l0i124u8fi4nc7dbfbf",
+    "weaponClass": "Small Shield",
+    "shieldClass": "Small Shield",
+    "weight": 1.5,
+    "requirements": {
+      "strength": 8,
+      "dexterity": 13,
+      "intelligence": 0,
+      "faith": 0,
+      "arcane": 0
+    },
+    "scaling": {
+      "strength": {
+        "grade": "E",
+        "coefficient": 0.15
+      },
+      "dexterity": {
+        "grade": "D",
+        "coefficient": 0.3
+      }
+    },
+    "attack": {
+      "physical": 68,
+      "magic": 0,
+      "fire": 0,
+      "lightning": 0,
+      "holy": 0
+    },
+    "criticalMultiplier": 100,
+    "statusBuildup": {},
+    "guard": {
+      "negation": {
+        "physical": 58,
+        "magic": 28,
+        "fire": 28,
+        "lightning": 14,
+        "holy": 28
+      },
+      "stability": 30,
+      "canParry": true,
+      "blocksAllPhysical": false
+    },
+    "upgrade": {
+      "path": "standard",
+      "level": 0,
+      "maxLevel": 25
+    },
+    "affinity": "standard",
+    "skill": null,
+    "twoHandable": true
+  },
+  "perfumers-shield": {
+    "id": "perfumers-shield",
+    "name": "Perfumer's Shield",
+    "category": "shield",
+    "description": "Golden shield used by the perfumers of Leyndell during military service. Made to be thin and light of weight, even those lacking strength can employ this immunity-boosting shield.",
+    "imageUrl": "https://eldenring.fanapis.com/images/shields/17f694b8615l0i124uyj41jnmpvitp.png",
+    "sourceId": "17f694b8615l0i124uyj41jnmpvitp",
+    "weaponClass": "Small Shield",
+    "shieldClass": "Small Shield",
+    "weight": 1.5,
+    "requirements": {
+      "strength": 8,
+      "dexterity": 0,
+      "intelligence": 0,
+      "faith": 0,
+      "arcane": 0
+    },
+    "scaling": {},
+    "attack": {
+      "physical": 67,
+      "magic": 0,
+      "fire": 0,
+      "lightning": 0,
+      "holy": 0
+    },
+    "criticalMultiplier": 100,
+    "statusBuildup": {},
+    "guard": {
+      "negation": {
+        "physical": 61,
+        "magic": 33,
+        "fire": 33,
+        "lightning": 14,
+        "holy": 33
+      },
+      "stability": 30,
+      "canParry": true,
+      "blocksAllPhysical": false
+    },
+    "upgrade": {
+      "path": "standard",
+      "level": 0,
+      "maxLevel": 25
+    },
+    "affinity": "standard",
+    "skill": null,
+    "twoHandable": true
+  },
+  "man-serpents-shield": {
+    "id": "man-serpents-shield",
+    "name": "Man-serpent's Shield",
+    "category": "shield",
+    "description": "Small copper dome-shaped roundshield carried by the man-serpents of Mt. Gelmir. Said to have been tempered in lava, it boasts great resistance to fire.",
+    "imageUrl": "https://eldenring.fanapis.com/images/shields/17f69b5141al0i124v8pxr1ks1ekij.png",
+    "sourceId": "17f69b5141al0i124v8pxr1ks1ekij",
+    "weaponClass": "Small Shield",
+    "shieldClass": "Small Shield",
+    "weight": 2,
+    "requirements": {
+      "strength": 8,
+      "dexterity": 0,
+      "intelligence": 0,
+      "faith": 0,
+      "arcane": 0
+    },
+    "scaling": {
+      "strength": {
+        "grade": "E",
+        "coefficient": 0.15
+      }
+    },
+    "attack": {
+      "physical": 70,
+      "magic": 0,
+      "fire": 0,
+      "lightning": 0,
+      "holy": 0
+    },
+    "criticalMultiplier": 100,
+    "statusBuildup": {},
+    "guard": {
+      "negation": {
+        "physical": 65,
+        "magic": 30,
+        "fire": 45,
+        "lightning": 15,
+        "holy": 30
+      },
+      "stability": 32,
+      "canParry": true,
+      "blocksAllPhysical": false
+    },
+    "upgrade": {
+      "path": "standard",
+      "level": 0,
+      "maxLevel": 25
+    },
+    "affinity": "standard",
+    "skill": null,
+    "twoHandable": true
+  },
+  "pillory-shield": {
+    "id": "pillory-shield",
+    "name": "Pillory Shield",
+    "category": "shield",
+    "description": "Pillory made to punish serious felons, used as a shield. Though made of good, sturdy wood, it is only a makeshift tool and performs as such. Perhaps due to its use as a device with which the guilty were made to endure prolonged suffering, it raises vitality.",
+    "imageUrl": "https://eldenring.fanapis.com/images/shields/17f69a7085fl0i124y1772hsc2fore.png",
+    "sourceId": "17f69a7085fl0i124y1772hsc2fore",
+    "weaponClass": "Small Shield",
+    "shieldClass": "Small Shield",
+    "weight": 3.5,
+    "requirements": {
+      "strength": 10,
+      "dexterity": 0,
+      "intelligence": 0,
+      "faith": 0,
+      "arcane": 0
+    },
+    "scaling": {
+      "strength": {
+        "grade": "E",
+        "coefficient": 0.15
+      }
+    },
+    "attack": {
+      "physical": 71,
+      "magic": 0,
+      "fire": 0,
+      "lightning": 0,
+      "holy": 0
+    },
+    "criticalMultiplier": 100,
+    "statusBuildup": {},
+    "guard": {
+      "negation": {
+        "physical": 60,
+        "magic": 42,
+        "fire": 21,
+        "lightning": 36,
+        "holy": 42
+      },
+      "stability": 33,
+      "canParry": true,
+      "blocksAllPhysical": false
+    },
+    "upgrade": {
+      "path": "standard",
+      "level": 0,
+      "maxLevel": 25
+    },
+    "affinity": "standard",
+    "skill": null,
+    "twoHandable": true
+  },
+  "rickety-shield": {
+    "id": "rickety-shield",
+    "name": "Rickety Shield",
+    "category": "shield",
+    "description": "A creaky old wooden shield, circular in shape. Roughly reinforced with vines or some such. There are countless other shields available of better make. This piece of scrap isn't worth the effort of equipping.",
+    "imageUrl": "https://eldenring.fanapis.com/images/shields/17f6976985el0i124znputjytfizsr.png",
+    "sourceId": "17f6976985el0i124znputjytfizsr",
+    "weaponClass": "Small Shield",
+    "shieldClass": "Small Shield",
+    "weight": 1,
+    "requirements": {
+      "strength": 8,
+      "dexterity": 0,
+      "intelligence": 0,
+      "faith": 0,
+      "arcane": 0
+    },
+    "scaling": {
+      "strength": {
+        "grade": "E",
+        "coefficient": 0.15
+      }
+    },
+    "attack": {
+      "physical": 70,
+      "magic": 0,
+      "fire": 0,
+      "lightning": 0,
+      "holy": 0
+    },
+    "criticalMultiplier": 100,
+    "statusBuildup": {},
+    "guard": {
+      "negation": {
+        "physical": 50,
+        "magic": 25,
+        "fire": 20,
+        "lightning": 30,
+        "holy": 30
+      },
+      "stability": 25,
+      "canParry": true,
+      "blocksAllPhysical": false
+    },
+    "upgrade": {
+      "path": "standard",
+      "level": 0,
+      "maxLevel": 25
+    },
+    "affinity": "standard",
+    "skill": null,
+    "twoHandable": true
+  },
+  "beastmans-jar-shield": {
+    "id": "beastmans-jar-shield",
+    "name": "Beastman's Jar-shield",
+    "category": "shield",
+    "description": "Shield fashioned from a tall broken jar carried by the beastmen of Farum Azula. There is a particular knack to wielding it. The beastmen have always fired earthenware jars for the express purpose of making shields. Such are their ways, strange though they are.",
+    "imageUrl": "https://eldenring.fanapis.com/images/shields/17f693d58ael0i125pgfsn2zo4078i.png",
+    "sourceId": "17f693d58ael0i125pgfsn2zo4078i",
+    "weaponClass": "Small Shield",
+    "shieldClass": "Small Shield",
+    "weight": 5,
+    "requirements": {
+      "strength": 10,
+      "dexterity": 0,
+      "intelligence": 0,
+      "faith": 0,
+      "arcane": 0
+    },
+    "scaling": {},
+    "attack": {
+      "physical": 71,
+      "magic": 0,
+      "fire": 0,
+      "lightning": 0,
+      "holy": 0
+    },
+    "criticalMultiplier": 100,
+    "statusBuildup": {},
+    "guard": {
+      "negation": {
+        "physical": 95,
+        "magic": 30,
+        "fire": 55,
+        "lightning": 60,
+        "holy": 55
+      },
+      "stability": 48,
+      "canParry": true,
+      "blocksAllPhysical": false
+    },
+    "upgrade": {
+      "path": "standard",
+      "level": 0,
+      "maxLevel": 25
+    },
+    "affinity": "standard",
+    "skill": null,
+    "twoHandable": true
+  },
+  "red-thorn-roundshield": {
+    "id": "red-thorn-roundshield",
+    "name": "Red Thorn Roundshield",
+    "category": "shield",
+    "description": "A small, wooden roundshield. It is light and easy to use, but cannot offer the damage negation of a metal shield. Its emblem is an ancient red thorn design. Though it isn't much, it boosts fire damage negation.",
+    "imageUrl": "https://eldenring.fanapis.com/images/shields/17f69c6b08dl0i125phehezloe6mgp.png",
+    "sourceId": "17f69c6b08dl0i125phehezloe6mgp",
+    "weaponClass": "Small Shield",
+    "shieldClass": "Small Shield",
+    "weight": 1.5,
+    "requirements": {
+      "strength": 8,
+      "dexterity": 0,
+      "intelligence": 0,
+      "faith": 0,
+      "arcane": 0
+    },
+    "scaling": {
+      "strength": {
+        "grade": "E",
+        "coefficient": 0.15
+      }
+    },
+    "attack": {
+      "physical": 70,
+      "magic": 0,
+      "fire": 0,
+      "lightning": 0,
+      "holy": 0
+    },
+    "criticalMultiplier": 100,
+    "statusBuildup": {},
+    "guard": {
+      "negation": {
+        "physical": 58,
+        "magic": 30,
+        "fire": 40,
+        "lightning": 35,
+        "holy": 35
+      },
+      "stability": 32,
+      "canParry": true,
+      "blocksAllPhysical": false
+    },
+    "upgrade": {
+      "path": "standard",
+      "level": 0,
+      "maxLevel": 25
+    },
+    "affinity": "standard",
+    "skill": null,
+    "twoHandable": true
+  },
+  "riveted-wooden-shield": {
+    "id": "riveted-wooden-shield",
+    "name": "Riveted Wooden Shield",
+    "category": "shield",
+    "description": "Small wooden roundshield that has been reinforced with metal. It is light and easy to handle, but cannot offer the damage negation of a true metal shield. The design riveted to the center represents both sword and tree.",
+    "imageUrl": "https://eldenring.fanapis.com/images/shields/17f6976f39fl0i125rvey7g31uyix.png",
+    "sourceId": "17f6976f39fl0i125rvey7g31uyix",
+    "weaponClass": "Small Shield",
+    "shieldClass": "Small Shield",
+    "weight": 2,
+    "requirements": {
+      "strength": 8,
+      "dexterity": 0,
+      "intelligence": 0,
+      "faith": 0,
+      "arcane": 0
+    },
+    "scaling": {
+      "strength": {
+        "grade": "E",
+        "coefficient": 0.15
+      }
+    },
+    "attack": {
+      "physical": 72,
+      "magic": 0,
+      "fire": 0,
+      "lightning": 0,
+      "holy": 0
+    },
+    "criticalMultiplier": 100,
+    "statusBuildup": {},
+    "guard": {
+      "negation": {
+        "physical": 64,
+        "magic": 38,
+        "fire": 29,
+        "lightning": 22,
+        "holy": 42
+      },
+      "stability": 35,
+      "canParry": true,
+      "blocksAllPhysical": false
+    },
+    "upgrade": {
+      "path": "standard",
+      "level": 0,
+      "maxLevel": 25
+    },
+    "affinity": "standard",
+    "skill": null,
+    "twoHandable": true
+  },
+  "scripture-wooden-shield": {
+    "id": "scripture-wooden-shield",
+    "name": "Scripture Wooden Shield",
+    "category": "shield",
+    "description": "A small, wooden roundshield. It is light and easy to handle, but cannot offer the damage negation of a metal shield. An ancient cipher engraving linesd the circumference. Though it isn't much, it boosts holy damage negation.",
+    "imageUrl": "https://eldenring.fanapis.com/images/shields/17f69cbb4afl0i125s3vg05tmg3h9.png",
+    "sourceId": "17f69cbb4afl0i125s3vg05tmg3h9",
+    "weaponClass": "Small Shield",
+    "shieldClass": "Small Shield",
+    "weight": 1.5,
+    "requirements": {
+      "strength": 8,
+      "dexterity": 0,
+      "intelligence": 0,
+      "faith": 0,
+      "arcane": 0
+    },
+    "scaling": {
+      "strength": {
+        "grade": "E",
+        "coefficient": 0.15
+      }
+    },
+    "attack": {
+      "physical": 70,
+      "magic": 0,
+      "fire": 0,
+      "lightning": 0,
+      "holy": 0
+    },
+    "criticalMultiplier": 100,
+    "statusBuildup": {},
+    "guard": {
+      "negation": {
+        "physical": 58,
+        "magic": 38,
+        "fire": 20,
+        "lightning": 35,
+        "holy": 43
+      },
+      "stability": 32,
+      "canParry": true,
+      "blocksAllPhysical": false
+    },
+    "upgrade": {
+      "path": "standard",
+      "level": 0,
+      "maxLevel": 25
+    },
+    "affinity": "standard",
+    "skill": null,
+    "twoHandable": true
+  },
+  "blue-white-wooden-shield": {
+    "id": "blue-white-wooden-shield",
+    "name": "Blue-white Wooden Shield",
+    "category": "shield",
+    "description": "Small wooden roundshield that has been reinforced with metal. It is light and easy to handle, but cannot offer the damage negation of a true metal shield. The design is said to represent the stars of the night sky, portending fate.",
+    "imageUrl": "https://eldenring.fanapis.com/images/shields/17f69652424l0i125urgh9o09mhavm.png",
+    "sourceId": "17f69652424l0i125urgh9o09mhavm",
+    "weaponClass": "Small Shield",
+    "shieldClass": "Small Shield",
+    "weight": 2,
+    "requirements": {
+      "strength": 8,
+      "dexterity": 0,
+      "intelligence": 0,
+      "faith": 0,
+      "arcane": 0
+    },
+    "scaling": {
+      "strength": {
+        "grade": "E",
+        "coefficient": 0.15
+      }
+    },
+    "attack": {
+      "physical": 72,
+      "magic": 0,
+      "fire": 0,
+      "lightning": 0,
+      "holy": 0
+    },
+    "criticalMultiplier": 100,
+    "statusBuildup": {},
+    "guard": {
+      "negation": {
+        "physical": 63,
+        "magic": 42,
+        "fire": 33,
+        "lightning": 19,
+        "holy": 38
+      },
+      "stability": 35,
+      "canParry": true,
+      "blocksAllPhysical": false
+    },
+    "upgrade": {
+      "path": "standard",
+      "level": 0,
+      "maxLevel": 25
+    },
+    "affinity": "standard",
+    "skill": null,
+    "twoHandable": true
+  },
+  "rift-shield": {
+    "id": "rift-shield",
+    "name": "Rift Shield",
+    "category": "shield",
+    "description": "Small metal roundshiled depicting a sinister rift. An antiquated charm that glares back at an enemy, it boosts focus.",
+    "imageUrl": "https://eldenring.fanapis.com/images/shields/17f69c01371l0i126fsrmmhmt78m7.png",
+    "sourceId": "17f69c01371l0i126fsrmmhmt78m7",
+    "weaponClass": "Small Shield",
+    "shieldClass": "Small Shield",
+    "weight": 2,
+    "requirements": {
+      "strength": 8,
+      "dexterity": 0,
+      "intelligence": 0,
+      "faith": 0,
+      "arcane": 0
+    },
+    "scaling": {
+      "strength": {
+        "grade": "E",
+        "coefficient": 0.15
+      }
+    },
+    "attack": {
+      "physical": 70,
+      "magic": 0,
+      "fire": 0,
+      "lightning": 0,
+      "holy": 0
+    },
+    "criticalMultiplier": 100,
+    "statusBuildup": {},
+    "guard": {
+      "negation": {
+        "physical": 66,
+        "magic": 30,
+        "fire": 35,
+        "lightning": 15,
+        "holy": 35
+      },
+      "stability": 37,
+      "canParry": true,
+      "blocksAllPhysical": false
+    },
+    "upgrade": {
+      "path": "standard",
+      "level": 0,
+      "maxLevel": 25
+    },
+    "affinity": "standard",
+    "skill": null,
+    "twoHandable": true
+  },
+  "iron-roundshield": {
+    "id": "iron-roundshield",
+    "name": "Iron Roundshield",
+    "category": "shield",
+    "description": "An ordinary small roundshield made of metal. Heavier than a wooden shield, but boasts higher damage negation. Finely balanced, this shield is easy to use.",
+    "imageUrl": "https://eldenring.fanapis.com/images/shields/17f69b10c2el0i126k1rlvenfih79r.png",
+    "sourceId": "17f69b10c2el0i126k1rlvenfih79r",
+    "weaponClass": "Small Shield",
+    "shieldClass": "Small Shield",
+    "weight": 3,
+    "requirements": {
+      "strength": 8,
+      "dexterity": 0,
+      "intelligence": 0,
+      "faith": 0,
+      "arcane": 0
+    },
+    "scaling": {
+      "strength": {
+        "grade": "E",
+        "coefficient": 0.15
+      }
+    },
+    "attack": {
+      "physical": 74,
+      "magic": 0,
+      "fire": 0,
+      "lightning": 0,
+      "holy": 0
+    },
+    "criticalMultiplier": 100,
+    "statusBuildup": {},
+    "guard": {
+      "negation": {
+        "physical": 71,
+        "magic": 38,
+        "fire": 38,
+        "lightning": 16,
+        "holy": 38
+      },
+      "stability": 40,
+      "canParry": true,
+      "blocksAllPhysical": false
+    },
+    "upgrade": {
+      "path": "standard",
+      "level": 0,
+      "maxLevel": 25
+    },
+    "affinity": "standard",
+    "skill": null,
+    "twoHandable": true
+  },
+  "smoldering-shield": {
+    "id": "smoldering-shield",
+    "name": "Smoldering Shield",
+    "category": "shield",
+    "description": "Small shield made upon Mt. Gelmir forged from uncooling lava. Resists frost with its heat, and can even be used to deal fire damage if wielded as a weapon.",
+    "imageUrl": "https://eldenring.fanapis.com/images/shields/17f69bd6428l0i126mo49q97n1both.png",
+    "sourceId": "17f69bd6428l0i126mo49q97n1both",
+    "weaponClass": "Small Shield",
+    "shieldClass": "Small Shield",
+    "weight": 3,
+    "requirements": {
+      "strength": 10,
+      "dexterity": 9,
+      "intelligence": 0,
+      "faith": 0,
+      "arcane": 0
+    },
+    "scaling": {},
+    "attack": {
+      "physical": 58,
+      "magic": 0,
+      "fire": 37,
+      "lightning": 0,
+      "holy": 0
+    },
+    "criticalMultiplier": 100,
+    "statusBuildup": {},
+    "guard": {
+      "negation": {
+        "physical": 69,
+        "magic": 36,
+        "fire": 49,
+        "lightning": 13,
+        "holy": 36
+      },
+      "stability": 40,
+      "canParry": true,
+      "blocksAllPhysical": false
+    },
+    "upgrade": {
+      "path": "standard",
+      "level": 0,
+      "maxLevel": 25
+    },
+    "affinity": "standard",
+    "skill": null,
+    "twoHandable": true
+  },
+  "gilded-iron-shield": {
+    "id": "gilded-iron-shield",
+    "name": "Gilded Iron Shield",
+    "category": "shield",
+    "description": "Small metal roundshield. Heavier than a wooden shield, but boasts higher damage negation. Though the gold leaf is peeling and the effect is slight, it still boosts holy damage negation.",
+    "imageUrl": "https://eldenring.fanapis.com/images/shields/17f698a4b7bl0i126nb4s0xsp2lnfw.png",
+    "sourceId": "17f698a4b7bl0i126nb4s0xsp2lnfw",
+    "weaponClass": "Small Shield",
+    "shieldClass": "Small Shield",
+    "weight": 3,
+    "requirements": {
+      "strength": 8,
+      "dexterity": 0,
+      "intelligence": 0,
+      "faith": 0,
+      "arcane": 0
+    },
+    "scaling": {
+      "strength": {
+        "grade": "E",
+        "coefficient": 0.15
+      }
+    },
+    "attack": {
+      "physical": 74,
+      "magic": 0,
+      "fire": 0,
+      "lightning": 0,
+      "holy": 0
+    },
+    "criticalMultiplier": 100,
+    "statusBuildup": {},
+    "guard": {
+      "negation": {
+        "physical": 69,
+        "magic": 38,
+        "fire": 35,
+        "lightning": 14,
+        "holy": 49
+      },
+      "stability": 40,
+      "canParry": true,
+      "blocksAllPhysical": false
+    },
+    "upgrade": {
+      "path": "standard",
+      "level": 0,
+      "maxLevel": 25
+    },
+    "affinity": "standard",
+    "skill": null,
+    "twoHandable": true
+  },
+  "ice-crest-shield": {
+    "id": "ice-crest-shield",
+    "name": "Ice Crest Shield",
+    "category": "shield",
+    "description": "Small metal roundshield. Heavier than a wooden shield, but boasts higher damage negation. The ice crest originates from a Carian princess. Thogh the effect is slight, it boosts magic damage negation and resistance to frost.",
+    "imageUrl": "https://eldenring.fanapis.com/images/shields/17f69b12e1bl0i126nysn2v09nsd3.png",
+    "sourceId": "17f69b12e1bl0i126nysn2v09nsd3",
+    "weaponClass": "Small Shield",
+    "shieldClass": "Small Shield",
+    "weight": 3,
+    "requirements": {
+      "strength": 9,
+      "dexterity": 0,
+      "intelligence": 0,
+      "faith": 0,
+      "arcane": 0
+    },
+    "scaling": {
+      "strength": {
+        "grade": "E",
+        "coefficient": 0.15
+      }
+    },
+    "attack": {
+      "physical": 74,
+      "magic": 0,
+      "fire": 0,
+      "lightning": 0,
+      "holy": 0
+    },
+    "criticalMultiplier": 100,
+    "statusBuildup": {},
+    "guard": {
+      "negation": {
+        "physical": 68,
+        "magic": 49,
+        "fire": 39,
+        "lightning": 16,
+        "holy": 33
+      },
+      "stability": 40,
+      "canParry": true,
+      "blocksAllPhysical": false
+    },
+    "upgrade": {
+      "path": "standard",
+      "level": 0,
+      "maxLevel": 25
+    },
+    "affinity": "standard",
+    "skill": null,
+    "twoHandable": true
+  },
+  "spiralhorn-shield": {
+    "id": "spiralhorn-shield",
+    "name": "Spiralhorn Shield",
+    "category": "shield",
+    "description": "Small shield of antlers arranged in an eddy-like pattern. If used to attack a foe, the shield's antlers inflict blood loss. Once given to a Tarnished warrior who cultivated close ties to the ancestral followers. Though the effect is only slight, it boosts immunity, robustness, and focus.",
+    "imageUrl": "https://eldenring.fanapis.com/images/shields/17f6942deffl0i1271bdbp91snfovh.png",
+    "sourceId": "17f6942deffl0i1271bdbp91snfovh",
+    "weaponClass": "Small Shield",
+    "shieldClass": "Small Shield",
+    "weight": 2,
+    "requirements": {
+      "strength": 8,
+      "dexterity": 10,
+      "intelligence": 0,
+      "faith": 0,
+      "arcane": 0
+    },
+    "scaling": {},
+    "attack": {
+      "physical": 75,
+      "magic": 0,
+      "fire": 0,
+      "lightning": 0,
+      "holy": 0
+    },
+    "criticalMultiplier": 100,
+    "statusBuildup": {},
+    "guard": {
+      "negation": {
+        "physical": 59,
+        "magic": 33,
+        "fire": 37,
+        "lightning": 38,
+        "holy": 30
+      },
+      "stability": 29,
+      "canParry": true,
+      "blocksAllPhysical": false
+    },
+    "upgrade": {
+      "path": "standard",
+      "level": 0,
+      "maxLevel": 25
+    },
+    "affinity": "standard",
+    "skill": null,
+    "twoHandable": true
+  },
+  "marred-leather-shield": {
+    "id": "marred-leather-shield",
+    "name": "Marred Leather Shield",
+    "category": "shield",
+    "description": "Leather shield of Stormveil soldiers. Miuch like the castle, it is marred by mottling and thorns. Some say it is the curse of grafting which causes such affliction, while others talk of its root being something altogether more sinister hidden deep within the castle.",
+    "imageUrl": "https://eldenring.fanapis.com/images/shields/17f6985902bl0i127b1nqhoj9b4nhl.png",
+    "sourceId": "17f6985902bl0i127b1nqhoj9b4nhl",
+    "weaponClass": "Medium Shield",
+    "shieldClass": "Medium Shield",
+    "weight": 3,
+    "requirements": {
+      "strength": 8,
+      "dexterity": 0,
+      "intelligence": 0,
+      "faith": 0,
+      "arcane": 0
+    },
+    "scaling": {
+      "strength": {
+        "grade": "D",
+        "coefficient": 0.3
+      }
+    },
+    "attack": {
+      "physical": 75,
+      "magic": 0,
+      "fire": 0,
+      "lightning": 0,
+      "holy": 0
+    },
+    "criticalMultiplier": 100,
+    "statusBuildup": {},
+    "guard": {
+      "negation": {
+        "physical": 76,
+        "magic": 49,
+        "fire": 36,
+        "lightning": 45,
+        "holy": 45
+      },
+      "stability": 40,
+      "canParry": true,
+      "blocksAllPhysical": false
+    },
+    "upgrade": {
+      "path": "standard",
+      "level": 0,
+      "maxLevel": 25
+    },
+    "affinity": "standard",
+    "skill": null,
+    "twoHandable": true
+  },
+  "marred-wooden-shield": {
+    "id": "marred-wooden-shield",
+    "name": "Marred Wooden Shield",
+    "category": "shield",
+    "description": "\"Wooden shield of the Stormveil soldiers. Much like the castle, it is marred by mottling and thorns. Some say it is the curse of grafting which causes such affliction, while others talk of its root being something altogether more sinister hidden deep within the castle.\"",
+    "imageUrl": "https://eldenring.fanapis.com/images/shields/17f696cb3bal0i127cn7tiavj7t1u.png",
+    "sourceId": "17f696cb3bal0i127cn7tiavj7t1u",
+    "weaponClass": "Medium Shield",
+    "shieldClass": "Medium Shield",
+    "weight": 4,
+    "requirements": {
+      "strength": 8,
+      "dexterity": 0,
+      "intelligence": 0,
+      "faith": 0,
+      "arcane": 0
+    },
+    "scaling": {
+      "strength": {
+        "grade": "D",
+        "coefficient": 0.3
+      }
+    },
+    "attack": {
+      "physical": 76,
+      "magic": 0,
+      "fire": 0,
+      "lightning": 0,
+      "holy": 0
+    },
+    "criticalMultiplier": 100,
+    "statusBuildup": {},
+    "guard": {
+      "negation": {
+        "physical": 78,
+        "magic": 52,
+        "fire": 27,
+        "lightning": 50,
+        "holy": 49
+      },
+      "stability": 41,
+      "canParry": true,
+      "blocksAllPhysical": false
+    },
+    "upgrade": {
+      "path": "standard",
+      "level": 0,
+      "maxLevel": 25
+    },
+    "affinity": "standard",
+    "skill": null,
+    "twoHandable": true
+  },
+  "coil-shield": {
+    "id": "coil-shield",
+    "name": "Coil Shield",
+    "category": "shield",
+    "description": "An extremely odd shield adorned with a coiled bronze snake. An excellent choice for attention-seekers. This Shield provides an effective defense against poison - after all, how does one poison a poisonous snake?",
+    "imageUrl": "https://eldenring.fanapis.com/images/shields/17f694927d7l0i127ng35ra4v5k4gn.png",
+    "sourceId": "17f694927d7l0i127ng35ra4v5k4gn",
+    "weaponClass": "Small Shield",
+    "shieldClass": "Small Shield",
+    "weight": 1.5,
+    "requirements": {
+      "strength": 10,
+      "dexterity": 10,
+      "intelligence": 0,
+      "faith": 0,
+      "arcane": 0
+    },
+    "scaling": {
+      "strength": {
+        "grade": "E",
+        "coefficient": 0.15
+      }
+    },
+    "attack": {
+      "physical": 92,
+      "magic": 0,
+      "fire": 0,
+      "lightning": 0,
+      "holy": 0
+    },
+    "criticalMultiplier": 100,
+    "statusBuildup": {},
+    "guard": {
+      "negation": {
+        "physical": 52,
+        "magic": 38,
+        "fire": 28,
+        "lightning": 34,
+        "holy": 35
+      },
+      "stability": 22,
+      "canParry": true,
+      "blocksAllPhysical": false
+    },
+    "upgrade": {
+      "path": "standard",
+      "level": 0,
+      "maxLevel": 25
+    },
+    "affinity": "standard",
+    "skill": null,
+    "twoHandable": true
+  },
+  "kite-shield": {
+    "id": "kite-shield",
+    "name": "Kite Shield",
+    "category": "shield",
+    "description": "A standard medium-sized metal shield. Metal shields reliably negate physical damage when guarding, a trait which made them highly trusted on the battlefield.",
+    "imageUrl": "https://eldenring.fanapis.com/images/shields/17f6967bb2bl0i127q8x98oklbecj.png",
+    "sourceId": "17f6967bb2bl0i127q8x98oklbecj",
+    "weaponClass": "Medium Shield",
+    "shieldClass": "Medium Shield",
+    "weight": 4.5,
+    "requirements": {
+      "strength": 12,
+      "dexterity": 0,
+      "intelligence": 0,
+      "faith": 0,
+      "arcane": 0
+    },
+    "scaling": {
+      "strength": {
+        "grade": "D",
+        "coefficient": 0.3
+      }
+    },
+    "attack": {
+      "physical": 78,
+      "magic": 0,
+      "fire": 0,
+      "lightning": 0,
+      "holy": 0
+    },
+    "criticalMultiplier": 100,
+    "statusBuildup": {},
+    "guard": {
+      "negation": {
+        "physical": 100,
+        "magic": 47,
+        "fire": 47,
+        "lightning": 33,
+        "holy": 47
+      },
+      "stability": 47,
+      "canParry": true,
+      "blocksAllPhysical": true
+    },
+    "upgrade": {
+      "path": "standard",
+      "level": 0,
+      "maxLevel": 25
+    },
+    "affinity": "standard",
+    "skill": null,
+    "twoHandable": true
+  },
+  "banished-knights-shield": {
+    "id": "banished-knights-shield",
+    "name": "Banished Knight's Shield",
+    "category": "shield",
+    "description": "A tall medium-sized metal shield. Given to knights who, whether by misfortune or misdeed, were forced to abandon their homes. Most of these knights were sent to the fringes, where they were forced to start anew with only despair for company.",
+    "imageUrl": "https://eldenring.fanapis.com/images/shields/17f698ac740l0i127wziv2s11fd2c.png",
+    "sourceId": "17f698ac740l0i127wziv2s11fd2c",
+    "weaponClass": "Medium Shield",
+    "shieldClass": "Medium Shield",
+    "weight": 6,
+    "requirements": {
+      "strength": 14,
+      "dexterity": 0,
+      "intelligence": 0,
+      "faith": 0,
+      "arcane": 0
+    },
+    "scaling": {
+      "strength": {
+        "grade": "D",
+        "coefficient": 0.3
+      }
+    },
+    "attack": {
+      "physical": 81,
+      "magic": 0,
+      "fire": 0,
+      "lightning": 0,
+      "holy": 0
+    },
+    "criticalMultiplier": 100,
+    "statusBuildup": {},
+    "guard": {
+      "negation": {
+        "physical": 100,
+        "magic": 49,
+        "fire": 57,
+        "lightning": 31,
+        "holy": 48
+      },
+      "stability": 52,
+      "canParry": true,
+      "blocksAllPhysical": true
+    },
+    "upgrade": {
+      "path": "standard",
+      "level": 0,
+      "maxLevel": 25
+    },
+    "affinity": "standard",
+    "skill": null,
+    "twoHandable": true
+  },
+  "albinauric-shield": {
+    "id": "albinauric-shield",
+    "name": "Albinauric Shield",
+    "category": "shield",
+    "description": "Tall oval shield made of metal carried by young Albinaurics. The ornamentation represents the primordial drop of dew from which they are said to have been created. Boasts exceptional magic damage negation. The Albinaurics' most formidable foes were sorcerers, after all.",
+    "imageUrl": "https://eldenring.fanapis.com/images/shields/17f69ce5e4cl0i128b0nivmu8x7jg.png",
+    "sourceId": "17f69ce5e4cl0i128b0nivmu8x7jg",
+    "weaponClass": "Medium Shield",
+    "shieldClass": "Medium Shield",
+    "weight": 4.5,
+    "requirements": {
+      "strength": 11,
+      "dexterity": 0,
+      "intelligence": 0,
+      "faith": 0,
+      "arcane": 0
+    },
+    "scaling": {},
+    "attack": {
+      "physical": 78,
+      "magic": 0,
+      "fire": 0,
+      "lightning": 0,
+      "holy": 0
+    },
+    "criticalMultiplier": 100,
+    "statusBuildup": {},
+    "guard": {
+      "negation": {
+        "physical": 100,
+        "magic": 61,
+        "fire": 42,
+        "lightning": 23,
+        "holy": 47
+      },
+      "stability": 42,
+      "canParry": true,
+      "blocksAllPhysical": true
+    },
+    "upgrade": {
+      "path": "standard",
+      "level": 0,
+      "maxLevel": 25
+    },
+    "affinity": "standard",
+    "skill": null,
+    "twoHandable": true
+  },
+  "sun-realm-shield": {
+    "id": "sun-realm-shield",
+    "name": "Sun Realm Shield",
+    "category": "shield",
+    "description": "Shield of honor depicting a city crowned by the sun. It has seen better days. Much like the wear upon the shield, the Seat of the Sun is long faded away.",
+    "imageUrl": "https://eldenring.fanapis.com/images/shields/17f6987cd26l0i128fmzfvt6grfjsp.png",
+    "sourceId": "17f6987cd26l0i128fmzfvt6grfjsp",
+    "weaponClass": "Medium Shield",
+    "shieldClass": "Medium Shield",
+    "weight": 3.5,
+    "requirements": {
+      "strength": 8,
+      "dexterity": 0,
+      "intelligence": 0,
+      "faith": 0,
+      "arcane": 0
+    },
+    "scaling": {},
+    "attack": {
+      "physical": 74,
+      "magic": 0,
+      "fire": 0,
+      "lightning": 0,
+      "holy": 0
+    },
+    "criticalMultiplier": 100,
+    "statusBuildup": {},
+    "guard": {
+      "negation": {
+        "physical": 85,
+        "magic": 44,
+        "fire": 27,
+        "lightning": 40,
+        "holy": 56
+      },
+      "stability": 40,
+      "canParry": true,
+      "blocksAllPhysical": false
+    },
+    "upgrade": {
+      "path": "standard",
+      "level": 0,
+      "maxLevel": 25
+    },
+    "affinity": "standard",
+    "skill": null,
+    "twoHandable": true
+  },
+  "silver-mirrorshield": {
+    "id": "silver-mirrorshield",
+    "name": "Silver Mirrorshield",
+    "category": "shield",
+    "description": "Shield of radiant silver, festooned with amber and carried by Loretta, Knight of the Haligtree. The shape is said to imitate that of a sacred drop of dew, which inspired the absurd rumor that Loretta herself was an Albinauric.",
+    "imageUrl": "https://eldenring.fanapis.com/images/shields/17f6970052fl0i128q30d2avtlnbrrf.png",
+    "sourceId": "17f6970052fl0i128q30d2avtlnbrrf",
+    "weaponClass": "Medium Shield",
+    "shieldClass": "Medium Shield",
+    "weight": 3.5,
+    "requirements": {
+      "strength": 12,
+      "dexterity": 10,
+      "intelligence": 10,
+      "faith": 0,
+      "arcane": 0
+    },
+    "scaling": {
+      "strength": {
+        "grade": "D",
+        "coefficient": 0.3
+      },
+      "intelligence": {
+        "grade": "D",
+        "coefficient": 0.3
+      }
+    },
+    "attack": {
+      "physical": 70,
+      "magic": 45,
+      "fire": 0,
+      "lightning": 0,
+      "holy": 0
+    },
+    "criticalMultiplier": 100,
+    "statusBuildup": {},
+    "guard": {
+      "negation": {
+        "physical": 100,
+        "magic": 89,
+        "fire": 31,
+        "lightning": 19,
+        "holy": 27
+      },
+      "stability": 42,
+      "canParry": true,
+      "blocksAllPhysical": true
+    },
+    "upgrade": {
+      "path": "standard",
+      "level": 0,
+      "maxLevel": 25
+    },
+    "affinity": "standard",
+    "skill": null,
+    "twoHandable": true
+  },
+  "round-shield": {
+    "id": "round-shield",
+    "name": "Round Shield",
+    "category": "shield",
+    "description": "A wooden roundshield that has been reinforced with metal. Comparatively light for its size, this shield is easy to handle but lacks a true metal shield's ability to negate damage.",
+    "imageUrl": "https://eldenring.fanapis.com/images/shields/17f6988b72dl0i128vmcj5b7a5j1e9.png",
+    "sourceId": "17f6988b72dl0i128vmcj5b7a5j1e9",
+    "weaponClass": "Medium Shield",
+    "shieldClass": "Medium Shield",
+    "weight": 4,
+    "requirements": {
+      "strength": 8,
+      "dexterity": 0,
+      "intelligence": 0,
+      "faith": 0,
+      "arcane": 0
+    },
+    "scaling": {
+      "strength": {
+        "grade": "D",
+        "coefficient": 0.3
+      }
+    },
+    "attack": {
+      "physical": 76,
+      "magic": 0,
+      "fire": 0,
+      "lightning": 0,
+      "holy": 0
+    },
+    "criticalMultiplier": 100,
+    "statusBuildup": {},
+    "guard": {
+      "negation": {
+        "physical": 83,
+        "magic": 50,
+        "fire": 37,
+        "lightning": 43,
+        "holy": 50
+      },
+      "stability": 42,
+      "canParry": true,
+      "blocksAllPhysical": false
+    },
+    "upgrade": {
+      "path": "standard",
+      "level": 0,
+      "maxLevel": 25
+    },
+    "affinity": "standard",
+    "skill": null,
+    "twoHandable": true
+  },
+  "scorpion-kite-shield": {
+    "id": "scorpion-kite-shield",
+    "name": "Scorpion Kite Shield",
+    "category": "shield",
+    "description": "A standard medium-sized metal shield. Highly reputed for its solid build and reliability. Emblazoned with a yellow scorpion, a warning of surprise attacks and sudden strikes.",
+    "imageUrl": "https://eldenring.fanapis.com/images/shields/17f6948dfb1l0i1298n92tg7459mbg.png",
+    "sourceId": "17f6948dfb1l0i1298n92tg7459mbg",
+    "weaponClass": "Medium Shield",
+    "shieldClass": "Medium Shield",
+    "weight": 4.5,
+    "requirements": {
+      "strength": 11,
+      "dexterity": 0,
+      "intelligence": 0,
+      "faith": 0,
+      "arcane": 0
+    },
+    "scaling": {},
+    "attack": {
+      "physical": 78,
+      "magic": 0,
+      "fire": 0,
+      "lightning": 0,
+      "holy": 0
+    },
+    "criticalMultiplier": 100,
+    "statusBuildup": {},
+    "guard": {
+      "negation": {
+        "physical": 100,
+        "magic": 45,
+        "fire": 46,
+        "lightning": 33,
+        "holy": 50
+      },
+      "stability": 47,
+      "canParry": true,
+      "blocksAllPhysical": true
+    },
+    "upgrade": {
+      "path": "standard",
+      "level": 0,
+      "maxLevel": 25
+    },
+    "affinity": "standard",
+    "skill": null,
+    "twoHandable": true
+  },
+  "twinbird-kite-shield": {
+    "id": "twinbird-kite-shield",
+    "name": "Twinbird Kite Shield",
+    "category": "shield",
+    "description": "Shield featuring a vividly painted twinbird. The twinbird is said to be the envoy of an outer god, and mother of the Deathbirds. At dwindling levels of HP, this shield slightly boosts both attack and defense.",
+    "imageUrl": "https://eldenring.fanapis.com/images/shields/17f698aad3fl0i129kcpcnkgwlznm.png",
+    "sourceId": "17f698aad3fl0i129kcpcnkgwlznm",
+    "weaponClass": "Medium Shield",
+    "shieldClass": "Medium Shield",
+    "weight": 4.5,
+    "requirements": {
+      "strength": 12,
+      "dexterity": 0,
+      "intelligence": 0,
+      "faith": 0,
+      "arcane": 0
+    },
+    "scaling": {},
+    "attack": {
+      "physical": 78,
+      "magic": 0,
+      "fire": 0,
+      "lightning": 0,
+      "holy": 0
+    },
+    "criticalMultiplier": 100,
+    "statusBuildup": {},
+    "guard": {
+      "negation": {
+        "physical": 100,
+        "magic": 49,
+        "fire": 50,
+        "lightning": 28,
+        "holy": 35
+      },
+      "stability": 49,
+      "canParry": true,
+      "blocksAllPhysical": true
+    },
+    "upgrade": {
+      "path": "standard",
+      "level": 0,
+      "maxLevel": 25
+    },
+    "affinity": "standard",
+    "skill": null,
+    "twoHandable": true
+  },
+  "blue-gold-kite-shield": {
+    "id": "blue-gold-kite-shield",
+    "name": "Blue-gold Kite Shield",
+    "category": "shield",
+    "description": "A standard medium-sized shield. Highly reputed for its solid build and reliability. The design represents the Erdtree foreground against a blue sky.",
+    "imageUrl": "https://eldenring.fanapis.com/images/shields/17f6966bef4l0i129o1blgktqip69s.png",
+    "sourceId": "17f6966bef4l0i129o1blgktqip69s",
+    "weaponClass": "Medium Shield",
+    "shieldClass": "Medium Shield",
+    "weight": 5,
+    "requirements": {
+      "strength": 12,
+      "dexterity": 0,
+      "intelligence": 0,
+      "faith": 0,
+      "arcane": 0
+    },
+    "scaling": {
+      "strength": {
+        "grade": "D",
+        "coefficient": 0.3
+      }
+    },
+    "attack": {
+      "physical": 80,
+      "magic": 0,
+      "fire": 0,
+      "lightning": 0,
+      "holy": 0
+    },
+    "criticalMultiplier": 100,
+    "statusBuildup": {},
+    "guard": {
+      "negation": {
+        "physical": 100,
+        "magic": 47,
+        "fire": 53,
+        "lightning": 35,
+        "holy": 45
+      },
+      "stability": 47,
+      "canParry": true,
+      "blocksAllPhysical": true
+    },
+    "upgrade": {
+      "path": "standard",
+      "level": 0,
+      "maxLevel": 25
+    },
+    "affinity": "standard",
+    "skill": null,
+    "twoHandable": true
+  },
+  "brass-shield": {
+    "id": "brass-shield",
+    "name": "Brass Shield",
+    "category": "shield",
+    "description": "On the larger side for medium-sized shield, the face has been covered in brass. Commonly employed in the Shattering.",
+    "imageUrl": "https://eldenring.fanapis.com/images/shields/17f69beaf5al0i12ae69s49g5aaaea.png",
+    "sourceId": "17f69beaf5al0i12ae69s49g5aaaea",
+    "weaponClass": "Medium Shield",
+    "shieldClass": "Medium Shield",
+    "weight": 7,
+    "requirements": {
+      "strength": 16,
+      "dexterity": 0,
+      "intelligence": 0,
+      "faith": 0,
+      "arcane": 0
+    },
+    "scaling": {
+      "strength": {
+        "grade": "D",
+        "coefficient": 0.3
+      }
+    },
+    "attack": {
+      "physical": 84,
+      "magic": 0,
+      "fire": 0,
+      "lightning": 0,
+      "holy": 0
+    },
+    "criticalMultiplier": 100,
+    "statusBuildup": {},
+    "guard": {
+      "negation": {
+        "physical": 100,
+        "magic": 55,
+        "fire": 59,
+        "lightning": 39,
+        "holy": 54
+      },
+      "stability": 56,
+      "canParry": true,
+      "blocksAllPhysical": true
+    },
+    "upgrade": {
+      "path": "standard",
+      "level": 0,
+      "maxLevel": 25
+    },
+    "affinity": "standard",
+    "skill": null,
+    "twoHandable": true
+  },
+  "shield-of-the-guilty": {
+    "id": "shield-of-the-guilty",
+    "name": "Shield Of The Guilty",
+    "category": "shield",
+    "description": "Shield made to venerate a maiden whose eyes were crushed by Briars of Sin before being reborn in these lands. Venerating the repose of the soul, this shield boosts focus. The briars can be used to attack foes.",
+    "imageUrl": "https://eldenring.fanapis.com/images/shields/17f6996caf5l0i12afnpkuzhuzo9o.png",
+    "sourceId": "17f6996caf5l0i12afnpkuzhuzo9o",
+    "weaponClass": "Small Shield",
+    "shieldClass": "Small Shield",
+    "weight": 2,
+    "requirements": {
+      "strength": 8,
+      "dexterity": 0,
+      "intelligence": 0,
+      "faith": 0,
+      "arcane": 0
+    },
+    "scaling": {
+      "strength": {
+        "grade": "D",
+        "coefficient": 0.3
+      }
+    },
+    "attack": {
+      "physical": 75,
+      "magic": 0,
+      "fire": 0,
+      "lightning": 0,
+      "holy": 0
+    },
+    "criticalMultiplier": 100,
+    "statusBuildup": {},
+    "guard": {
+      "negation": {
+        "physical": 62,
+        "magic": 35,
+        "fire": 35,
+        "lightning": 30,
+        "holy": 35
+      },
+      "stability": 29,
+      "canParry": true,
+      "blocksAllPhysical": false
+    },
+    "upgrade": {
+      "path": "standard",
+      "level": 0,
+      "maxLevel": 25
+    },
+    "affinity": "standard",
+    "skill": null,
+    "twoHandable": true
+  },
+  "great-turtle-shell": {
+    "id": "great-turtle-shell",
+    "name": "Great Turtle Shell",
+    "category": "shield",
+    "description": "Shield fashioned from a great turtle shell. The natural curve helps it contend with foes' attacks. The turtle is a symbol of tirelessness, and this shield boosts stamina recovery speed.",
+    "imageUrl": "https://eldenring.fanapis.com/images/shields/17f699d7257l0i12ai52ozxwx6ewwi.png",
+    "sourceId": "17f699d7257l0i12ai52ozxwx6ewwi",
+    "weaponClass": "Medium Shield",
+    "shieldClass": "Medium Shield",
+    "weight": 5.5,
+    "requirements": {
+      "strength": 14,
+      "dexterity": 0,
+      "intelligence": 0,
+      "faith": 0,
+      "arcane": 0
+    },
+    "scaling": {
+      "strength": {
+        "grade": "D",
+        "coefficient": 0.3
+      }
+    },
+    "attack": {
+      "physical": 81,
+      "magic": 0,
+      "fire": 0,
+      "lightning": 0,
+      "holy": 0
+    },
+    "criticalMultiplier": 100,
+    "statusBuildup": {},
+    "guard": {
+      "negation": {
+        "physical": 100,
+        "magic": 44,
+        "fire": 39,
+        "lightning": 43,
+        "holy": 46
+      },
+      "stability": 48,
+      "canParry": true,
+      "blocksAllPhysical": true
+    },
+    "upgrade": {
+      "path": "standard",
+      "level": 0,
+      "maxLevel": 25
+    },
+    "affinity": "standard",
+    "skill": null,
+    "twoHandable": true
+  },
+  "carian-knights-shield": {
+    "id": "carian-knights-shield",
+    "name": "Carian Knight's Shield",
+    "category": "shield",
+    "description": "A teardrop-shaped shield embedded with blue glintstones. Carried by knights who served the Carian royal family. Excels when facing magic or holy attacks. Just who were these knights preparing to fight?",
+    "imageUrl": "https://eldenring.fanapis.com/images/shields/17f6942eeabl0i12apjrp14m98cxmg.png",
+    "sourceId": "17f6942eeabl0i12apjrp14m98cxmg",
+    "weaponClass": "Medium Shield",
+    "shieldClass": "Medium Shield",
+    "weight": 4.5,
+    "requirements": {
+      "strength": 0,
+      "dexterity": 0,
+      "intelligence": 0,
+      "faith": 0,
+      "arcane": 0
+    },
+    "scaling": {},
+    "attack": {
+      "physical": 63,
+      "magic": 0,
+      "fire": 0,
+      "lightning": 0,
+      "holy": 0
+    },
+    "criticalMultiplier": 100,
+    "statusBuildup": {},
+    "guard": {
+      "negation": {
+        "physical": 100,
+        "magic": 58,
+        "fire": 28,
+        "lightning": 19,
+        "holy": 54
+      },
+      "stability": 47,
+      "canParry": true,
+      "blocksAllPhysical": true
+    },
+    "upgrade": {
+      "path": "standard",
+      "level": 0,
+      "maxLevel": 25
+    },
+    "affinity": "standard",
+    "skill": null,
+    "twoHandable": true
+  },
+  "horse-crest-wooden-shield": {
+    "id": "horse-crest-wooden-shield",
+    "name": "Horse Crest Wooden Shield",
+    "category": "shield",
+    "description": "A tall, medium-sized wooden shield. Light for its size, and easy to handle. The circular horsehead design evokes a swift gallop.",
+    "imageUrl": "https://eldenring.fanapis.com/images/shields/17f699a214fl0i12beelfraiymmf7.png",
+    "sourceId": "17f699a214fl0i12beelfraiymmf7",
+    "weaponClass": "Medium Shield",
+    "shieldClass": "Medium Shield",
+    "weight": 3.5,
+    "requirements": {
+      "strength": 8,
+      "dexterity": 0,
+      "intelligence": 0,
+      "faith": 0,
+      "arcane": 0
+    },
+    "scaling": {
+      "strength": {
+        "grade": "D",
+        "coefficient": 0.3
+      }
+    },
+    "attack": {
+      "physical": 76,
+      "magic": 0,
+      "fire": 0,
+      "lightning": 0,
+      "holy": 0
+    },
+    "criticalMultiplier": 100,
+    "statusBuildup": {},
+    "guard": {
+      "negation": {
+        "physical": 81,
+        "magic": 50,
+        "fire": 32,
+        "lightning": 43,
+        "holy": 42
+      },
+      "stability": 38,
+      "canParry": true,
+      "blocksAllPhysical": false
+    },
+    "upgrade": {
+      "path": "standard",
+      "level": 0,
+      "maxLevel": 25
+    },
+    "affinity": "standard",
+    "skill": null,
+    "twoHandable": true
+  },
+  "candletree-wooden-shield": {
+    "id": "candletree-wooden-shield",
+    "name": "Candletree Wooden Shield",
+    "category": "shield",
+    "description": "A tall, medium-sized wooden shield. Light for its size, and easy to handle. Thought to represent a surreptitious prophecy of cardinal sin, the lit candle-tree design was forbidden.",
+    "imageUrl": "https://eldenring.fanapis.com/images/shields/17f69723a6dl0i12bhd8qm1rkekq4w.png",
+    "sourceId": "17f69723a6dl0i12bhd8qm1rkekq4w",
+    "weaponClass": "Medium Shield",
+    "shieldClass": "Medium Shield",
+    "weight": 3.5,
+    "requirements": {
+      "strength": 8,
+      "dexterity": 0,
+      "intelligence": 0,
+      "faith": 0,
+      "arcane": 0
+    },
+    "scaling": {
+      "strength": {
+        "grade": "D",
+        "coefficient": 0.3
+      }
+    },
+    "attack": {
+      "physical": 76,
+      "magic": 0,
+      "fire": 0,
+      "lightning": 0,
+      "holy": 0
+    },
+    "criticalMultiplier": 100,
+    "statusBuildup": {},
+    "guard": {
+      "negation": {
+        "physical": 82,
+        "magic": 42,
+        "fire": 32,
+        "lightning": 50,
+        "holy": 43
+      },
+      "stability": 39,
+      "canParry": true,
+      "blocksAllPhysical": false
+    },
+    "upgrade": {
+      "path": "standard",
+      "level": 0,
+      "maxLevel": 25
+    },
+    "affinity": "standard",
+    "skill": null,
+    "twoHandable": true
+  },
+  "large-leather-shield": {
+    "id": "large-leather-shield",
+    "name": "Large Leather Shield",
+    "category": "shield",
+    "description": "A round shield covered in leather. One of the larger categories of medium-sized shield. Though its damage negation may be lacking compared to a metal shield, it can handle wider range of attack affinities.",
+    "imageUrl": "https://eldenring.fanapis.com/images/shields/17f69b8ad9fl0i12bhsus3gi193fg.png",
+    "sourceId": "17f69b8ad9fl0i12bhsus3gi193fg",
+    "weaponClass": "Medium Shield",
+    "shieldClass": "Medium Shield",
+    "weight": 3,
+    "requirements": {
+      "strength": 8,
+      "dexterity": 0,
+      "intelligence": 0,
+      "faith": 0,
+      "arcane": 0
+    },
+    "scaling": {
+      "strength": {
+        "grade": "D",
+        "coefficient": 0.3
+      }
+    },
+    "attack": {
+      "physical": 75,
+      "magic": 0,
+      "fire": 0,
+      "lightning": 0,
+      "holy": 0
+    },
+    "criticalMultiplier": 100,
+    "statusBuildup": {},
+    "guard": {
+      "negation": {
+        "physical": 76,
+        "magic": 49,
+        "fire": 36,
+        "lightning": 45,
+        "holy": 45
+      },
+      "stability": 40,
+      "canParry": true,
+      "blocksAllPhysical": false
+    },
+    "upgrade": {
+      "path": "standard",
+      "level": 0,
+      "maxLevel": 25
+    },
+    "affinity": "standard",
+    "skill": null,
+    "twoHandable": true
+  },
+  "flame-crest-wooden-shield": {
+    "id": "flame-crest-wooden-shield",
+    "name": "Flame Crest Wooden Shield",
+    "category": "shield",
+    "description": "A tall, medium-sized wooden shield. Light for its size, and easy to handle. Carried by soldiers of the village that is afflicted by frenzy. The yellow flame is the symbol of the affliction, serving as a warning to those who might approach the village.",
+    "imageUrl": "https://eldenring.fanapis.com/images/shields/17f698d0e0bl0i12bjdv825l4x33d.png",
+    "sourceId": "17f698d0e0bl0i12bjdv825l4x33d",
+    "weaponClass": "Medium Shield",
+    "shieldClass": "Medium Shield",
+    "weight": 3.5,
+    "requirements": {
+      "strength": 8,
+      "dexterity": 0,
+      "intelligence": 0,
+      "faith": 0,
+      "arcane": 0
+    },
+    "scaling": {
+      "strength": {
+        "grade": "D",
+        "coefficient": 0.3
+      }
+    },
+    "attack": {
+      "physical": 76,
+      "magic": 0,
+      "fire": 0,
+      "lightning": 0,
+      "holy": 0
+    },
+    "criticalMultiplier": 100,
+    "statusBuildup": {},
+    "guard": {
+      "negation": {
+        "physical": 83,
+        "magic": 43,
+        "fire": 32,
+        "lightning": 42,
+        "holy": 50
+      },
+      "stability": 39,
+      "canParry": true,
+      "blocksAllPhysical": false
+    },
+    "upgrade": {
+      "path": "standard",
+      "level": 0,
+      "maxLevel": 25
+    },
+    "affinity": "standard",
+    "skill": null,
+    "twoHandable": true
+  },
+  "hawk-crest-wooden-shield": {
+    "id": "hawk-crest-wooden-shield",
+    "name": "Hawk Crest Wooden Shield",
+    "category": "shield",
+    "description": "A tall, medium-sized wooden shield. Light for its size, and easy to handle. Adorned with a long-forgotten crest of Stormveil, ancient in design.",
+    "imageUrl": "https://eldenring.fanapis.com/images/shields/17f694f969el0i12bq44jy1iwmun1y.png",
+    "sourceId": "17f694f969el0i12bq44jy1iwmun1y",
+    "weaponClass": "Medium Shield",
+    "shieldClass": "Medium Shield",
+    "weight": 3.5,
+    "requirements": {
+      "strength": 8,
+      "dexterity": 0,
+      "intelligence": 0,
+      "faith": 0,
+      "arcane": 0
+    },
+    "scaling": {
+      "strength": {
+        "grade": "D",
+        "coefficient": 0.3
+      }
+    },
+    "attack": {
+      "physical": 76,
+      "magic": 0,
+      "fire": 0,
+      "lightning": 0,
+      "holy": 0
+    },
+    "criticalMultiplier": 100,
+    "statusBuildup": {},
+    "guard": {
+      "negation": {
+        "physical": 85,
+        "magic": 44,
+        "fire": 32,
+        "lightning": 44,
+        "holy": 44
+      },
+      "stability": 38,
+      "canParry": true,
+      "blocksAllPhysical": false
+    },
+    "upgrade": {
+      "path": "standard",
+      "level": 0,
+      "maxLevel": 25
+    },
+    "affinity": "standard",
+    "skill": null,
+    "twoHandable": true
+  },
+  "beast-crest-heater-shield": {
+    "id": "beast-crest-heater-shield",
+    "name": "Beast Crest Heater Shield",
+    "category": "shield",
+    "description": "A medium-sized metal shield. Easier to handle than a kite shield. Features a beast as its crest, serving to remind warriors not to succumb to the arousal of battle. Fight with passion, but become nor its prisoner.",
+    "imageUrl": "https://eldenring.fanapis.com/images/shields/17f69710d06l0i12cez6ml1ut0n7cs.png",
+    "sourceId": "17f69710d06l0i12cez6ml1ut0n7cs",
+    "weaponClass": "Medium Shield",
+    "shieldClass": "Medium Shield",
+    "weight": 3.5,
+    "requirements": {
+      "strength": 10,
+      "dexterity": 0,
+      "intelligence": 0,
+      "faith": 0,
+      "arcane": 0
+    },
+    "scaling": {
+      "strength": {
+        "grade": "D",
+        "coefficient": 0.3
+      }
+    },
+    "attack": {
+      "physical": 77,
+      "magic": 0,
+      "fire": 0,
+      "lightning": 0,
+      "holy": 0
+    },
+    "criticalMultiplier": 100,
+    "statusBuildup": {},
+    "guard": {
+      "negation": {
+        "physical": 100,
+        "magic": 50,
+        "fire": 43,
+        "lightning": 32,
+        "holy": 42
+      },
+      "stability": 44,
+      "canParry": true,
+      "blocksAllPhysical": true
+    },
+    "upgrade": {
+      "path": "standard",
+      "level": 0,
+      "maxLevel": 25
+    },
+    "affinity": "standard",
+    "skill": null,
+    "twoHandable": true
+  },
+  "red-crest-heater-shield": {
+    "id": "red-crest-heater-shield",
+    "name": "Red Crest Heater Shield",
+    "category": "shield",
+    "description": "A medium-sized metal shield. Easier to handle than a kite shield. The crest symbolizes red wings.",
+    "imageUrl": "https://eldenring.fanapis.com/images/shields/17f69654c0bl0i12chkv2olyhv4kt.png",
+    "sourceId": "17f69654c0bl0i12chkv2olyhv4kt",
+    "weaponClass": "Medium Shield",
+    "shieldClass": "Medium Shield",
+    "weight": 3.5,
+    "requirements": {
+      "strength": 10,
+      "dexterity": 0,
+      "intelligence": 0,
+      "faith": 0,
+      "arcane": 0
+    },
+    "scaling": {},
+    "attack": {
+      "physical": 77,
+      "magic": 0,
+      "fire": 0,
+      "lightning": 0,
+      "holy": 0
+    },
+    "criticalMultiplier": 100,
+    "statusBuildup": {},
+    "guard": {
+      "negation": {
+        "physical": 100,
+        "magic": 42,
+        "fire": 50,
+        "lightning": 32,
+        "holy": 43
+      },
+      "stability": 43,
+      "canParry": true,
+      "blocksAllPhysical": true
+    },
+    "upgrade": {
+      "path": "standard",
+      "level": 0,
+      "maxLevel": 25
+    },
+    "affinity": "standard",
+    "skill": null,
+    "twoHandable": true
+  },
+  "eclipse-crest-heater-shield": {
+    "id": "eclipse-crest-heater-shield",
+    "name": "Eclipse Crest Heater Shield",
+    "category": "shield",
+    "description": "A medium-sized metal shield. Easier to handle than a kite shield. The sun in eclipse is said to be the symbol of the Wandering Mausoleum where the soulless demigods slumber.",
+    "imageUrl": "https://eldenring.fanapis.com/images/shields/17f69c34ab1l0i12cmtzhluyza2vbd.png",
+    "sourceId": "17f69c34ab1l0i12cmtzhluyza2vbd",
+    "weaponClass": "Medium Shield",
+    "shieldClass": "Medium Shield",
+    "weight": 3.5,
+    "requirements": {
+      "strength": 0,
+      "dexterity": 0,
+      "intelligence": 0,
+      "faith": 0,
+      "arcane": 0
+    },
+    "scaling": {},
+    "attack": {
+      "physical": 77,
+      "magic": 0,
+      "fire": 0,
+      "lightning": 0,
+      "holy": 0
+    },
+    "criticalMultiplier": 100,
+    "statusBuildup": {},
+    "guard": {
+      "negation": {
+        "physical": 100,
+        "magic": 44,
+        "fire": 44,
+        "lightning": 37,
+        "holy": 44
+      },
+      "stability": 46,
+      "canParry": true,
+      "blocksAllPhysical": true
+    },
+    "upgrade": {
+      "path": "standard",
+      "level": 0,
+      "maxLevel": 25
+    },
+    "affinity": "standard",
+    "skill": null,
+    "twoHandable": true
+  },
+  "blue-crest-heater-shield": {
+    "id": "blue-crest-heater-shield",
+    "name": "Blue Crest Heater Shield",
+    "category": "shield",
+    "description": "A medium-sized metal shield. Easier to handle than a kite shield. The crest represents a forest and river.",
+    "imageUrl": "https://eldenring.fanapis.com/images/shields/17f69722576l0i12cnfqtct2uo1lqi.png",
+    "sourceId": "17f69722576l0i12cnfqtct2uo1lqi",
+    "weaponClass": "Medium Shield",
+    "shieldClass": "Medium Shield",
+    "weight": 3.5,
+    "requirements": {
+      "strength": 10,
+      "dexterity": 0,
+      "intelligence": 0,
+      "faith": 0,
+      "arcane": 0
+    },
+    "scaling": {
+      "strength": {
+        "grade": "D",
+        "coefficient": 0.3
+      }
+    },
+    "attack": {
+      "physical": 77,
+      "magic": 0,
+      "fire": 0,
+      "lightning": 0,
+      "holy": 0
+    },
+    "criticalMultiplier": 100,
+    "statusBuildup": {},
+    "guard": {
+      "negation": {
+        "physical": 100,
+        "magic": 43,
+        "fire": 42,
+        "lightning": 32,
+        "holy": 50
+      },
+      "stability": 44,
+      "canParry": true,
+      "blocksAllPhysical": true
+    },
+    "upgrade": {
+      "path": "standard",
+      "level": 0,
+      "maxLevel": 25
+    },
+    "affinity": "standard",
+    "skill": null,
+    "twoHandable": true
+  },
+  "inverted-hawk-heater-shield": {
+    "id": "inverted-hawk-heater-shield",
+    "name": "Inverted Hawk Heater Shield",
+    "category": "shield",
+    "description": "A medium-sized metal shield. Easier to handle than a kite shield. The inverted hawk is the emblem of the company of slaves ordered to explore the Eternal City.",
+    "imageUrl": "https://eldenring.fanapis.com/images/shields/17f693c5d25l0i12cqwc17w5od5uh.png",
+    "sourceId": "17f693c5d25l0i12cqwc17w5od5uh",
+    "weaponClass": "Medium Shield",
+    "shieldClass": "Medium Shield",
+    "weight": 3.5,
+    "requirements": {
+      "strength": 10,
+      "dexterity": 0,
+      "intelligence": 0,
+      "faith": 0,
+      "arcane": 0
+    },
+    "scaling": {
+      "strength": {
+        "grade": "D",
+        "coefficient": 0.3
+      }
+    },
+    "attack": {
+      "physical": 77,
+      "magic": 0,
+      "fire": 0,
+      "lightning": 0,
+      "holy": 0
+    },
+    "criticalMultiplier": 100,
+    "statusBuildup": {},
+    "guard": {
+      "negation": {
+        "physical": 100,
+        "magic": 49,
+        "fire": 49,
+        "lightning": 34,
+        "holy": 49
+      },
+      "stability": 44,
+      "canParry": true,
+      "blocksAllPhysical": true
+    },
+    "upgrade": {
+      "path": "standard",
+      "level": 0,
+      "maxLevel": 25
+    },
+    "affinity": "standard",
+    "skill": null,
+    "twoHandable": true
+  },
+  "heater-shield": {
+    "id": "heater-shield",
+    "name": "Heater Shield",
+    "category": "shield",
+    "description": "A medium-sized metal shield, comparatively easy to handle. Metal shields reliably negate physical damage when guarding, a trait which made them highly trusted on the battlefield.",
+    "imageUrl": "https://eldenring.fanapis.com/images/shields/17f694b8cc1l0i12d7wmnsvn9wams.png",
+    "sourceId": "17f694b8cc1l0i12d7wmnsvn9wams",
+    "weaponClass": "Medium Shield",
+    "shieldClass": "Medium Shield",
+    "weight": 3.5,
+    "requirements": {
+      "strength": 10,
+      "dexterity": 0,
+      "intelligence": 0,
+      "faith": 0,
+      "arcane": 0
+    },
+    "scaling": {
+      "strength": {
+        "grade": "D",
+        "coefficient": 0.3
+      }
+    },
+    "attack": {
+      "physical": 77,
+      "magic": 0,
+      "fire": 0,
+      "lightning": 0,
+      "holy": 0
+    },
+    "criticalMultiplier": 100,
+    "statusBuildup": {},
+    "guard": {
+      "negation": {
+        "physical": 100,
+        "magic": 43,
+        "fire": 43,
+        "lightning": 27,
+        "holy": 43
+      },
+      "stability": 38,
+      "canParry": true,
+      "blocksAllPhysical": true
+    },
+    "upgrade": {
+      "path": "standard",
+      "level": 0,
+      "maxLevel": 25
+    },
+    "affinity": "standard",
+    "skill": null,
+    "twoHandable": true
+  },
+  "black-leather-shield": {
+    "id": "black-leather-shield",
+    "name": "Black Leather Shield",
+    "category": "shield",
+    "description": "Roundshield covered in black leather. On the larger side for a medium-sized shield. From the north, this shield depicts the polar star in rivets of gold. The inside is lined with fur, protecting the carrier from frost.",
+    "imageUrl": "https://eldenring.fanapis.com/images/shields/17f698cf256l0i12dbf0mgqicx93p.png",
+    "sourceId": "17f698cf256l0i12dbf0mgqicx93p",
+    "weaponClass": "Medium Shield",
+    "shieldClass": "Medium Shield",
+    "weight": 3,
+    "requirements": {
+      "strength": 10,
+      "dexterity": 0,
+      "intelligence": 0,
+      "faith": 0,
+      "arcane": 0
+    },
+    "scaling": {
+      "strength": {
+        "grade": "D",
+        "coefficient": 0.3
+      }
+    },
+    "attack": {
+      "physical": 75,
+      "magic": 0,
+      "fire": 0,
+      "lightning": 0,
+      "holy": 0
+    },
+    "criticalMultiplier": 100,
+    "statusBuildup": {},
+    "guard": {
+      "negation": {
+        "physical": 79,
+        "magic": 45,
+        "fire": 31,
+        "lightning": 46,
+        "holy": 47
+      },
+      "stability": 37,
+      "canParry": true,
+      "blocksAllPhysical": false
+    },
+    "upgrade": {
+      "path": "standard",
+      "level": 0,
+      "maxLevel": 25
+    },
+    "affinity": "standard",
+    "skill": null,
+    "twoHandable": true
+  },
+  "dragon-towershield": {
+    "id": "dragon-towershield",
+    "name": "Dragon Towershield",
+    "category": "shield",
+    "description": "Tower shield engraved with a dragon, symbol of protection. Heavy even among greatshields, it possesses exceptional guarding ability The ancient dragons, who ruled in the prehistoric era before the Erdtree, would protect their lord as a wall of living rock.",
+    "imageUrl": "https://eldenring.fanapis.com/images/shields/17f693c793el0i12deqfa24mgi3ik7.png",
+    "sourceId": "17f693c793el0i12deqfa24mgi3ik7",
+    "weaponClass": "Greatshield",
+    "shieldClass": "Greatshield",
+    "weight": 17.5,
+    "requirements": {
+      "strength": 30,
+      "dexterity": 0,
+      "intelligence": 0,
+      "faith": 0,
+      "arcane": 0
+    },
+    "scaling": {
+      "strength": {
+        "grade": "D",
+        "coefficient": 0.3
+      }
+    },
+    "attack": {
+      "physical": 115,
+      "magic": 0,
+      "fire": 0,
+      "lightning": 0,
+      "holy": 0
+    },
+    "criticalMultiplier": 100,
+    "statusBuildup": {},
+    "guard": {
+      "negation": {
+        "physical": 100,
+        "magic": 61,
+        "fire": 67,
+        "lightning": 55,
+        "holy": 64
+      },
+      "stability": 64,
+      "canParry": false,
+      "blocksAllPhysical": true
+    },
+    "upgrade": {
+      "path": "standard",
+      "level": 0,
+      "maxLevel": 25
+    },
+    "affinity": "standard",
+    "skill": null,
+    "twoHandable": true
+  },
+  "crucible-hornshield": {
+    "id": "crucible-hornshield",
+    "name": "Crucible Hornshield",
+    "category": "shield",
+    "description": "Greatshield of red-tinged gold carried by Crucible Knights. Features a great horn. An ancient holiness dwells within. The crucible horn skewers foes when performing shield bashes.",
+    "imageUrl": "https://eldenring.fanapis.com/images/shields/17f695a9c70l0i12dg13mf7v9clac.png",
+    "sourceId": "17f695a9c70l0i12dg13mf7v9clac",
+    "weaponClass": "Greatshield",
+    "shieldClass": "Greatshield",
+    "weight": 11.5,
+    "requirements": {
+      "strength": 26,
+      "dexterity": 0,
+      "intelligence": 0,
+      "faith": 0,
+      "arcane": 0
+    },
+    "scaling": {
+      "strength": {
+        "grade": "D",
+        "coefficient": 0.3
+      }
+    },
+    "attack": {
+      "physical": 147,
+      "magic": 0,
+      "fire": 0,
+      "lightning": 0,
+      "holy": 0
+    },
+    "criticalMultiplier": 100,
+    "statusBuildup": {},
+    "guard": {
+      "negation": {
+        "physical": 100,
+        "magic": 51,
+        "fire": 50,
+        "lightning": 46,
+        "holy": 64
+      },
+      "stability": 58,
+      "canParry": false,
+      "blocksAllPhysical": true
+    },
+    "upgrade": {
+      "path": "standard",
+      "level": 0,
+      "maxLevel": 25
+    },
+    "affinity": "standard",
+    "skill": null,
+    "twoHandable": true
+  },
+  "distinguished-greatshield": {
+    "id": "distinguished-greatshield",
+    "name": "Distinguished Greatshield",
+    "category": "shield",
+    "description": "Greatshield featuring sumptuous ornamentation used by the scions of great families. Due to their excessive size, these shields were at times seen as the hallmark of little lordlings who were too timid to earn a few nicks and scratches.",
+    "imageUrl": "https://eldenring.fanapis.com/images/shields/17f6998f8b8l0i12dhelzp1oi1uyv.png",
+    "sourceId": "17f6998f8b8l0i12dhelzp1oi1uyv",
+    "weaponClass": "Greatshield",
+    "shieldClass": "Greatshield",
+    "weight": 17,
+    "requirements": {
+      "strength": 32,
+      "dexterity": 0,
+      "intelligence": 0,
+      "faith": 0,
+      "arcane": 0
+    },
+    "scaling": {
+      "strength": {
+        "grade": "D",
+        "coefficient": 0.3
+      }
+    },
+    "attack": {
+      "physical": 112,
+      "magic": 0,
+      "fire": 0,
+      "lightning": 0,
+      "holy": 0
+    },
+    "criticalMultiplier": 100,
+    "statusBuildup": {},
+    "guard": {
+      "negation": {
+        "physical": 100,
+        "magic": 65,
+        "fire": 63,
+        "lightning": 54,
+        "holy": 60
+      },
+      "stability": 66,
+      "canParry": false,
+      "blocksAllPhysical": true
+    },
+    "upgrade": {
+      "path": "standard",
+      "level": 0,
+      "maxLevel": 25
+    },
+    "affinity": "standard",
+    "skill": null,
+    "twoHandable": true
+  },
+  "dragonclaw-shield": {
+    "id": "dragonclaw-shield",
+    "name": "Dragonclaw Shield",
+    "category": "shield",
+    "description": "Greatshield said to have been whittled from the claw of a great, ancient dragon, wielded by grotesque Tree Sentinels who yet serve the Edrtree. Imbued with lightning.",
+    "imageUrl": "https://eldenring.fanapis.com/images/shields/17f69872931l0i12dy19gq5ij75yoe.png",
+    "sourceId": "17f69872931l0i12dy19gq5ij75yoe",
+    "weaponClass": "Greatshield",
+    "shieldClass": "Greatshield",
+    "weight": 13.5,
+    "requirements": {
+      "strength": 28,
+      "dexterity": 12,
+      "intelligence": 0,
+      "faith": 0,
+      "arcane": 0
+    },
+    "scaling": {
+      "strength": {
+        "grade": "D",
+        "coefficient": 0.3
+      },
+      "dexterity": {
+        "grade": "E",
+        "coefficient": 0.15
+      }
+    },
+    "attack": {
+      "physical": 118,
+      "magic": 0,
+      "fire": 0,
+      "lightning": 76,
+      "holy": 0
+    },
+    "criticalMultiplier": 100,
+    "statusBuildup": {},
+    "guard": {
+      "negation": {
+        "physical": 100,
+        "magic": 52,
+        "fire": 52,
+        "lightning": 76,
+        "holy": 47
+      },
+      "stability": 59,
+      "canParry": false,
+      "blocksAllPhysical": true
+    },
+    "upgrade": {
+      "path": "standard",
+      "level": 0,
+      "maxLevel": 25
+    },
+    "affinity": "standard",
+    "skill": null,
+    "twoHandable": true
+  },
+  "golden-beast-crest-shield": {
+    "id": "golden-beast-crest-shield",
+    "name": "Golden Beast Crest Shield",
+    "category": "shield",
+    "description": "Shield of dull gold with a beast engraved as its crest. Lighter than most greratshields, and subsequently easier to wield. The beast depicted is Serosh, aged counselor who guides the golden lineage.",
+    "imageUrl": "https://eldenring.fanapis.com/images/shields/17f6989b386l0i12e4lob57bdw1rqq.png",
+    "sourceId": "17f6989b386l0i12e4lob57bdw1rqq",
+    "weaponClass": "Greatshield",
+    "shieldClass": "Greatshield",
+    "weight": 12.5,
+    "requirements": {
+      "strength": 24,
+      "dexterity": 0,
+      "intelligence": 0,
+      "faith": 0,
+      "arcane": 0
+    },
+    "scaling": {
+      "strength": {
+        "grade": "D",
+        "coefficient": 0.3
+      }
+    },
+    "attack": {
+      "physical": 0,
+      "magic": 0,
+      "fire": 0,
+      "lightning": 0,
+      "holy": 0
+    },
+    "criticalMultiplier": 100,
+    "statusBuildup": {},
+    "guard": {
+      "negation": {
+        "physical": 100,
+        "magic": 55,
+        "fire": 55,
+        "lightning": 48,
+        "holy": 55
+      },
+      "stability": 58,
+      "canParry": false,
+      "blocksAllPhysical": true
+    },
+    "upgrade": {
+      "path": "standard",
+      "level": 0,
+      "maxLevel": 25
+    },
+    "affinity": "standard",
+    "skill": null,
+    "twoHandable": true
+  },
+  "erdtree-greatshield": {
+    "id": "erdtree-greatshield",
+    "name": "Erdtree Greatshield",
+    "category": "shield",
+    "description": "Weighty greatshield forged of gold carried by the order of Tree Sentinels, heavily equipped knights. Blessed by an old incantation of protection. The living rampart of the Erdtree, the Tree Sentinels are the standard to which all defenders of the Erdtree aspire.",
+    "imageUrl": "https://eldenring.fanapis.com/images/shields/17f694b1b61l0i12e5nf59cb5qk7vu.png",
+    "sourceId": "17f694b1b61l0i12e5nf59cb5qk7vu",
+    "weaponClass": "Greatshield",
+    "shieldClass": "Greatshield",
+    "weight": 13.5,
+    "requirements": {
+      "strength": 30,
+      "dexterity": 0,
+      "intelligence": 0,
+      "faith": 12,
+      "arcane": 0
+    },
+    "scaling": {},
+    "attack": {
+      "physical": 120,
+      "magic": 0,
+      "fire": 0,
+      "lightning": 0,
+      "holy": 78
+    },
+    "criticalMultiplier": 100,
+    "statusBuildup": {},
+    "guard": {
+      "negation": {
+        "physical": 100,
+        "magic": 66,
+        "fire": 49,
+        "lightning": 45,
+        "holy": 76
+      },
+      "stability": 57,
+      "canParry": false,
+      "blocksAllPhysical": true
+    },
+    "upgrade": {
+      "path": "standard",
+      "level": 0,
+      "maxLevel": 25
+    },
+    "affinity": "standard",
+    "skill": null,
+    "twoHandable": true
+  },
+  "briar-greatshield": {
+    "id": "briar-greatshield",
+    "name": "Briar Greatshield",
+    "category": "shield",
+    "description": "Greatshield from a foreign land, used by Elemer of the Briar. Attacks with this armament utilize the iron thorns that have been wound around its frame. Originates from Eochaid, a land of proudly solitary ascetics.",
+    "imageUrl": "https://eldenring.fanapis.com/images/shields/17f69ac13ecl0i12e68qij6rgf53vp.png",
+    "sourceId": "17f69ac13ecl0i12e68qij6rgf53vp",
+    "weaponClass": "Greatshield",
+    "shieldClass": "Greatshield",
+    "weight": 9.5,
+    "requirements": {
+      "strength": 21,
+      "dexterity": 0,
+      "intelligence": 0,
+      "faith": 0,
+      "arcane": 0
+    },
+    "scaling": {
+      "strength": {
+        "grade": "D",
+        "coefficient": 0.3
+      }
+    },
+    "attack": {
+      "physical": 98,
+      "magic": 0,
+      "fire": 0,
+      "lightning": 0,
+      "holy": 0
+    },
+    "criticalMultiplier": 100,
+    "statusBuildup": {},
+    "guard": {
+      "negation": {
+        "physical": 82,
+        "magic": 50,
+        "fire": 43,
+        "lightning": 50,
+        "holy": 50
+      },
+      "stability": 56,
+      "canParry": false,
+      "blocksAllPhysical": false
+    },
+    "upgrade": {
+      "path": "standard",
+      "level": 0,
+      "maxLevel": 25
+    },
+    "affinity": "standard",
+    "skill": null,
+    "twoHandable": true
+  },
+  "jellyfish-shield": {
+    "id": "jellyfish-shield",
+    "name": "Jellyfish Shield",
+    "category": "shield",
+    "description": "The head of a spirit jellyfish, commonly found floating above sacred ground throughout the Lands Between, wielded without modification as a shield. The see-through head is extremely light, but its flesh is supple, providing absolutely no protection from piercing attacks",
+    "imageUrl": "https://eldenring.fanapis.com/images/shields/17f699569f2l0i12e91gm212p52kz4.png",
+    "sourceId": "17f699569f2l0i12e91gm212p52kz4",
+    "weaponClass": "Greatshield",
+    "shieldClass": "Greatshield",
+    "weight": 8,
+    "requirements": {
+      "strength": 20,
+      "dexterity": 14,
+      "intelligence": 0,
+      "faith": 0,
+      "arcane": 0
+    },
+    "scaling": {
+      "strength": {
+        "grade": "D",
+        "coefficient": 0.3
+      }
+    },
+    "attack": {
+      "physical": 123,
+      "magic": 0,
+      "fire": 0,
+      "lightning": 0,
+      "holy": 0
+    },
+    "criticalMultiplier": 100,
+    "statusBuildup": {},
+    "guard": {
+      "negation": {
+        "physical": 100,
+        "magic": 52,
+        "fire": 52,
+        "lightning": 40,
+        "holy": 48
+      },
+      "stability": 50,
+      "canParry": false,
+      "blocksAllPhysical": true
+    },
+    "upgrade": {
+      "path": "standard",
+      "level": 0,
+      "maxLevel": 25
+    },
+    "affinity": "standard",
+    "skill": null,
+    "twoHandable": true
+  },
+  "fingerprint-stone-shield": {
+    "id": "fingerprint-stone-shield",
+    "name": "Fingerprint Stone Shield",
+    "category": "shield",
+    "description": "A great stone shield with an intricately carved fingerprint design. One of the heaviest of all greatshields. Part of the tomb of an ancient god, the Readerless Fingers relayed their message through these imprints, said to be the very seeds from which frenzy first sprouted.",
+    "imageUrl": "https://eldenring.fanapis.com/images/shields/17f69ac7946l0i12emsgkbeuohu93n.png",
+    "sourceId": "17f69ac7946l0i12emsgkbeuohu93n",
+    "weaponClass": "Greatshield",
+    "shieldClass": "Greatshield",
+    "weight": 29,
+    "requirements": {
+      "strength": 48,
+      "dexterity": 0,
+      "intelligence": 0,
+      "faith": 0,
+      "arcane": 0
+    },
+    "scaling": {},
+    "attack": {
+      "physical": 158,
+      "magic": 0,
+      "fire": 0,
+      "lightning": 0,
+      "holy": 0
+    },
+    "criticalMultiplier": 100,
+    "statusBuildup": {},
+    "guard": {
+      "negation": {
+        "physical": 100,
+        "magic": 77,
+        "fire": 81,
+        "lightning": 79,
+        "holy": 75
+      },
+      "stability": 81,
+      "canParry": false,
+      "blocksAllPhysical": true
+    },
+    "upgrade": {
+      "path": "standard",
+      "level": 0,
+      "maxLevel": 25
+    },
+    "affinity": "standard",
+    "skill": null,
+    "twoHandable": true
+  },
+  "icon-shield": {
+    "id": "icon-shield",
+    "name": "Icon Shield",
+    "category": "shield",
+    "description": "Greatshield painted with a divine scene; the recipients of a blessed tear from the Erdtree. An item that looks back fondly on the age of plenty. The divine scene acts in and of itself as a sacred invocation; gradually restoring the carrier's HP.",
+    "imageUrl": "https://eldenring.fanapis.com/images/shields/17f693ca65dl0i12eu7yz6cf3nexe.png",
+    "sourceId": "17f693ca65dl0i12eu7yz6cf3nexe",
+    "weaponClass": "Greatshield",
+    "shieldClass": "Greatshield",
+    "weight": 11.5,
+    "requirements": {
+      "strength": 22,
+      "dexterity": 0,
+      "intelligence": 0,
+      "faith": 0,
+      "arcane": 0
+    },
+    "scaling": {
+      "strength": {
+        "grade": "D",
+        "coefficient": 0.3
+      }
+    },
+    "attack": {
+      "physical": 160,
+      "magic": 0,
+      "fire": 0,
+      "lightning": 0,
+      "holy": 0
+    },
+    "criticalMultiplier": 100,
+    "statusBuildup": {},
+    "guard": {
+      "negation": {
+        "physical": 89,
+        "magic": 49,
+        "fire": 45,
+        "lightning": 51,
+        "holy": 48
+      },
+      "stability": 57,
+      "canParry": false,
+      "blocksAllPhysical": false
+    },
+    "upgrade": {
+      "path": "standard",
+      "level": 0,
+      "maxLevel": 25
+    },
+    "affinity": "standard",
+    "skill": null,
+    "twoHandable": true
+  },
+  "visage-shield": {
+    "id": "visage-shield",
+    "name": "Visage Shield",
+    "category": "shield",
+    "description": "Tricksome bronze shield depicting the face of a Fire Giant. Several tongues leap from its open mouth. The dreadful visage and burning flames are designed to remind one of the horror of facing a Fire Giant. In other words, this shield has an instructional function.",
+    "imageUrl": "https://eldenring.fanapis.com/images/shields/17f69797ac7l0i12ew4eqk33suyj17.png",
+    "sourceId": "17f69797ac7l0i12ew4eqk33suyj17",
+    "weaponClass": "Greatshield",
+    "shieldClass": "Greatshield",
+    "weight": 24,
+    "requirements": {
+      "strength": 44,
+      "dexterity": 0,
+      "intelligence": 0,
+      "faith": 0,
+      "arcane": 0
+    },
+    "scaling": {
+      "strength": {
+        "grade": "D",
+        "coefficient": 0.3
+      }
+    },
+    "attack": {
+      "physical": 186,
+      "magic": 0,
+      "fire": 0,
+      "lightning": 0,
+      "holy": 0
+    },
+    "criticalMultiplier": 100,
+    "statusBuildup": {},
+    "guard": {
+      "negation": {
+        "physical": 100,
+        "magic": 62,
+        "fire": 81,
+        "lightning": 65,
+        "holy": 62
+      },
+      "stability": 75,
+      "canParry": false,
+      "blocksAllPhysical": true
+    },
+    "upgrade": {
+      "path": "standard",
+      "level": 0,
+      "maxLevel": 25
+    },
+    "affinity": "standard",
+    "skill": null,
+    "twoHandable": true
+  },
+  "one-eyed-shield": {
+    "id": "one-eyed-shield",
+    "name": "One-eyed Shield",
+    "category": "shield",
+    "description": "Tricksome shield made from white stone depicting a malformed one-eyed god. The barrel of a firearm pokes through the open mouth. Once worshipped by the giants, this evil deity is believed to have been slain by Queen Marika.",
+    "imageUrl": "https://eldenring.fanapis.com/images/shields/17f69378e1dl0i12exgnluqgflkbi.png",
+    "sourceId": "17f69378e1dl0i12exgnluqgflkbi",
+    "weaponClass": "Greatshield",
+    "shieldClass": "Greatshield",
+    "weight": 20.5,
+    "requirements": {
+      "strength": 36,
+      "dexterity": 0,
+      "intelligence": 0,
+      "faith": 0,
+      "arcane": 0
+    },
+    "scaling": {
+      "strength": {
+        "grade": "D",
+        "coefficient": 0.3
+      }
+    },
+    "attack": {
+      "physical": 175,
+      "magic": 0,
+      "fire": 0,
+      "lightning": 0,
+      "holy": 0
+    },
+    "criticalMultiplier": 100,
+    "statusBuildup": {},
+    "guard": {
+      "negation": {
+        "physical": 100,
+        "magic": 57,
+        "fire": 69,
+        "lightning": 59,
+        "holy": 63
+      },
+      "stability": 67,
+      "canParry": false,
+      "blocksAllPhysical": true
+    },
+    "upgrade": {
+      "path": "standard",
+      "level": 0,
+      "maxLevel": 25
+    },
+    "affinity": "standard",
+    "skill": null,
+    "twoHandable": true
+  },
+  "spiked-palisade-shield": {
+    "id": "spiked-palisade-shield",
+    "name": "Spiked Palisade Shield",
+    "category": "shield",
+    "description": "Designed to perform shield bashes, these attacks riddle the enemy with holes, earning it the nickname of \"pard shield\"",
+    "imageUrl": "https://eldenring.fanapis.com/images/shields/17f69c7916el0i12ey2p0l7xj09nis.png",
+    "sourceId": "17f69c7916el0i12ey2p0l7xj09nis",
+    "weaponClass": "Greatshield",
+    "shieldClass": "Greatshield",
+    "weight": 11.5,
+    "requirements": {
+      "strength": 20,
+      "dexterity": 0,
+      "intelligence": 0,
+      "faith": 0,
+      "arcane": 0
+    },
+    "scaling": {
+      "strength": {
+        "grade": "D",
+        "coefficient": 0.3
+      }
+    },
+    "attack": {
+      "physical": 0,
+      "magic": 0,
+      "fire": 0,
+      "lightning": 0,
+      "holy": 0
+    },
+    "criticalMultiplier": 100,
+    "statusBuildup": {},
+    "guard": {
+      "negation": {
+        "physical": 89,
+        "magic": 51,
+        "fire": 45,
+        "lightning": 54,
+        "holy": 50
+      },
+      "stability": 57,
+      "canParry": false,
+      "blocksAllPhysical": false
+    },
+    "upgrade": {
+      "path": "standard",
+      "level": 0,
+      "maxLevel": 25
+    },
+    "affinity": "standard",
+    "skill": null,
+    "twoHandable": true
+  },
+  "manor-towershield": {
+    "id": "manor-towershield",
+    "name": "Manor Towershield",
+    "category": "shield",
+    "description": "An iron greatshield large enough to cover the entire body. Depicts the Roundtable Hold, gathering place of champions. Greatshields boast high damage negation and guard capacity, making enemy attacks easy to repel.",
+    "imageUrl": "https://eldenring.fanapis.com/images/shields/17f695ce77cl0i12fbgg8t0smpvg3n.png",
+    "sourceId": "17f695ce77cl0i12fbgg8t0smpvg3n",
+    "weaponClass": "Greatshield",
+    "shieldClass": "Greatshield",
+    "weight": 16,
+    "requirements": {
+      "strength": 30,
+      "dexterity": 0,
+      "intelligence": 0,
+      "faith": 0,
+      "arcane": 0
+    },
+    "scaling": {
+      "strength": {
+        "grade": "D",
+        "coefficient": 0.3
+      }
+    },
+    "attack": {
+      "physical": 111,
+      "magic": 0,
+      "fire": 0,
+      "lightning": 0,
+      "holy": 0
+    },
+    "criticalMultiplier": 100,
+    "statusBuildup": {},
+    "guard": {
+      "negation": {
+        "physical": 100,
+        "magic": 66,
+        "fire": 66,
+        "lightning": 51,
+        "holy": 56
+      },
+      "stability": 65,
+      "canParry": false,
+      "blocksAllPhysical": true
+    },
+    "upgrade": {
+      "path": "standard",
+      "level": 0,
+      "maxLevel": 25
+    },
+    "affinity": "standard",
+    "skill": null,
+    "twoHandable": true
+  },
+  "crossed-tree-towershield": {
+    "id": "crossed-tree-towershield",
+    "name": "Crossed-tree Towershield",
+    "category": "shield",
+    "description": "An iron greatshield large enough to cover the entire body. Emblazoned with an old, interleaving tree. Greatshields boast high damage negation and guard capacity, making enemy attacks easy to repel",
+    "imageUrl": "https://eldenring.fanapis.com/images/shields/17f6981fc6cl0i12fkq4jfcsautbiv.png",
+    "sourceId": "17f6981fc6cl0i12fkq4jfcsautbiv",
+    "weaponClass": "Greatshield",
+    "shieldClass": "Greatshield",
+    "weight": 16,
+    "requirements": {
+      "strength": 30,
+      "dexterity": 0,
+      "intelligence": 0,
+      "faith": 0,
+      "arcane": 0
+    },
+    "scaling": {},
+    "attack": {
+      "physical": 111,
+      "magic": 0,
+      "fire": 0,
+      "lightning": 0,
+      "holy": 0
+    },
+    "criticalMultiplier": 100,
+    "statusBuildup": {},
+    "guard": {
+      "negation": {
+        "physical": 100,
+        "magic": 66,
+        "fire": 56,
+        "lightning": 54,
+        "holy": 66
+      },
+      "stability": 63,
+      "canParry": false,
+      "blocksAllPhysical": true
+    },
+    "upgrade": {
+      "path": "standard",
+      "level": 0,
+      "maxLevel": 25
+    },
+    "affinity": "standard",
+    "skill": null,
+    "twoHandable": true
+  },
+  "redmane-greatshield": {
+    "id": "redmane-greatshield",
+    "name": "Redmane Greatshield",
+    "category": "shield",
+    "description": "Greatshield shaped like a fang, featuring the crest of red-maned lion. Carried by the Redmane Knights who fought alongside Radahn.",
+    "imageUrl": "https://eldenring.fanapis.com/images/shields/17f69a1afefl0i12fozrc1tnhg20is.png",
+    "sourceId": "17f69a1afefl0i12fozrc1tnhg20is",
+    "weaponClass": "Greatshield",
+    "shieldClass": "Greatshield",
+    "weight": 14,
+    "requirements": {
+      "strength": 30,
+      "dexterity": 0,
+      "intelligence": 0,
+      "faith": 0,
+      "arcane": 0
+    },
+    "scaling": {},
+    "attack": {
+      "physical": 108,
+      "magic": 0,
+      "fire": 0,
+      "lightning": 0,
+      "holy": 0
+    },
+    "criticalMultiplier": 100,
+    "statusBuildup": {},
+    "guard": {
+      "negation": {
+        "physical": 100,
+        "magic": 54,
+        "fire": 70,
+        "lightning": 53,
+        "holy": 52
+      },
+      "stability": 61,
+      "canParry": false,
+      "blocksAllPhysical": true
+    },
+    "upgrade": {
+      "path": "standard",
+      "level": 0,
+      "maxLevel": 25
+    },
+    "affinity": "standard",
+    "skill": null,
+    "twoHandable": true
+  },
+  "ants-skull-plate": {
+    "id": "ants-skull-plate",
+    "name": "Ant's Skull Plate",
+    "category": "shield",
+    "description": "Huge head of one of the giant ants which inhabit the two underground rivers, used without modification as a shield. Excels at repeling enemy attacks. Giant ants are venomous creatures, granting a boost to immunity when wielding the shield.",
+    "imageUrl": "https://eldenring.fanapis.com/images/shields/17f69b33aafl0i12fqkwzuaznegji.png",
+    "sourceId": "17f69b33aafl0i12fqkwzuaznegji",
+    "weaponClass": "Greatshield",
+    "shieldClass": "Greatshield",
+    "weight": 13.5,
+    "requirements": {
+      "strength": 28,
+      "dexterity": 0,
+      "intelligence": 0,
+      "faith": 0,
+      "arcane": 0
+    },
+    "scaling": {
+      "strength": {
+        "grade": "D",
+        "coefficient": 0.3
+      }
+    },
+    "attack": {
+      "physical": 136,
+      "magic": 0,
+      "fire": 0,
+      "lightning": 0,
+      "holy": 0
+    },
+    "criticalMultiplier": 100,
+    "statusBuildup": {},
+    "guard": {
+      "negation": {
+        "physical": 100,
+        "magic": 47,
+        "fire": 42,
+        "lightning": 57,
+        "holy": 57
+      },
+      "stability": 59,
+      "canParry": false,
+      "blocksAllPhysical": true
+    },
+    "upgrade": {
+      "path": "standard",
+      "level": 0,
+      "maxLevel": 25
+    },
+    "affinity": "standard",
+    "skill": null,
+    "twoHandable": true
+  },
+  "inverted-hawk-towershield": {
+    "id": "inverted-hawk-towershield",
+    "name": "Inverted Hawk Towershield",
+    "category": "shield",
+    "description": "An iron greatshield large enough to cover the entire body. Features an inverted hawk crest. Greatshields boast high damage negation and guard capacity, making enemy attacks easy to repel.",
+    "imageUrl": "https://eldenring.fanapis.com/images/shields/17f69bfaff2l0i12frzztam4cpn7d.png",
+    "sourceId": "17f69bfaff2l0i12frzztam4cpn7d",
+    "weaponClass": "Greatshield",
+    "shieldClass": "Greatshield",
+    "weight": 16,
+    "requirements": {
+      "strength": 30,
+      "dexterity": 0,
+      "intelligence": 0,
+      "faith": 0,
+      "arcane": 0
+    },
+    "scaling": {},
+    "attack": {
+      "physical": 111,
+      "magic": 0,
+      "fire": 0,
+      "lightning": 0,
+      "holy": 0
+    },
+    "criticalMultiplier": 100,
+    "statusBuildup": {},
+    "guard": {
+      "negation": {
+        "physical": 100,
+        "magic": 66,
+        "fire": 56,
+        "lightning": 54,
+        "holy": 66
+      },
+      "stability": 63,
+      "canParry": false,
+      "blocksAllPhysical": true
+    },
+    "upgrade": {
+      "path": "standard",
+      "level": 0,
+      "maxLevel": 25
+    },
+    "affinity": "standard",
+    "skill": null,
+    "twoHandable": true
+  },
+  "eclipse-crest-greatshield": {
+    "id": "eclipse-crest-greatshield",
+    "name": "Eclipse Crest Greatshield",
+    "category": "shield",
+    "description": "Metal greatshield painted with a sun in eclipse. Carried by the headless mausoleum knights. The eclipsed sun, drained of color, is the protective star of soulless demigods. It aids the mausoleum knights by keeping Destined Death at bay. No skill. This armament has no skill. If the armament in the other hand has a skill, that skill will be used instead.",
+    "imageUrl": "https://eldenring.fanapis.com/images/shields/17f69ae9ee5l0i12fyuk6a06fvdcq.png",
+    "sourceId": "17f69ae9ee5l0i12fyuk6a06fvdcq",
+    "weaponClass": "Greatshield",
+    "shieldClass": "Greatshield",
+    "weight": 15,
+    "requirements": {
+      "strength": 0,
+      "dexterity": 0,
+      "intelligence": 0,
+      "faith": 0,
+      "arcane": 0
+    },
+    "scaling": {
+      "strength": {
+        "grade": "D",
+        "coefficient": 0.3
+      }
+    },
+    "attack": {
+      "physical": 110,
+      "magic": 0,
+      "fire": 0,
+      "lightning": 0,
+      "holy": 0
+    },
+    "criticalMultiplier": 100,
+    "statusBuildup": {},
+    "guard": {
+      "negation": {
+        "physical": 100,
+        "magic": 72,
+        "fire": 57,
+        "lightning": 51,
+        "holy": 59
+      },
+      "stability": 63,
+      "canParry": false,
+      "blocksAllPhysical": true
+    },
+    "upgrade": {
+      "path": "standard",
+      "level": 0,
+      "maxLevel": 25
+    },
+    "affinity": "standard",
+    "skill": null,
+    "twoHandable": true
+  },
+  "cuckoo-greatshield": {
+    "id": "cuckoo-greatshield",
+    "name": "Cuckoo Greatshield",
+    "category": "shield",
+    "description": "Metal Greatshield painted with a peering cuckoo. Carried by the enchanted knights sworn to the academy. Boasting high magic damage negation, this shield is used to hunt down mages. Our Enemys is none other then caria itself",
+    "imageUrl": "https://eldenring.fanapis.com/images/shields/17f69aba9d3l0i12ga56obpyqthd0a.png",
+    "sourceId": "17f69aba9d3l0i12ga56obpyqthd0a",
+    "weaponClass": "Medium Shield",
+    "shieldClass": "Medium Shield",
+    "weight": 15,
+    "requirements": {
+      "strength": 32,
+      "dexterity": 0,
+      "intelligence": 0,
+      "faith": 0,
+      "arcane": 0
+    },
+    "scaling": {
+      "strength": {
+        "grade": "D",
+        "coefficient": 0.3
+      }
+    },
+    "attack": {
+      "physical": 110,
+      "magic": 0,
+      "fire": 0,
+      "lightning": 0,
+      "holy": 0
+    },
+    "criticalMultiplier": 100,
+    "statusBuildup": {},
+    "guard": {
+      "negation": {
+        "physical": 100,
+        "magic": 70,
+        "fire": 56,
+        "lightning": 52,
+        "holy": 60
+      },
+      "stability": 62,
+      "canParry": true,
+      "blocksAllPhysical": true
+    },
+    "upgrade": {
+      "path": "standard",
+      "level": 0,
+      "maxLevel": 25
+    },
+    "affinity": "standard",
+    "skill": null,
+    "twoHandable": true
+  },
+  "gilded-greatshield": {
+    "id": "gilded-greatshield",
+    "name": "Gilded Greatshield",
+    "category": "shield",
+    "description": "Metal greatshield coated with gold. Carried by knights loyal to Godrick. The red tinge in the gold coat mirrors the primordial matter that became the Erdtree. The color of homeward yearning.",
+    "imageUrl": "https://eldenring.fanapis.com/images/shields/17f695ae9edl0i12glt4xotvobrl0m.png",
+    "sourceId": "17f695ae9edl0i12glt4xotvobrl0m",
+    "weaponClass": "Greatshield",
+    "shieldClass": "Greatshield",
+    "weight": 17.5,
+    "requirements": {
+      "strength": 36,
+      "dexterity": 0,
+      "intelligence": 0,
+      "faith": 0,
+      "arcane": 0
+    },
+    "scaling": {
+      "strength": {
+        "grade": "D",
+        "coefficient": 0.3
+      }
+    },
+    "attack": {
+      "physical": 115,
+      "magic": 0,
+      "fire": 0,
+      "lightning": 0,
+      "holy": 9
+    },
+    "criticalMultiplier": 100,
+    "statusBuildup": {},
+    "guard": {
+      "negation": {
+        "physical": 100,
+        "magic": 60,
+        "fire": 66,
+        "lightning": 54,
+        "holy": 65
+      },
+      "stability": 67,
+      "canParry": false,
+      "blocksAllPhysical": true
+    },
+    "upgrade": {
+      "path": "standard",
+      "level": 0,
+      "maxLevel": 25
+    },
+    "affinity": "standard",
+    "skill": null,
+    "twoHandable": true
+  },
+  "golden-greatshield": {
+    "id": "golden-greatshield",
+    "name": "Golden Greatshield",
+    "category": "shield",
+    "description": "Oval greatshield made of gold, carried by knights who protect the Royal Capital of Leyndell. Knights of Leyndell are reputed for their sturdiness, exemplified by this shield's exceptional guard capacity.",
+    "imageUrl": "https://eldenring.fanapis.com/images/shields/17f698cf6d3l0i12gnjnwa5wdqlqj.png",
+    "sourceId": "17f698cf6d3l0i12gnjnwa5wdqlqj",
+    "weaponClass": "Greatshield",
+    "shieldClass": "Greatshield",
+    "weight": 17,
+    "requirements": {
+      "strength": 34,
+      "dexterity": 0,
+      "intelligence": 0,
+      "faith": 0,
+      "arcane": 0
+    },
+    "scaling": {
+      "strength": {
+        "grade": "D",
+        "coefficient": 0.3
+      }
+    },
+    "attack": {
+      "physical": 100,
+      "magic": 0,
+      "fire": 0,
+      "lightning": 0,
+      "holy": 0
+    },
+    "criticalMultiplier": 100,
+    "statusBuildup": {},
+    "guard": {
+      "negation": {
+        "physical": 100,
+        "magic": 57,
+        "fire": 60,
+        "lightning": 57,
+        "holy": 68
+      },
+      "stability": 68,
+      "canParry": false,
+      "blocksAllPhysical": true
+    },
+    "upgrade": {
+      "path": "standard",
+      "level": 0,
+      "maxLevel": 25
+    },
+    "affinity": "standard",
+    "skill": null,
+    "twoHandable": true
+  },
+  "haligtree-crest-greatshield": {
+    "id": "haligtree-crest-greatshield",
+    "name": "Haligtree Crest Greatshield",
+    "category": "shield",
+    "description": "Metal greatshield depicting the Haligtree with unalloyed gold. Carried by knights who have vowed to serve Miquella's Haligtree. Possesses high holy damage negation. Yet now, with the Haligtree misshapen, this wondrous rendition is a fleeting fantasy.",
+    "imageUrl": "https://eldenring.fanapis.com/images/shields/17f698f9c1fl0i12go9pgbh4sdw0zs.png",
+    "sourceId": "17f698f9c1fl0i12go9pgbh4sdw0zs",
+    "weaponClass": "Greatshield",
+    "shieldClass": "Greatshield",
+    "weight": 18.5,
+    "requirements": {
+      "strength": 36,
+      "dexterity": 0,
+      "intelligence": 0,
+      "faith": 0,
+      "arcane": 0
+    },
+    "scaling": {},
+    "attack": {
+      "physical": 116,
+      "magic": 0,
+      "fire": 0,
+      "lightning": 0,
+      "holy": 0
+    },
+    "criticalMultiplier": 100,
+    "statusBuildup": {},
+    "guard": {
+      "negation": {
+        "physical": 100,
+        "magic": 61,
+        "fire": 67,
+        "lightning": 55,
+        "holy": 79
+      },
+      "stability": 68,
+      "canParry": false,
+      "blocksAllPhysical": true
+    },
+    "upgrade": {
+      "path": "standard",
+      "level": 0,
+      "maxLevel": 25
+    },
+    "affinity": "standard",
+    "skill": null,
+    "twoHandable": true
+  },
+  "wooden-greatshield": {
+    "id": "wooden-greatshield",
+    "name": "Wooden Greatshield",
+    "category": "shield",
+    "description": "Wooden greatshield reinforced with a metal ornamentation. Greatshields boast high damage negation and guard capacity, making enemy attacks easy to repel.",
+    "imageUrl": "https://eldenring.fanapis.com/images/shields/17f699949b2l0i12gqzulu6fgih91o.png",
+    "sourceId": "17f699949b2l0i12gqzulu6fgih91o",
+    "weaponClass": "Greatshield",
+    "shieldClass": "Greatshield",
+    "weight": 8,
+    "requirements": {
+      "strength": 14,
+      "dexterity": 0,
+      "intelligence": 0,
+      "faith": 0,
+      "arcane": 0
+    },
+    "scaling": {
+      "strength": {
+        "grade": "D",
+        "coefficient": 0.3
+      }
+    },
+    "attack": {
+      "physical": 95,
+      "magic": 0,
+      "fire": 0,
+      "lightning": 0,
+      "holy": 0
+    },
+    "criticalMultiplier": 100,
+    "statusBuildup": {},
+    "guard": {
+      "negation": {
+        "physical": 79,
+        "magic": 49,
+        "fire": 41,
+        "lightning": 51,
+        "holy": 47
+      },
+      "stability": 51,
+      "canParry": false,
+      "blocksAllPhysical": false
+    },
+    "upgrade": {
+      "path": "standard",
+      "level": 0,
+      "maxLevel": 25
+    },
+    "affinity": "standard",
+    "skill": null,
+    "twoHandable": true
+  },
+  "lordsworns-shield": {
+    "id": "lordsworns-shield",
+    "name": "Lordsworn's Shield",
+    "category": "shield",
+    "description": "Wooden tower shield. Lightweightfor a greatshield and easy to handle. Commonly used in the Shattering. Greatshields boast high damage negation and guard capacity, making enemy attacks easy to repel.",
+    "imageUrl": "https://eldenring.fanapis.com/images/shields/17f69b9df0bl0i12h4ss3ka8zvpcoc.png",
+    "sourceId": "17f69b9df0bl0i12h4ss3ka8zvpcoc",
+    "weaponClass": "Greatshield",
+    "shieldClass": "Greatshield",
+    "weight": 10,
+    "requirements": {
+      "strength": 16,
+      "dexterity": 0,
+      "intelligence": 0,
+      "faith": 0,
+      "arcane": 0
+    },
+    "scaling": {
+      "strength": {
+        "grade": "D",
+        "coefficient": 0.3
+      }
+    },
+    "attack": {
+      "physical": 99,
+      "magic": 0,
+      "fire": 0,
+      "lightning": 0,
+      "holy": 0
+    },
+    "criticalMultiplier": 100,
+    "statusBuildup": {},
+    "guard": {
+      "negation": {
+        "physical": 84,
+        "magic": 51,
+        "fire": 44,
+        "lightning": 52,
+        "holy": 52
+      },
+      "stability": 57,
+      "canParry": false,
+      "blocksAllPhysical": false
+    },
+    "upgrade": {
+      "path": "standard",
+      "level": 0,
+      "maxLevel": 25
+    },
+    "affinity": "standard",
+    "skill": null,
+    "twoHandable": true
+  }
+}

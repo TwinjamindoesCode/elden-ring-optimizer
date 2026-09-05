@@ -1,0 +1,735 @@
+{
+  "hero": {
+    "id": "hero",
+    "name": "Hero",
+    "category": "class",
+    "description": "A stalwart Hero, at home with a battleaxe, descended from a badlands chieftain",
+    "imageUrl": "https://eldenring.fanapis.com/images/classes/17f69d71826l0i32gkm3ndn3kywxqj.png",
+    "sourceId": "17f69d71826l0i32gkm3ndn3kywxqj",
+    "startingLevel": 7,
+    "stats": {
+      "vigor": 14,
+      "mind": 9,
+      "endurance": 12,
+      "strength": 16,
+      "dexterity": 9,
+      "intelligence": 7,
+      "faith": 8,
+      "arcane": 11
+    },
+    "totalAttributePoints": 86,
+    "isBaseClass": true,
+    "startingEquipment": {
+      "rightHand": [
+        {
+          "id": "battle-axe",
+          "name": "Battle Axe",
+          "category": "weapon"
+        }
+      ],
+      "leftHand": [],
+      "shields": [
+        {
+          "id": "large-leather-shield",
+          "name": "Large Leather Shield",
+          "category": "shield"
+        }
+      ],
+      "armor": {
+        "head": {
+          "id": "champion-headband",
+          "name": "Champion Headband",
+          "category": "armor"
+        },
+        "chest": {
+          "id": "champion-pauldron",
+          "name": "Champion Pauldron",
+          "category": "armor"
+        },
+        "hands": {
+          "id": "champion-bracers",
+          "name": "Champion Bracers",
+          "category": "armor"
+        },
+        "legs": {
+          "id": "champion-gaiters",
+          "name": "Champion Gaiters",
+          "category": "armor"
+        }
+      },
+      "sorceries": [],
+      "incantations": [],
+      "talismans": [],
+      "ammunition": [],
+      "keepsake": null
+    }
+  },
+  "warrior": {
+    "id": "warrior",
+    "name": "Warrior",
+    "category": "class",
+    "description": "A twinblade wielding warrior from a nomadic tribe. An origin of exceptional technique",
+    "imageUrl": "https://eldenring.fanapis.com/images/classes/17f69b2dd76l0i32gljr3f62pkzhjo.png",
+    "sourceId": "17f69b2dd76l0i32gljr3f62pkzhjo",
+    "startingLevel": 8,
+    "stats": {
+      "vigor": 11,
+      "mind": 12,
+      "endurance": 11,
+      "strength": 10,
+      "dexterity": 16,
+      "intelligence": 10,
+      "faith": 8,
+      "arcane": 9
+    },
+    "totalAttributePoints": 87,
+    "isBaseClass": true,
+    "startingEquipment": {
+      "rightHand": [
+        {
+          "id": "scimitar",
+          "name": "Scimitar",
+          "category": "weapon"
+        }
+      ],
+      "leftHand": [
+        {
+          "id": "scimitar",
+          "name": "Scimitar",
+          "category": "weapon"
+        }
+      ],
+      "shields": [
+        {
+          "id": "riveted-wooden-shield",
+          "name": "Riveted Wooden Shield",
+          "category": "shield"
+        }
+      ],
+      "armor": {
+        "head": {
+          "id": "blue-cloth-cowl",
+          "name": "Blue Cloth Cowl",
+          "category": "armor"
+        },
+        "chest": {
+          "id": "blue-cloth-vest",
+          "name": "Blue Cloth Vest",
+          "category": "armor"
+        },
+        "hands": {
+          "id": "warrior-gauntlets",
+          "name": "Warrior Gauntlets",
+          "category": "armor"
+        },
+        "legs": {
+          "id": "warrior-greaves",
+          "name": "Warrior Greaves",
+          "category": "armor"
+        }
+      },
+      "sorceries": [],
+      "incantations": [],
+      "talismans": [],
+      "ammunition": [],
+      "keepsake": null
+    }
+  },
+  "astrologer": {
+    "id": "astrologer",
+    "name": "Astrologer",
+    "category": "class",
+    "description": "A scholar who reads fate in the stars. Heir to the school of glintstone sorcery",
+    "imageUrl": "https://eldenring.fanapis.com/images/classes/17f69874f7bl0i32gmqaffmbfral8f.png",
+    "sourceId": "17f69874f7bl0i32gmqaffmbfral8f",
+    "startingLevel": 6,
+    "stats": {
+      "vigor": 9,
+      "mind": 15,
+      "endurance": 9,
+      "strength": 8,
+      "dexterity": 12,
+      "intelligence": 16,
+      "faith": 7,
+      "arcane": 9
+    },
+    "totalAttributePoints": 85,
+    "isBaseClass": true,
+    "startingEquipment": {
+      "rightHand": [
+        {
+          "id": "short-sword",
+          "name": "Short Sword",
+          "category": "weapon"
+        }
+      ],
+      "leftHand": [
+        {
+          "id": "astrologers-staff",
+          "name": "Astrologer's Staff",
+          "category": "weapon"
+        }
+      ],
+      "shields": [
+        {
+          "id": "scripture-wooden-shield",
+          "name": "Scripture Wooden Shield",
+          "category": "shield"
+        }
+      ],
+      "armor": {
+        "head": {
+          "id": "astrologer-hood",
+          "name": "Astrologer Hood",
+          "category": "armor"
+        },
+        "chest": {
+          "id": "astrologer-robe",
+          "name": "Astrologer Robe",
+          "category": "armor"
+        },
+        "hands": {
+          "id": "astrologer-gloves",
+          "name": "Astrologer Gloves",
+          "category": "armor"
+        },
+        "legs": {
+          "id": "astrologer-trousers",
+          "name": "Astrologer Trousers",
+          "category": "armor"
+        }
+      },
+      "sorceries": [
+        {
+          "id": "glintstone-pebble",
+          "name": "Glintstone Pebble",
+          "category": "sorcery"
+        },
+        {
+          "id": "glintstone-arc",
+          "name": "Glintstone Arc",
+          "category": "sorcery"
+        }
+      ],
+      "incantations": [],
+      "talismans": [],
+      "ammunition": [],
+      "keepsake": null
+    }
+  },
+  "bandit": {
+    "id": "bandit",
+    "name": "Bandit",
+    "category": "class",
+    "description": "A dangerous bandit who strikes for weak points. Excels at ranged combat with bows",
+    "imageUrl": "https://eldenring.fanapis.com/images/classes/17f69d43011l0i32gojnjjs9mcg0k.png",
+    "sourceId": "17f69d43011l0i32gojnjjs9mcg0k",
+    "startingLevel": 5,
+    "stats": {
+      "vigor": 10,
+      "mind": 11,
+      "endurance": 10,
+      "strength": 9,
+      "dexterity": 13,
+      "intelligence": 9,
+      "faith": 8,
+      "arcane": 14
+    },
+    "totalAttributePoints": 84,
+    "isBaseClass": true,
+    "startingEquipment": {
+      "rightHand": [
+        {
+          "id": "great-knife",
+          "name": "Great Knife",
+          "category": "weapon"
+        }
+      ],
+      "leftHand": [
+        {
+          "id": "shortbow",
+          "name": "Shortbow",
+          "category": "weapon"
+        }
+      ],
+      "shields": [
+        {
+          "id": "buckler",
+          "name": "Buckler",
+          "category": "shield"
+        }
+      ],
+      "armor": {
+        "head": {
+          "id": "bandit-mask",
+          "name": "Bandit Mask",
+          "category": "armor"
+        },
+        "chest": {
+          "id": "bandit-garb",
+          "name": "Bandit Garb",
+          "category": "armor"
+        },
+        "hands": {
+          "id": "bandit-manchettes",
+          "name": "Bandit Manchettes",
+          "category": "armor"
+        },
+        "legs": {
+          "id": "bandit-boots",
+          "name": "Bandit Boots",
+          "category": "armor"
+        }
+      },
+      "sorceries": [],
+      "incantations": [],
+      "talismans": [],
+      "ammunition": [
+        {
+          "ref": {
+            "id": "arrow",
+            "name": "Arrow",
+            "category": "weapon"
+          },
+          "quantity": 30
+        }
+      ],
+      "keepsake": null
+    }
+  },
+  "prisoner": {
+    "id": "prisoner",
+    "name": "Prisoner",
+    "category": "class",
+    "description": "A prisoner bound in an iron mask. Studied in glintstone sorcery, having lived among the elite prior to sentencing.",
+    "imageUrl": "https://eldenring.fanapis.com/images/classes/17f69d1f5f1l0i32grxfonsq64huhl.png",
+    "sourceId": "17f69d1f5f1l0i32grxfonsq64huhl",
+    "startingLevel": 9,
+    "stats": {
+      "vigor": 11,
+      "mind": 12,
+      "endurance": 11,
+      "strength": 11,
+      "dexterity": 14,
+      "intelligence": 14,
+      "faith": 6,
+      "arcane": 9
+    },
+    "totalAttributePoints": 88,
+    "isBaseClass": true,
+    "startingEquipment": {
+      "rightHand": [
+        {
+          "id": "estoc",
+          "name": "Estoc",
+          "category": "weapon"
+        }
+      ],
+      "leftHand": [
+        {
+          "id": "glintstone-staff",
+          "name": "Glintstone Staff",
+          "category": "weapon"
+        }
+      ],
+      "shields": [
+        {
+          "id": "rift-shield",
+          "name": "Rift Shield",
+          "category": "shield"
+        }
+      ],
+      "armor": {
+        "head": {
+          "id": "prisoner-iron-mask",
+          "name": "Prisoner Iron Mask",
+          "category": "armor"
+        },
+        "chest": {
+          "id": "prisoner-clothing",
+          "name": "Prisoner Clothing",
+          "category": "armor"
+        },
+        "hands": null,
+        "legs": {
+          "id": "prisoner-trousers",
+          "name": "Prisoner Trousers",
+          "category": "armor"
+        }
+      },
+      "sorceries": [
+        {
+          "id": "magic-glintblade",
+          "name": "Magic Glintblade",
+          "category": "sorcery"
+        }
+      ],
+      "incantations": [],
+      "talismans": [],
+      "ammunition": [],
+      "keepsake": null
+    }
+  },
+  "vagabond": {
+    "id": "vagabond",
+    "name": "Vagabond",
+    "category": "class",
+    "description": "A knight exiled from their homeland to wander. A solid, armor-clad origin.",
+    "imageUrl": "https://eldenring.fanapis.com/images/classes/17f69db959fl0i32hhpwdbjko0bj57.png",
+    "sourceId": "17f69db959fl0i32hhpwdbjko0bj57",
+    "startingLevel": 9,
+    "stats": {
+      "vigor": 15,
+      "mind": 10,
+      "endurance": 11,
+      "strength": 14,
+      "dexterity": 13,
+      "intelligence": 9,
+      "faith": 9,
+      "arcane": 7
+    },
+    "totalAttributePoints": 88,
+    "isBaseClass": true,
+    "startingEquipment": {
+      "rightHand": [
+        {
+          "id": "longsword",
+          "name": "Longsword",
+          "category": "weapon"
+        }
+      ],
+      "leftHand": [
+        {
+          "id": "halberd",
+          "name": "Halberd",
+          "category": "weapon"
+        }
+      ],
+      "shields": [
+        {
+          "id": "heater-shield",
+          "name": "Heater Shield",
+          "category": "shield"
+        }
+      ],
+      "armor": {
+        "head": {
+          "id": "vagabond-knight-helm",
+          "name": "Vagabond Knight Helm",
+          "category": "armor"
+        },
+        "chest": {
+          "id": "vagabond-knight-armor",
+          "name": "Vagabond Knight Armor",
+          "category": "armor"
+        },
+        "hands": {
+          "id": "vagabond-knight-gauntlets",
+          "name": "Vagabond Knight Gauntlets",
+          "category": "armor"
+        },
+        "legs": {
+          "id": "vagabond-knight-greaves",
+          "name": "Vagabond Knight Greaves",
+          "category": "armor"
+        }
+      },
+      "sorceries": [],
+      "incantations": [],
+      "talismans": [],
+      "ammunition": [],
+      "keepsake": null
+    }
+  },
+  "confessor": {
+    "id": "confessor",
+    "name": "Confessor",
+    "category": "class",
+    "description": "A church spy adept at covert operations. Equally adept with a sword as they are with incantations",
+    "imageUrl": "https://eldenring.fanapis.com/images/classes/17f69774a83l0i32hjagb1nwcs1hne.png",
+    "sourceId": "17f69774a83l0i32hjagb1nwcs1hne",
+    "startingLevel": 10,
+    "stats": {
+      "vigor": 10,
+      "mind": 13,
+      "endurance": 10,
+      "strength": 12,
+      "dexterity": 12,
+      "intelligence": 9,
+      "faith": 14,
+      "arcane": 9
+    },
+    "totalAttributePoints": 89,
+    "isBaseClass": true,
+    "startingEquipment": {
+      "rightHand": [
+        {
+          "id": "broadsword",
+          "name": "Broadsword",
+          "category": "weapon"
+        }
+      ],
+      "leftHand": [
+        {
+          "id": "finger-seal",
+          "name": "Finger Seal",
+          "category": "weapon"
+        }
+      ],
+      "shields": [
+        {
+          "id": "blue-crest-heater-shield",
+          "name": "Blue Crest Heater Shield",
+          "category": "shield"
+        }
+      ],
+      "armor": {
+        "head": {
+          "id": "confessor-hood",
+          "name": "Confessor Hood",
+          "category": "armor"
+        },
+        "chest": {
+          "id": "confessor-armor",
+          "name": "Confessor Armor",
+          "category": "armor"
+        },
+        "hands": {
+          "id": "confessor-gloves",
+          "name": "Confessor Gloves",
+          "category": "armor"
+        },
+        "legs": {
+          "id": "confessor-boots",
+          "name": "Confessor Boots",
+          "category": "armor"
+        }
+      },
+      "sorceries": [],
+      "incantations": [
+        {
+          "id": "urgent-heal",
+          "name": "Urgent Heal",
+          "category": "incantation"
+        },
+        {
+          "id": "assassins-approach",
+          "name": "Assassin's Approach",
+          "category": "incantation"
+        }
+      ],
+      "talismans": [],
+      "ammunition": [],
+      "keepsake": null
+    }
+  },
+  "wretch": {
+    "id": "wretch",
+    "name": "Wretch",
+    "category": "class",
+    "description": "A poor purposeless osd naked as they day they were born. A nice club is all they have",
+    "imageUrl": "https://eldenring.fanapis.com/images/classes/17f69d4ac46l0i32hju3peo5nijzbj.png",
+    "sourceId": "17f69d4ac46l0i32hju3peo5nijzbj",
+    "startingLevel": 1,
+    "stats": {
+      "vigor": 10,
+      "mind": 10,
+      "endurance": 10,
+      "strength": 10,
+      "dexterity": 10,
+      "intelligence": 10,
+      "faith": 10,
+      "arcane": 10
+    },
+    "totalAttributePoints": 80,
+    "isBaseClass": true,
+    "startingEquipment": {
+      "rightHand": [
+        {
+          "id": "club",
+          "name": "Club",
+          "category": "weapon"
+        }
+      ],
+      "leftHand": [],
+      "shields": [],
+      "armor": {
+        "head": null,
+        "chest": null,
+        "hands": null,
+        "legs": null
+      },
+      "sorceries": [],
+      "incantations": [],
+      "talismans": [],
+      "ammunition": [],
+      "keepsake": null
+    }
+  },
+  "prophet": {
+    "id": "prophet",
+    "name": "Prophet",
+    "category": "class",
+    "description": "A seer ostracized for inauspicious prophecies. Well versed in healing incantations",
+    "imageUrl": "https://eldenring.fanapis.com/images/classes/17f69932fefl0i32hlnekz682ixnvc.png",
+    "sourceId": "17f69932fefl0i32hlnekz682ixnvc",
+    "startingLevel": 7,
+    "stats": {
+      "vigor": 10,
+      "mind": 14,
+      "endurance": 8,
+      "strength": 11,
+      "dexterity": 10,
+      "intelligence": 7,
+      "faith": 16,
+      "arcane": 10
+    },
+    "totalAttributePoints": 86,
+    "isBaseClass": true,
+    "startingEquipment": {
+      "rightHand": [
+        {
+          "id": "short-spear",
+          "name": "Short Spear",
+          "category": "weapon"
+        }
+      ],
+      "leftHand": [
+        {
+          "id": "finger-seal",
+          "name": "Finger Seal",
+          "category": "weapon"
+        }
+      ],
+      "shields": [
+        {
+          "id": "rickety-shield",
+          "name": "Rickety Shield",
+          "category": "shield"
+        }
+      ],
+      "armor": {
+        "head": {
+          "id": "prophet-blindfold",
+          "name": "Prophet Blindfold",
+          "category": "armor"
+        },
+        "chest": {
+          "id": "prophet-robe",
+          "name": "Prophet Robe",
+          "category": "armor"
+        },
+        "hands": null,
+        "legs": {
+          "id": "prophet-trousers",
+          "name": "Prophet Trousers",
+          "category": "armor"
+        }
+      },
+      "sorceries": [],
+      "incantations": [
+        {
+          "id": "catch-flame",
+          "name": "Catch Flame",
+          "category": "incantation"
+        },
+        {
+          "id": "heal",
+          "name": "Heal",
+          "category": "incantation"
+        }
+      ],
+      "talismans": [],
+      "ammunition": [],
+      "keepsake": null
+    }
+  },
+  "samurai": {
+    "id": "samurai",
+    "name": "Samurai",
+    "category": "class",
+    "description": "A capable fighter from the distant land of reeds. Handy with Katana and Longbows",
+    "imageUrl": "https://eldenring.fanapis.com/images/classes/17f699f7f4cl0i32huaj53vkdxeh7b.png",
+    "sourceId": "17f699f7f4cl0i32huaj53vkdxeh7b",
+    "startingLevel": 9,
+    "stats": {
+      "vigor": 12,
+      "mind": 11,
+      "endurance": 13,
+      "strength": 12,
+      "dexterity": 15,
+      "intelligence": 9,
+      "faith": 8,
+      "arcane": 8
+    },
+    "totalAttributePoints": 88,
+    "isBaseClass": true,
+    "startingEquipment": {
+      "rightHand": [
+        {
+          "id": "uchigatana",
+          "name": "Uchigatana",
+          "category": "weapon"
+        }
+      ],
+      "leftHand": [
+        {
+          "id": "longbow",
+          "name": "Longbow",
+          "category": "weapon"
+        }
+      ],
+      "shields": [
+        {
+          "id": "red-thorn-roundshield",
+          "name": "Red Thorn Roundshield",
+          "category": "shield"
+        }
+      ],
+      "armor": {
+        "head": {
+          "id": "land-of-reeds-helm",
+          "name": "Land Of Reeds Helm",
+          "category": "armor"
+        },
+        "chest": {
+          "id": "land-of-reeds-armor",
+          "name": "Land Of Reeds Armor",
+          "category": "armor"
+        },
+        "hands": {
+          "id": "land-of-reeds-gauntlets",
+          "name": "Land Of Reeds Gauntlets",
+          "category": "armor"
+        },
+        "legs": {
+          "id": "land-of-reeds-greaves",
+          "name": "Land Of Reeds Greaves",
+          "category": "armor"
+        }
+      },
+      "sorceries": [],
+      "incantations": [],
+      "talismans": [],
+      "ammunition": [
+        {
+          "ref": {
+            "id": "arrow",
+            "name": "Arrow",
+            "category": "weapon"
+          },
+          "quantity": 30
+        },
+        {
+          "ref": {
+            "id": "firebone-arrow",
+            "name": "Firebone Arrow",
+            "category": "weapon"
+          },
+          "quantity": 15
+        }
+      ],
+      "keepsake": null
+    }
+  }
+}

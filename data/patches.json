@@ -1,0 +1,53 @@
+{
+  "_comment": "Items that are genuinely MISSING from the downloaded fanapis dumps but are needed for the starting classes. Each one is merged in by convert.mjs. Anything with needsVerification:true has stats typed in by hand, not sourced from the dump — check them against a wiki before trusting the numbers.",
+
+  "armors": {
+    "champion-gaiters": {
+      "name": "Champion Gaiters",
+      "category": "Leg Armor",
+      "description": "Gaiters worn by a champion of the badlands. Part of the Hero starting set.",
+      "weight": 3.4,
+      "needsVerification": true,
+      "dmgNegation": [
+        { "name": "Phy", "amount": 3.5 }, { "name": "Strike", "amount": 3.3 },
+        { "name": "Slash", "amount": 3.5 }, { "name": "Pierce", "amount": 3.7 },
+        { "name": "Magic", "amount": 2.7 }, { "name": "Fire", "amount": 3.1 },
+        { "name": "Ligt", "amount": 2.5 }, { "name": "Holy", "amount": 2.7 }
+      ],
+      "resistance": [
+        { "name": "Immunity", "amount": 22 }, { "name": "Robustness", "amount": 21 },
+        { "name": "Focus", "amount": 15 }, { "name": "Vitality", "amount": 15 },
+        { "name": "Poise", "amount": 3 }
+      ]
+    }
+  },
+
+  "incantations": {
+    "catch-flame": {
+      "name": "Catch Flame",
+      "description": "Incantation of the Fire Monks. Part of the Prophet starting set.",
+      "effects": "Momentarily sparks roaring flame from hand",
+      "cost": 8,
+      "slots": 1,
+      "needsVerification": true,
+      "requires": [
+        { "name": "Intelligence", "amount": 0 },
+        { "name": "Faith", "amount": 10 },
+        { "name": "Arcane", "amount": 0 }
+      ]
+    },
+    "assassins-approach": {
+      "name": "Assassin's Approach",
+      "description": "Incantation used by church assassins. Part of the Confessor starting set.",
+      "effects": "Silences footsteps and reduces fall damage",
+      "cost": 23,
+      "slots": 1,
+      "needsVerification": true,
+      "requires": [
+        { "name": "Intelligence", "amount": 0 },
+        { "name": "Faith", "amount": 12 },
+        { "name": "Arcane", "amount": 0 }
+      ]
+    }
+  }
+}
