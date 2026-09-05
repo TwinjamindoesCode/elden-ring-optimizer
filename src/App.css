@@ -667,6 +667,30 @@ h1 {
   color: var(--warn);
 }
 
+
+/* Infusion / objective notices inside the optimizer result. */
+.infusion-note {
+  margin: var(--space-3) 0 0;
+  padding-left: var(--space-3);
+  border-left: 2px solid var(--border);
+  color: var(--text-dim);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+}
+
+.infusion-note.required {
+  border-left-color: var(--warn);
+}
+
+.infusion-note strong {
+  color: var(--gold-label);
+  font-weight: 600;
+}
+
+.infusion-note.required strong {
+  color: var(--warn);
+}
+
 /* ==================================================================
    Controls
    ================================================================== */

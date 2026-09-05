@@ -69,12 +69,53 @@ export const allAttributes = ['str', 'dex', 'int', 'fai', 'arc'] as const;
 export type Attribute = (typeof allAttributes)[number];
 export type Attributes = Record<Attribute, number>;
 
-/** Affinity ids as used by the game's own data. */
+/**
+ * Affinity ids as used by the game's own data.
+ *
+ * -1 does NOT mean unarmed. It marks the 254 weapons that cannot be infused at
+ * all — unique and somber weapons like Rise of the Wolf or Bloodhound's Fang.
+ * They arrive with whatever scaling they have and no Ash of War can change it.
+ */
 export const AFFINITY_NAMES: Record<number, string> = {
-  [-1]: 'Unarmed',
+  [-1]: 'Unique',
   0: 'Standard', 1: 'Heavy', 2: 'Keen', 3: 'Quality', 4: 'Fire', 5: 'Flame Art',
   6: 'Lightning', 7: 'Sacred', 8: 'Magic', 9: 'Cold', 10: 'Poison', 11: 'Blood', 12: 'Occult',
 };
+
+export const AFFINITY_UNIQUE = -1;
+export const AFFINITY_STANDARD = 0;
+
+/**
+ * What you actually have to do to get this weapon into this state. The optimizer
+ * happily recommends "Fire Giant-Crusher" — this is what turns that into an
+ * instruction rather than a weapon that sounds like it exists on its own.
+ */
+export function infusionRequirement(affinityId: number): {
+  needsInfusion: boolean;
+  label: string;
+  detail: string;
+} {
+  if (affinityId === AFFINITY_UNIQUE) {
+    return {
+      needsInfusion: false,
+      label: 'Cannot be infused',
+      detail: 'A unique weapon — its scaling is fixed and no Ash of War will change it.',
+    };
+  }
+  if (affinityId === AFFINITY_STANDARD) {
+    return {
+      needsInfusion: false,
+      label: 'As found',
+      detail: 'Standard affinity — this is the weapon in its default state.',
+    };
+  }
+  const name = AFFINITY_NAMES[affinityId] ?? `Affinity ${affinityId}`;
+  return {
+    needsInfusion: true,
+    label: `Requires ${name} infusion`,
+    detail: `Apply any Ash of War with the ${name} affinity. This changes the weapon's scaling — it is not how you find it.`,
+  };
+}
 
 const DEFAULT_DAMAGE_CALC_CORRECT_GRAPH_ID = 0;
 const DEFAULT_STATUS_CALC_CORRECT_GRAPH_ID = 6;

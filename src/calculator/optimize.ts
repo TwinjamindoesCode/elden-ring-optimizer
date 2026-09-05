@@ -24,7 +24,7 @@
  */
 
 import {
-  getWeaponAttack, allAttributes, allDamageTypes,
+  getWeaponAttack, allAttributes, allDamageTypes, AttackPowerType,
   type Attribute, type Attributes, type DecodedWeapon,
 } from './attack-power.ts';
 
@@ -36,12 +36,16 @@ export interface OptimizeInput {
   floors: Attributes;
   /** Extra points available to spend above the floors. */
   budget: number;
+  /** What to maximise. Defaults to attack power. */
+  objective?: Objective;
 }
 
 export interface OptimizeResult {
   attributes: Attributes;
   /** Total attack power (the five damage types added together). */
   total: number;
+  /** Value of the objective actually being maximised. Equals total when objective is attack. */
+  objectiveTotal: number;
   pointsSpent: number;
   /** True if the result was re-checked against the real calculator and matched. */
   verified: boolean;
@@ -52,7 +56,67 @@ export interface OptimizeResult {
 const MAX_ATTRIBUTE = 99;
 
 /**
- * How much total attack power one attribute contributes at each possible value.
+ * What the solver is trying to maximise. `attack` is the sum of the five damage
+ * types — the number people mean by AR. The others are status buildup.
+ */
+export type Objective = 'attack' | 'bleed' | 'frost' | 'poison' | 'scarletRot' | 'madness' | 'sleep';
+
+export const OBJECTIVE_TYPES: Record<Objective, AttackPowerType[]> = {
+  attack: allDamageTypes,
+  bleed: [AttackPowerType.BLEED],
+  frost: [AttackPowerType.FROST],
+  poison: [AttackPowerType.POISON],
+  scarletRot: [AttackPowerType.SCARLET_ROT],
+  madness: [AttackPowerType.MADNESS],
+  sleep: [AttackPowerType.SLEEP],
+};
+
+export const OBJECTIVE_LABELS: Record<Objective, string> = {
+  attack: 'Attack power',
+  bleed: 'Bleed buildup',
+  frost: 'Frost buildup',
+  poison: 'Poison buildup',
+  scarletRot: 'Scarlet rot buildup',
+  madness: 'Madness buildup',
+  sleep: 'Sleep buildup',
+};
+
+/**
+ * In vanilla only poison, bleed, madness and sleep scale with arcane. Frost,
+ * scarlet rot and death blight are flat — no allocation changes them, so for
+ * those the spread is decided entirely by the tie-break below.
+ */
+export const SCALING_OBJECTIVES: Objective[] = ['attack', 'bleed', 'poison', 'madness', 'sleep'];
+
+export function objectiveScalesWithStats(objective: Objective): boolean {
+  return SCALING_OBJECTIVES.includes(objective);
+}
+
+/**
+ * Weight given to attack power when it is not the objective. Small enough that
+ * it can never outrank a real difference in buildup — the smallest gap between
+ * two buildup values is 1, and attack power tops out around 1000, so at 1e-6
+ * the tie-break contributes at most ~0.001. Its only job is to decide between
+ * allocations that are exactly equal on the real objective, which is what makes
+ * "best frost weapon" still return a sensible build rather than an arbitrary one.
+ */
+const TIE_BREAK_WEIGHT = 1e-6;
+
+function weightFor(type: AttackPowerType, objective: Objective): number {
+  if (OBJECTIVE_TYPES[objective].includes(type)) return 1;
+  if (allDamageTypes.includes(type)) return TIE_BREAK_WEIGHT;
+  return 0;
+}
+
+/** Every type the solver ever needs to look at. */
+const CONSIDERED_TYPES: AttackPowerType[] = [
+  ...allDamageTypes,
+  AttackPowerType.BLEED, AttackPowerType.FROST, AttackPowerType.POISON,
+  AttackPowerType.SCARLET_ROT, AttackPowerType.MADNESS, AttackPowerType.SLEEP,
+];
+
+/**
+ * How much one attribute contributes to the objective at each possible value.
  * Everything that does not depend on this attribute is left out — it is constant
  * and gets added back at the end.
  */
@@ -61,6 +125,7 @@ function attributeCurve(
   level: number,
   attribute: Attribute,
   twoHanding: boolean,
+  objective: Objective,
 ): Float64Array {
   const curve = new Float64Array(MAX_ATTRIBUTE + 1);
   const scalingAtLevel = weapon.attributeScaling[level];
@@ -69,11 +134,14 @@ function attributeCurve(
   // Two-handing raises effective strength by 50%, which is what the curve reads.
   const strBonus = twoHanding && !weapon.paired && attribute === 'str';
 
-  for (const damageType of allDamageTypes) {
-    const base = weapon.attack[level][damageType] ?? 0;
+  for (const type of CONSIDERED_TYPES) {
+    const weight = weightFor(type, objective);
+    if (!weight) continue;
+
+    const base = weapon.attack[level][type] ?? 0;
     if (!base) continue;
 
-    const attributeCorrect = weapon.attackElementCorrect[damageType]?.[attribute];
+    const attributeCorrect = weapon.attackElementCorrect[type]?.[attribute];
     if (!attributeCorrect) continue;
 
     const scaling =
@@ -83,14 +151,32 @@ function attributeCurve(
 
     if (!scaling) continue;
 
-    const graph = weapon.calcCorrectGraphs[damageType];
+    const graph = weapon.calcCorrectGraphs[type];
     for (let v = 1; v <= MAX_ATTRIBUTE; v++) {
       const effective = strBonus ? Math.floor(v * 1.5) : v;
-      curve[v] += base * scaling * (graph[effective] ?? 0);
+      curve[v] += weight * base * scaling * (graph[effective] ?? 0);
     }
   }
 
   return curve;
+}
+
+/** The part of the objective that does not depend on any attribute. */
+function constantPart(weapon: DecodedWeapon, level: number, objective: Objective): number {
+  let sum = 0;
+  for (const type of CONSIDERED_TYPES) {
+    const weight = weightFor(type, objective);
+    if (weight) sum += weight * (weapon.attack[level][type] ?? 0);
+  }
+  return sum;
+}
+
+/** The true, unweighted value of the objective for a finished result. */
+export function objectiveValue(
+  attackPower: Partial<Record<number, number>>,
+  objective: Objective,
+): number {
+  return OBJECTIVE_TYPES[objective].reduce<number>((sum, t) => sum + (attackPower[t] ?? 0), 0);
 }
 
 /**
@@ -109,9 +195,10 @@ export function buildAttributeCurves(
   weapon: DecodedWeapon,
   upgradeLevel: number,
   twoHanding: boolean,
+  objective: Objective = 'attack',
 ): Float64Array[] {
   const level = Math.min(upgradeLevel, weapon.maxUpgradeLevel);
-  return allAttributes.map((a) => attributeCurve(weapon, level, a, twoHanding));
+  return allAttributes.map((a) => attributeCurve(weapon, level, a, twoHanding, objective));
 }
 
 /**
@@ -136,12 +223,12 @@ function ensureScratch(budget: number) {
 }
 
 export function optimizeStats({
-  weapon, upgradeLevel, twoHanding, floors, budget, curves: providedCurves,
+  weapon, upgradeLevel, twoHanding, floors, budget, objective = 'attack', curves: providedCurves,
 }: OptimizeInput & { curves?: Float64Array[] }): OptimizeResult {
   const level = Math.min(upgradeLevel, weapon.maxUpgradeLevel);
   const safeBudget = Math.max(0, Math.floor(budget));
 
-  const curves = providedCurves ?? buildAttributeCurves(weapon, level, twoHanding);
+  const curves = providedCurves ?? buildAttributeCurves(weapon, level, twoHanding, objective);
 
   ensureScratch(safeBudget);
   let dp = scratch.current;
@@ -202,17 +289,19 @@ export function optimizeStats({
   }
 
   // Re-run the real calculator on the answer. If the DP and the calculator
-  // disagree, the optimizer is broken and we would rather know.
+  // disagree, the optimizer is broken and we would rather know. The comparison
+  // uses the same weighted objective the DP maximised, tie-break included.
   const check = getWeaponAttack({ weapon, attributes, upgradeLevel: level, twoHanding });
-  const constantBase = allDamageTypes.reduce<number>(
-    (sum, d) => sum + (weapon.attack[level][d] ?? 0), 0,
+  const predicted = constantPart(weapon, level, objective) + bestValue;
+  const actualWeighted = CONSIDERED_TYPES.reduce<number>(
+    (sum, t) => sum + weightFor(t, objective) * (check.attackPower[t] ?? 0), 0,
   );
-  const predicted = constantBase + bestValue;
-  const verified = Math.abs(predicted - check.total) < 0.01;
+  const verified = Math.abs(predicted - actualWeighted) < 0.01;
 
   return {
     attributes,
     total: check.total,
+    objectiveTotal: objectiveValue(check.attackPower, objective),
     pointsSpent: bestSpend,
     verified,
     ineffectiveAttributes: check.ineffectiveAttributes,

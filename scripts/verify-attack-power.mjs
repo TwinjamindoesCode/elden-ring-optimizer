@@ -13,7 +13,9 @@ import { register } from 'node:module';
 const { decodeRegulationData, getWeaponAttack, scalingGrade } = await import(
   '../src/calculator/attack-power.ts'
 );
-const { optimizeStats } = await import('../src/calculator/optimize.ts');
+const { optimizeStats, objectiveValue, OBJECTIVE_LABELS } = await import(
+  '../src/calculator/optimize.ts'
+);
 
 const data = JSON.parse(readFileSync('src/data/regulation.json', 'utf8'));
 const weapons = decodeRegulationData(data);
@@ -170,6 +172,69 @@ for (const c of OPTIMIZER_CASES) {
     `${String(c.budget).padStart(2)}pts  optimum ${dp.total.toFixed(1).padStart(7)}  ->  ${spread}`,
   );
   if (!ok) console.log(`        brute force found ${bf.total.toFixed(1)} instead`);
+}
+
+console.log('\nOptimizer: status objectives vs exhaustive brute force\n');
+
+/** Brute force against an arbitrary objective, not just attack power. */
+function bruteForceObjective(weapon, upgradeLevel, twoHanding, floors, budget, objective) {
+  let best = { value: -1, attributes: null };
+  const stats = { ...floors };
+  const recurse = (i, left) => {
+    if (i === 4) {
+      stats[ATTRS[4]] = floors[ATTRS[4]] + left;
+      if (stats[ATTRS[4]] > 99) return;
+      const r = getWeaponAttack({ weapon, attributes: { ...stats }, upgradeLevel, twoHanding });
+      const v = objectiveValue(r.attackPower, objective);
+      if (v > best.value) best = { value: v, attributes: { ...stats } };
+      return;
+    }
+    for (let give = 0; give <= left; give++) {
+      if (floors[ATTRS[i]] + give > 99) break;
+      stats[ATTRS[i]] = floors[ATTRS[i]] + give;
+      recurse(i + 1, left - give);
+    }
+  };
+  recurse(0, budget);
+  return best;
+}
+
+// Weapons picked because they actually carry the status in question.
+const STATUS_CASES = [
+  { name: 'Blood Dagger', objective: 'bleed', budget: 16 },
+  { name: 'Occult Uchigatana', objective: 'bleed', budget: 18 },
+  { name: 'Poison Dagger', objective: 'poison', budget: 16 },
+  { name: 'Cold Dagger', objective: 'frost', budget: 14 },
+  { name: 'Occult Nagakiba', objective: 'bleed', budget: 14 },
+];
+
+for (const c of STATUS_CASES) {
+  const weapon = weapons.find((w) => w.name === c.name);
+  if (!weapon) {
+    console.log(`  SKIP  ${c.name} not in this regulation version`);
+    continue;
+  }
+
+  const floors = { str: 12, dex: 12, int: 10, fai: 10, arc: 10 };
+  for (const a of ATTRS) floors[a] = Math.max(floors[a], weapon.requirements[a] ?? 0);
+  const level = Math.min(25, weapon.maxUpgradeLevel);
+
+  const dp = optimizeStats({
+    weapon, upgradeLevel: level, twoHanding: false, floors, budget: c.budget,
+    objective: c.objective,
+  });
+  const bf = bruteForceObjective(weapon, level, false, floors, c.budget, c.objective);
+
+  // The DP maximises objective + a tiny attack-power tie-break, so it must match
+  // brute force on the real objective and never be worse on attack power.
+  const ok = Math.abs(dp.objectiveTotal - bf.value) < 0.01 && dp.verified;
+  if (!ok) failures++;
+  const spread = ATTRS.map((a) => `${a.toUpperCase()}${String(dp.attributes[a]).padStart(3)}`).join(' ');
+  console.log(
+    `  ${ok ? 'PASS' : 'FAIL'}  ${c.name.padEnd(30)} ${OBJECTIVE_LABELS[c.objective].padEnd(19)} ` +
+    `optimum ${dp.objectiveTotal.toFixed(1).padStart(6)}  ->  ${spread}`,
+  );
+  if (!ok) console.log(`        brute force found ${bf.value.toFixed(1)} instead`);
 }
 
 console.log('');

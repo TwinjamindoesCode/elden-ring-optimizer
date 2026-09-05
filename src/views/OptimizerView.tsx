@@ -2,9 +2,10 @@ import { useEffect, useMemo, useState } from 'react';
 import { classList } from '../data';
 import {
   exactWeapons, optimizeStats, buildAttributeCurves, computeBudget, getWeaponAttack,
+  infusionRequirement, objectiveScalesWithStats, OBJECTIVE_LABELS,
   AFFINITY_NAMES, WEAPON_TYPE_LABELS, allAttributes, allDamageTypes,
   ATTACK_POWER_LABELS, scalingGrade,
-  type DecodedWeapon, type Attributes,
+  type DecodedWeapon, type Attributes, type Objective,
 } from '../calculator';
 
 const ATTRIBUTE_LABELS: [keyof Attributes, string][] = [
@@ -15,6 +16,7 @@ interface Candidate {
   weapon: DecodedWeapon;
   attributes: Attributes;
   total: number;
+  objectiveTotal: number;
   className: string;
   classId: string;
   verified: boolean;
@@ -50,6 +52,7 @@ function upperBound(
   endurance: number,
   twoHanding: boolean,
   upgradeLevel: number,
+  objective: Objective,
 ): number {
   const { floors, budget, shortfall } = computeBudget({
     targetLevel,
@@ -59,7 +62,7 @@ function upperBound(
     twoHanding,
   });
   if (shortfall > 0) return 0;
-  return optimizeStats({ weapon, upgradeLevel, twoHanding, floors, budget }).total;
+  return optimizeStats({ weapon, upgradeLevel, twoHanding, floors, budget, objective }).objectiveTotal;
 }
 
 /**
@@ -76,12 +79,13 @@ function bestForWeapon(
   twoHanding: boolean,
   upgradeLevel: number,
   lockedClassId: string | 'best',
+  objective: Objective,
 ): Candidate | null {
   let best: Candidate | null = null;
 
   // The scaling curves depend on the weapon, not the class, so build them once
   // and reuse across all ten classes. This is most of the speed of this screen.
-  const curves = buildAttributeCurves(weapon, upgradeLevel, twoHanding);
+  const curves = buildAttributeCurves(weapon, upgradeLevel, twoHanding, objective);
 
   for (const cls of classList) {
     if (lockedClassId !== 'best' && cls.id !== lockedClassId) continue;
@@ -95,17 +99,18 @@ function bestForWeapon(
     });
     if (shortfall > 0) continue;
 
-    const result = optimizeStats({ weapon, upgradeLevel, twoHanding, floors, budget, curves });
+    const result = optimizeStats({ weapon, upgradeLevel, twoHanding, floors, budget, objective, curves });
 
     // A build that cannot meet requirements is disqualified rather than shown
     // with its 40% penalty — it is never the answer to "what is best".
     if (result.ineffectiveAttributes.length > 0) continue;
 
-    if (!best || result.total > best.total) {
+    if (!best || result.objectiveTotal > best.objectiveTotal) {
       best = {
         weapon,
         attributes: result.attributes,
         total: result.total,
+        objectiveTotal: result.objectiveTotal,
         className: cls.name,
         classId: cls.id,
         verified: result.verified,
@@ -135,6 +140,45 @@ function splitLabel(candidate: Candidate, upgradeLevel: number, twoHanding: bool
   return parts.length > 1 ? `${parts.map((v) => Math.floor(v)).join(' / ')}` : 'pure';
 }
 
+/** How many damage types this build actually deals. 1 means "pure". */
+function damageTypeCount(candidate: Candidate, upgradeLevel: number, twoHanding: boolean): number {
+  const result = getWeaponAttack({
+    weapon: candidate.weapon, attributes: candidate.attributes, upgradeLevel, twoHanding,
+  });
+  return allDamageTypes.filter((t) => (result.attackPower[t] ?? 0) > 0).length;
+}
+
+/**
+ * Which attribute actually earns this build its attack power — the one whose
+ * scaling contributes most at the optimum. This is what "a DEX build" means
+ * here: not what the weapon's letters say, but where the damage comes from.
+ */
+function dominantAttribute(
+  candidate: Candidate, upgradeLevel: number, twoHanding: boolean,
+): keyof Attributes {
+  const { weapon, attributes } = candidate;
+  const level = Math.min(upgradeLevel, weapon.maxUpgradeLevel);
+  const full = getWeaponAttack({ weapon, attributes, upgradeLevel: level, twoHanding }).total;
+
+  let bestAttr: keyof Attributes = 'str';
+  let bestDrop = -Infinity;
+
+  // Drop each attribute to its requirement floor and see which loses the most.
+  for (const attribute of allAttributes) {
+    const floor = Math.max(1, weapon.requirements[attribute] ?? 1);
+    if (attributes[attribute] <= floor) continue;
+    const reduced = { ...attributes, [attribute]: floor };
+    const drop = full - getWeaponAttack({
+      weapon, attributes: reduced, upgradeLevel: level, twoHanding,
+    }).total;
+    if (drop > bestDrop) {
+      bestDrop = drop;
+      bestAttr = attribute;
+    }
+  }
+  return bestAttr;
+}
+
 /** Delays a fast-changing value so heavy recomputation happens once you pause. */
 function useDebounced<T>(value: T, delay = 250): T {
   const [debounced, setDebounced] = useState(value);
@@ -156,6 +200,10 @@ export function OptimizerView() {
   const [weaponType, setWeaponType] = useState<number | 'all'>('all');
   const [lockedClass, setLockedClass] = useState<string | 'best'>('best');
   const [search, setSearch] = useState('');
+  const [objective, setObjective] = useState<Objective>('attack');
+  const [pureOnly, setPureOnly] = useState(false);
+  const [archetype, setArchetype] = useState<keyof Attributes | 'any'>('any');
+  const [infusionMode, setInfusionMode] = useState<'any' | 'none'>('any');
 
   const weaponTypes = useMemo(() => {
     const ids = [...new Set(exactWeapons.map((w) => w.weaponType))];
@@ -182,12 +230,12 @@ export function OptimizerView() {
       .map((weapon) => ({
         weapon,
         bound: upperBound(
-          weapon, dTargetLevel, dVigor, dMind, dEndurance, twoHanding, upgradeLevel,
+          weapon, dTargetLevel, dVigor, dMind, dEndurance, twoHanding, upgradeLevel, objective,
         ),
       }))
       .filter((entry) => entry.bound > 0)
       .sort((a, b) => b.bound - a.bound);
-  }, [dTargetLevel, dVigor, dMind, dEndurance, twoHanding, upgradeLevel]);
+  }, [dTargetLevel, dVigor, dMind, dEndurance, twoHanding, upgradeLevel, objective]);
 
   const candidates = useMemo(() => {
     const query = dSearch.trim().toLowerCase();
@@ -200,6 +248,8 @@ export function OptimizerView() {
     // provably worse. The output is identical to checking every pair.
     const bounded = rankedBounds.filter(({ weapon }) => {
       if (affinity !== 'all' && weapon.affinityId !== affinity) return false;
+      // 'No infusion needed' means as-found or a unique weapon you cannot infuse anyway.
+      if (infusionMode === 'none' && infusionRequirement(weapon.affinityId).needsInfusion) return false;
       if (weaponType !== 'all' && weapon.weaponType !== weaponType) return false;
       if (query && !weapon.name.toLowerCase().includes(query)) return false;
       return true;
@@ -212,20 +262,22 @@ export function OptimizerView() {
       if (results.length >= SHOWN && bound <= cutoff) break;
 
       const best = bestForWeapon(
-        weapon, dTargetLevel, dVigor, dMind, dEndurance, twoHanding, upgradeLevel, lockedClass,
+        weapon, dTargetLevel, dVigor, dMind, dEndurance, twoHanding, upgradeLevel, lockedClass, objective,
       );
       if (!best) continue;
+      if (pureOnly && damageTypeCount(best, upgradeLevel, twoHanding) > 1) continue;
+      if (archetype !== 'any' && dominantAttribute(best, upgradeLevel, twoHanding) !== archetype) continue;
 
       results.push(best);
       if (results.length >= SHOWN) {
-        results.sort((a, b) => b.total - a.total);
+        results.sort((a, b) => b.objectiveTotal - a.objectiveTotal);
         results.length = SHOWN;
-        cutoff = results[SHOWN - 1].total;
+        cutoff = results[SHOWN - 1].objectiveTotal;
       }
     }
 
-    return results.sort((a, b) => b.total - a.total).slice(0, SHOWN);
-  }, [rankedBounds, dTargetLevel, dVigor, dMind, dEndurance, twoHanding, upgradeLevel, affinity, weaponType, lockedClass, dSearch]);
+    return results.sort((a, b) => b.objectiveTotal - a.objectiveTotal).slice(0, SHOWN);
+  }, [rankedBounds, dTargetLevel, dVigor, dMind, dEndurance, twoHanding, upgradeLevel, affinity, weaponType, lockedClass, dSearch, objective, pureOnly, archetype, infusionMode]);
 
   const top = candidates[0];
   const pointsUsed = vigor + mind + endurance;
@@ -302,6 +354,44 @@ export function OptimizerView() {
         />
 
         <label className="select">
+          <span>Maximise</span>
+          <select
+            value={objective}
+            onChange={(e) => setObjective(e.target.value as Objective)}
+          >
+            {(Object.keys(OBJECTIVE_LABELS) as Objective[]).map((o) => (
+              <option key={o} value={o}>{OBJECTIVE_LABELS[o]}</option>
+            ))}
+          </select>
+        </label>
+
+        <label className="select">
+          <span>Build around</span>
+          <select
+            value={archetype}
+            onChange={(e) => setArchetype(e.target.value as keyof Attributes | 'any')}
+          >
+            <option value="any">Any stat</option>
+            <option value="str">Strength</option>
+            <option value="dex">Dexterity</option>
+            <option value="int">Intelligence</option>
+            <option value="fai">Faith</option>
+            <option value="arc">Arcane</option>
+          </select>
+        </label>
+
+        <label className="select">
+          <span>Infusion</span>
+          <select
+            value={infusionMode}
+            onChange={(e) => setInfusionMode(e.target.value as 'any' | 'none')}
+          >
+            <option value="any">Any — will re-infuse</option>
+            <option value="none">No infusion needed</option>
+          </select>
+        </label>
+
+        <label className="select">
           <span>Starting class</span>
           <select value={lockedClass} onChange={(e) => setLockedClass(e.target.value)}>
             <option value="best">Best for each weapon</option>
@@ -309,6 +399,15 @@ export function OptimizerView() {
               <option key={c.id} value={c.id}>{c.name}</option>
             ))}
           </select>
+        </label>
+
+        <label className="checkbox">
+          <input
+            type="checkbox"
+            checked={pureOnly}
+            onChange={(e) => setPureOnly(e.target.checked)}
+          />
+          <span>Pure damage only</span>
         </label>
 
         <label className="select">
@@ -337,7 +436,7 @@ export function OptimizerView() {
       </div>
 
       {top && <BestBuild candidate={top} upgradeLevel={upgradeLevel} twoHanding={twoHanding}
-                         vigor={vigor} mind={mind} endurance={endurance} />}
+                         vigor={vigor} mind={mind} endurance={endurance} objective={objective} />}
 
       {candidates.length === 0 && (
         <p className="empty">
@@ -355,8 +454,9 @@ export function OptimizerView() {
               <thead>
                 <tr>
                   <th>Weapon</th>
+                  <th>Infusion</th>
                   <th>Class</th>
-                  <th className="num">Attack</th>
+                  <th className="num">{objective === 'attack' ? 'Attack' : 'Buildup'}</th>
                   <th className="num">Split</th>
                   <th className="num">Optimal spread</th>
                 </tr>
@@ -370,8 +470,13 @@ export function OptimizerView() {
                       ) : c.weapon.name}
                       {c.weapon.dlc && <span className="tag">DLC</span>}
                     </td>
+                    <td className="dim small" data-label="Infusion">
+                      {infusionRequirement(c.weapon.affinityId).needsInfusion
+                        ? AFFINITY_NAMES[c.weapon.affinityId]
+                        : '—'}
+                    </td>
                     <td className="dim" data-label="Class">{c.className}</td>
-                    <td className="num strong" data-label="Attack">{Math.floor(c.total)}</td>
+                    <td className="num strong" data-label="Score">{Math.floor(c.objectiveTotal)}</td>
                     <td className="num dim small" data-label="Split">
                       {splitLabel(c, upgradeLevel, twoHanding)}
                     </td>
@@ -394,6 +499,11 @@ export function OptimizerView() {
         attack calculator before being shown.
         {anyUnverified && ' (Warning: some results failed that re-check.)'}
         <br /><br />
+        <strong>Infusion column.</strong> A value there means the weapon is not in that state
+        when you find it — you have to apply an Ash of War with that affinity to get these
+        numbers. A dash means it is as-found, or a unique weapon that cannot be infused at all.
+        Set Infusion to "No infusion needed" to rank only weapons you can use straight away.
+        <br /><br />
         <strong>Read the Split column before trusting the ranking.</strong> Total attack power
         adds the damage types together, which flatters split-damage weapons. A weapon dealing
         500 physical + 400 fire shows a higher total than one dealing 800 pure physical, but
@@ -412,7 +522,7 @@ export function OptimizerView() {
 }
 
 function BestBuild({
-  candidate, upgradeLevel, twoHanding, vigor, mind, endurance,
+  candidate, upgradeLevel, twoHanding, vigor, mind, endurance, objective,
 }: {
   candidate: Candidate;
   upgradeLevel: number;
@@ -420,8 +530,10 @@ function BestBuild({
   vigor: number;
   mind: number;
   endurance: number;
+  objective: Objective;
 }) {
-  const { weapon, attributes, total, className } = candidate;
+  const { weapon, attributes, total, objectiveTotal, className } = candidate;
+  const infusion = infusionRequirement(weapon.affinityId);
   const result = getWeaponAttack({ weapon, attributes, upgradeLevel, twoHanding });
   const level = result.upgradeLevel;
 
@@ -447,10 +559,29 @@ function BestBuild({
           </h2>
         </div>
         <div className="ar-total">
-          <span className="ar-value">{Math.floor(total)}</span>
-          <span className="ar-label">ATTACK POWER</span>
+          <span className="ar-value">{Math.floor(objectiveTotal)}</span>
+          <span className="ar-label">{OBJECTIVE_LABELS[objective].toUpperCase()}</span>
         </div>
       </div>
+
+      <p className={infusion.needsInfusion ? 'infusion-note required' : 'infusion-note'}>
+        <strong>{infusion.label}.</strong> {infusion.detail}
+      </p>
+
+      {objective !== 'attack' && !objectiveScalesWithStats(objective) && (
+        <p className="infusion-note">
+          <strong>Buildup is fixed.</strong> {OBJECTIVE_LABELS[objective]} does not scale with any
+          attribute in vanilla, so no allocation changes it. The spread below maximises attack
+          power among the builds that reach this buildup.
+        </p>
+      )}
+
+      {objective !== 'attack' && (
+        <p className="infusion-note">
+          <strong>Attack power {Math.floor(total)}.</strong> Shown for reference — it is not what
+          this ranking is sorted by.
+        </p>
+      )}
 
       <div className="spread">
         {([['VIG', vigor], ['MND', mind], ['END', endurance]] as const).map(([label, value]) => (
