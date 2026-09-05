@@ -34,7 +34,7 @@ export default function App() {
   return (
     <div className="app">
       <header>
-        <h1>Elden Ring Build Optimizer</h1>
+        <h1>Softcap — Elden Ring Build Optimizer</h1>
         <p className="subtitle">
           {classList.length} classes · {weaponList.length} weapons ·{' '}
           {exactWeapons.length.toLocaleString()} weapon variants with exact stats ·{' '}

@@ -1,5 +1,5 @@
 /**
- * Elden Ring Build Optimizer — Phase 1: Data Structures
+ * Softcap — data structures for the Elden Ring build optimizer.
  *
  * Design notes:
  *  - The raw fanapis dumps use `[{ name, amount }]` arrays and stringified numbers.

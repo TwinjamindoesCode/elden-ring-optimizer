@@ -1,9 +1,9 @@
-# Elden Ring Build Optimizer
+# Softcap
 
-A website that helps you plan Elden Ring builds. Everything runs in the visitor's
+Softcap is a website that helps you plan Elden Ring builds. Everything runs in the visitor's
 browser, so hosting it is free forever.
 
-**Live:** https://elden-ring-optimizer.vercel.app/
+**Live:** https://softcapbuilds.com
 
 ## The three commands you need
 
