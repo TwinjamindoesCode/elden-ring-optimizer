@@ -263,6 +263,23 @@ h1 {
   color: var(--text-dim);
 }
 
+/* The one-line case for the tool, sitting between masthead and tabs. */
+.premise {
+  max-width: 68ch;
+  margin: 0 0 var(--space-5);
+  padding-left: var(--space-4);
+  border-left: 2px solid var(--gold-rule);
+  color: var(--text-dim);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+}
+
+.premise em {
+  color: var(--gold-label);
+  font-style: normal;
+  font-weight: 600;
+}
+
 /* ==================================================================
    Tabs
    ================================================================== */
@@ -1102,6 +1119,68 @@ h1 {
 }
 
 /* ==================================================================
+   Footer
+   ================================================================== */
+
+.site-footer {
+  margin-top: var(--space-8);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--border-soft);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-6);
+}
+
+.footer-block h2 {
+  margin: 0 0 var(--space-3);
+  padding-bottom: var(--space-2);
+  border-bottom: 1px solid var(--hairline);
+  font-family: var(--font-sans);
+  font-size: var(--text-2xs);
+  font-weight: 600;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--gold-label);
+}
+
+.footer-block p {
+  margin: 0 0 var(--space-3);
+  max-width: 58ch;
+  color: var(--text-dim);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+}
+
+.footer-block p:last-child {
+  margin-bottom: 0;
+}
+
+.site-footer a {
+  color: var(--text);
+  text-decoration: none;
+  border-bottom: 1px solid var(--gold-rule);
+  transition: color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.site-footer a:hover {
+  color: var(--gold);
+  border-bottom-color: var(--gold);
+}
+
+.footer-legal {
+  margin: var(--space-6) 0 0;
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--hairline);
+  max-width: 78ch;
+  color: var(--text-faint);
+  font-size: var(--text-xs);
+  line-height: var(--leading-normal);
+}
+
+/* ==================================================================
    Tablet
    ================================================================== */
 
@@ -1389,6 +1468,21 @@ h1 {
   .footnote {
     padding: var(--space-5) 0 0 var(--space-4);
     margin-top: var(--space-6);
+  }
+
+  .premise {
+    padding-left: var(--space-3);
+    margin-bottom: var(--space-4);
+    font-size: var(--text-sm);
+  }
+
+  .site-footer {
+    margin-top: var(--space-6);
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
   }
 }
 
