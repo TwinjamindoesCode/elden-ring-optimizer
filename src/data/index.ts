@@ -13,6 +13,7 @@ import talismansJson from './talismans.json';
 import sorceriesJson from './sorceries.json';
 import incantationsJson from './incantations.json';
 import classesJson from './classes.json';
+import ashesJson from './ashes.json';
 
 import type {
   Weapon, Shield, Armor, Talisman, Sorcery, Incantation, StartingClass,
@@ -41,3 +42,41 @@ const CLASS_ORDER = [
 ];
 
 export const classList = CLASS_ORDER.map((id) => classes[id]).filter(Boolean);
+
+/* ------------------------------------------------------------------ */
+/* Ashes of War                                                        */
+/* ------------------------------------------------------------------ */
+
+export interface AshOfWar {
+  id: number;
+  /** Skill name, e.g. "Seppuku" — the "Ash of War:" prefix is stripped. */
+  name: string;
+  itemName: string;
+  skillId: number;
+  skillName: string | null;
+  fpCost: number;
+  defaultAffinity: number;
+  /** Affinity ids this Ash can apply. */
+  affinities: number[];
+  /** Weapon class ids it can be applied to. */
+  weaponTypes: number[];
+}
+
+export const ashes = (ashesJson as { ashes: AshOfWar[] }).ashes;
+
+export const ashList = [...ashes].sort((a, b) => a.name.localeCompare(b.name));
+
+/**
+ * Which Ashes can put this affinity on this weapon class. Used to turn
+ * "requires Blood infusion" into something you can actually go and do.
+ */
+export function ashesFor(affinityId: number, weaponType: number): AshOfWar[] {
+  return ashes
+    .filter((a) => a.affinities.includes(affinityId) && a.weaponTypes.includes(weaponType))
+    .sort((a, b) => {
+      // Ashes whose default is this affinity are the natural suggestion.
+      const ad = a.defaultAffinity === affinityId ? 0 : 1;
+      const bd = b.defaultAffinity === affinityId ? 0 : 1;
+      return ad - bd || a.name.localeCompare(b.name);
+    });
+}

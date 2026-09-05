@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { classList } from '../data';
+import { classList, ashList, ashesFor } from '../data';
 import {
   exactWeapons, optimizeStats, buildAttributeCurves, computeBudget, getWeaponAttack,
   infusionRequirement, objectiveScalesWithStats, OBJECTIVE_LABELS,
@@ -204,6 +204,7 @@ export function OptimizerView() {
   const [pureOnly, setPureOnly] = useState(false);
   const [archetype, setArchetype] = useState<keyof Attributes | 'any'>('any');
   const [infusionMode, setInfusionMode] = useState<'any' | 'none'>('any');
+  const [ashId, setAshId] = useState<number | 'any'>('any');
 
   const weaponTypes = useMemo(() => {
     const ids = [...new Set(exactWeapons.map((w) => w.weaponType))];
@@ -211,6 +212,8 @@ export function OptimizerView() {
       .map((id) => [id, WEAPON_TYPE_LABELS[id] ?? `Type ${id}`] as const)
       .sort((a, b) => a[1].localeCompare(b[1]));
   }, []);
+
+  const lockedAsh = ashId === 'any' ? null : (ashList.find((a) => a.id === ashId) ?? null);
 
   const dTargetLevel = useDebounced(targetLevel);
   const dVigor = useDebounced(vigor);
@@ -250,6 +253,15 @@ export function OptimizerView() {
       if (affinity !== 'all' && weapon.affinityId !== affinity) return false;
       // 'No infusion needed' means as-found or a unique weapon you cannot infuse anyway.
       if (infusionMode === 'none' && infusionRequirement(weapon.affinityId).needsInfusion) return false;
+      // Locking an Ash restricts to weapons it mounts on, in affinities it can apply.
+      // For a fixed skill the motion value is a constant, so ranking by attack power
+      // is the same as ranking by that skill's damage.
+      if (lockedAsh) {
+        if (!lockedAsh.weaponTypes.includes(weapon.weaponType)) return false;
+        const aff = weapon.affinityId < 0 ? -1 : weapon.affinityId;
+        if (aff >= 0 && !lockedAsh.affinities.includes(aff)) return false;
+        if (aff < 0) return false;
+      }
       if (weaponType !== 'all' && weapon.weaponType !== weaponType) return false;
       if (query && !weapon.name.toLowerCase().includes(query)) return false;
       return true;
@@ -277,7 +289,7 @@ export function OptimizerView() {
     }
 
     return results.sort((a, b) => b.objectiveTotal - a.objectiveTotal).slice(0, SHOWN);
-  }, [rankedBounds, dTargetLevel, dVigor, dMind, dEndurance, twoHanding, upgradeLevel, affinity, weaponType, lockedClass, dSearch, objective, pureOnly, archetype, infusionMode]);
+  }, [rankedBounds, dTargetLevel, dVigor, dMind, dEndurance, twoHanding, upgradeLevel, affinity, weaponType, lockedClass, dSearch, objective, pureOnly, archetype, infusionMode, lockedAsh]);
 
   const top = candidates[0];
   const pointsUsed = vigor + mind + endurance;
@@ -388,6 +400,19 @@ export function OptimizerView() {
           >
             <option value="any">Any — will re-infuse</option>
             <option value="none">No infusion needed</option>
+          </select>
+        </label>
+
+        <label className="select">
+          <span>Ash of War</span>
+          <select
+            value={String(ashId)}
+            onChange={(e) => setAshId(e.target.value === 'any' ? 'any' : Number(e.target.value))}
+          >
+            <option value="any">Any</option>
+            {ashList.map((a) => (
+              <option key={a.id} value={a.id}>{a.name}</option>
+            ))}
           </select>
         </label>
 
@@ -566,6 +591,17 @@ function BestBuild({
 
       <p className={infusion.needsInfusion ? 'infusion-note required' : 'infusion-note'}>
         <strong>{infusion.label}.</strong> {infusion.detail}
+        {infusion.needsInfusion && (() => {
+          const options = ashesFor(weapon.affinityId, weapon.weaponType);
+          if (!options.length) return null;
+          const shown = options.slice(0, 5).map((a) => a.name).join(', ');
+          return (
+            <>
+              {' '}Ashes that can: <em>{shown}</em>
+              {options.length > 5 && ` and ${options.length - 5} more`}.
+            </>
+          );
+        })()}
       </p>
 
       {objective !== 'attack' && !objectiveScalesWithStats(objective) && (

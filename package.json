@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "convert": "node scripts/convert.mjs",
     "verify": "node scripts/verify-attack-power.mjs",
-    "og": "node scripts/build-og-image.mjs"
+    "og": "node scripts/build-og-image.mjs",
+    "ashes": "node scripts/convert-ashes.mjs"
   },
   "dependencies": {
     "react": "^19.2.8",
