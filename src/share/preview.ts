@@ -1,6 +1,11 @@
 /**
  * Per-build link previews.
  *
+ * This file is the SOURCE. It is bundled by scripts/build-shell.mjs into a
+ * single self-contained api/build-meta.js, because Vercel does not bundle
+ * cross-directory TypeScript imports for functions — it leaves them as runtime
+ * specifiers that fail to resolve, which crashes the function on invocation.
+ *
  * Crawlers do not run JavaScript, so a client-rendered page always shows the
  * same generic card no matter which build was shared. This route serves the
  * real app shell with the Open Graph tags rewritten for the specific build.
@@ -13,11 +18,11 @@
  * page itself would not show.
  */
 
-import { decodeBuild } from '../src/share/build-link';
+import { decodeBuild } from './build-link';
 import {
   exactWeapons, getWeaponAttack, OBJECTIVE_LABELS, objectiveValue,
   type Objective,
-} from '../src/calculator';
+} from '../calculator';
 import { APP_SHELL } from './_shell';
 
 const SITE = 'https://softcapbuilds.com';

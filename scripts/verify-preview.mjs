@@ -1,7 +1,7 @@
 /**
  * Checks the link-preview function without deploying.
  *
- * Bundles api/build-meta.ts the same way Vercel does, then asserts the HTML it
+ * Bundles src/share/preview.ts the same way Vercel does, then asserts the HTML it
  * returns: correct per-build tags, a working app shell, and a graceful fall back
  * to the generic card for links it cannot make sense of.
  *
