@@ -34,12 +34,36 @@ export default function App() {
   return (
     <div className="app">
       <header>
-        <h1>Softcap — Elden Ring Build Optimizer</h1>
-        <p className="subtitle">
-          {classList.length} classes · {weaponList.length} weapons ·{' '}
-          {exactWeapons.length.toLocaleString()} weapon variants with exact stats ·{' '}
-          {armorList.length} armor pieces
-        </p>
+        <div className="masthead">
+          <div className="wordmark">
+            <h1>Softcap</h1>
+            <p className="tagline">Elden Ring build optimizer</p>
+          </div>
+
+          <dl className="figures">
+            <div className="figure">
+              <dd>{classList.length}</dd>
+              <dt>Classes</dt>
+            </div>
+            <div className="figure">
+              <dd>{weaponList.length}</dd>
+              <dt>Weapons</dt>
+            </div>
+            <div className="figure">
+              <dd>{exactWeapons.length.toLocaleString()}</dd>
+              <dt>Variants</dt>
+            </div>
+            <div className="figure">
+              <dd>{armorList.length}</dd>
+              <dt>Armor</dt>
+            </div>
+            <div className="figure accent">
+              <dd>Exact</dd>
+              <dt>Numbers</dt>
+            </div>
+          </dl>
+        </div>
+
         <nav className="tabs">
           {TABS.map(([id, label]) => (
             <button

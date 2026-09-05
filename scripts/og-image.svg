@@ -10,14 +10,14 @@
   <rect x="64" y="64" width="1072" height="502" fill="#1e1a14" stroke="#2f2921" stroke-width="1"/>
 
   <!-- Accent rule, matching the left rule on the method note. -->
-  <rect x="64" y="64" width="3" height="502" fill="#c9a227"/>
+  <rect x="64" y="64" width="3" height="502" fill="#e0bb46"/>
 
   <g font-family="Segoe UI, system-ui, -apple-system, Helvetica Neue, Arial, sans-serif">
     <text x="120" y="168" fill="#b0932c" font-size="22" font-weight="600" letter-spacing="4.4">
       ELDEN RING BUILD OPTIMIZER
     </text>
 
-    <text x="118" y="286" fill="#c9a227" font-size="104" font-weight="400" letter-spacing="1">
+    <text x="118" y="290" fill="#e0bb46" font-family="Georgia, Times New Roman, serif" font-size="112" font-weight="600" letter-spacing="0">
       Softcap
     </text>
 
