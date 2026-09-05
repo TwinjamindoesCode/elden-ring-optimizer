@@ -5,13 +5,15 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "tsc -b && vite build && node scripts/build-shell.mjs",
     "lint": "oxlint",
     "preview": "vite preview",
     "convert": "node scripts/convert.mjs",
     "verify": "node scripts/verify-attack-power.mjs",
     "og": "node scripts/build-og-image.mjs",
-    "ashes": "node scripts/convert-ashes.mjs"
+    "ashes": "node scripts/convert-ashes.mjs",
+    "verify:links": "node scripts/verify-share-links.mjs",
+    "verify:preview": "node scripts/verify-preview.mjs"
   },
   "dependencies": {
     "react": "^19.2.8",
