@@ -1,28 +1,26 @@
 /**
  * Checks the link-preview function without deploying.
  *
- * Bundles src/share/preview.ts the same way Vercel does, then asserts the HTML it
+ * Loads the bundled api/build-meta.js that gets deployed, then asserts the HTML it
  * returns: correct per-build tags, a working app shell, and a graceful fall back
  * to the generic card for links it cannot make sense of.
  *
  * Run with:  npm run verify:preview
  */
 
-import { execSync } from 'node:child_process';
-import { mkdtempSync, readFileSync } from 'node:fs';
-import { tmpdir } from 'node:os';
-import { join } from 'node:path';
+import { readFileSync, existsSync } from 'node:fs';
+import { resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 
-const out = join(mkdtempSync(join(tmpdir(), 'softcap-preview-')), 'fn.mjs');
+// Test the artifact that actually gets deployed, not a fresh bundle of the
+// source. If api/build-meta.js is stale or broken, this is where it shows up.
+const artifact = resolve('api/build-meta.js');
+if (!existsSync(artifact)) {
+  console.error('api/build-meta.js is missing — run `npm run build` first.');
+  process.exit(1);
+}
 
-execSync(
-  'npx --yes esbuild api/build-meta.ts --bundle --platform=node --format=esm ' +
-    `--outfile="${out}" --log-level=error`,
-  { stdio: 'inherit' },
-);
-
-const { renderShell, previewFor } = await import(pathToFileURL(out).href);
+const { renderShell, previewFor } = await import(pathToFileURL(artifact).href);
 
 let failures = 0;
 const check = (label, ok, detail = '') => {
