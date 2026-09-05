@@ -92,5 +92,5 @@ requirement, not a courtesy.
 - [x] All 10 starting classes with complete starting equipment
 - [x] Deployed to Vercel
 - [x] Exact attack power, verified against in-game values
-- [ ] Browse and filter weapons / armor
+- [x] Browse and filter weapons / armor
 - [ ] The build optimizer itself
